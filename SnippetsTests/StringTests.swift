@@ -1,4 +1,4 @@
-// Snippets StringTests.swift
+// SnippetsTests StringTests.swift
 //
 // Copyright © 2015, Roy Ratcliffe, Pioneering Software, United Kingdom
 //
@@ -22,7 +22,6 @@
 //
 //------------------------------------------------------------------------------
 
-import UIKit
 import XCTest
 @testable import Snippets
 
