@@ -55,7 +55,9 @@ public class RandomUser {
     if let nat = nat {
       queryItems.append(NSURLQueryItem(name: "nat", value: nat))
     }
-    URLComponents.queryItems = queryItems
+    if queryItems.count > 0 {
+      URLComponents.queryItems = queryItems
+    }
     let task = session.dataTaskWithURL(URLComponents.URL!) { data, response, error in
       guard let data = data else {
         return
