@@ -26,7 +26,53 @@ import Foundation
 
 /// Generates a random user. Provides Lorem Ipsum, but for people.
 ///
-/// See https://randomuser.me for more details.
+/// See https://randomuser.me for more details. Results in JSON follow the
+/// format below. The results delivered to the capture follow the same format,
+/// albeit converted to a Foundation dictionary with embedded strings, numbers
+/// and arrays.
+///
+///     {
+///       "nationality": "AU",
+///       "results": [
+///         {
+///           "user": {
+///             "TFN": "905962256",
+///             "cell": "0487-580-783",
+///             "dob": 904120984,
+///             "email": "hilda.johnson@example.com",
+///             "gender": "female",
+///             "location": {
+///               "city": "brisbane",
+///               "state": "tasmania",
+///               "street": "6244 ranchview dr",
+///               "zip": 70881
+///             },
+///             "md5": "a56dc7c4ff5f11fd7ad92b0ddfde245c",
+///             "name": {
+///               "first": "hilda",
+///               "last": "johnson",
+///               "title": "miss"
+///             },
+///             "password": "sheena",
+///             "phone": "05-8738-0745",
+///             "picture": {
+///               "large": "https://randomuser.me/api/portraits/women/10.jpg",
+///               "medium": "https://randomuser.me/api/portraits/med/women/10.jpg",
+///               "thumbnail": "https://randomuser.me/api/portraits/thumb/women/10.jpg"
+///             },
+///             "registered": 1084406587,
+///             "salt": "CGFF030d",
+///             "sha1": "05fd4d6ed75c7cd92e2056f085372d468feefb3a",
+///             "sha256": "8f2b67507559851824817ea73ae50899505d495ca113cd336d8b06bae4ebf826",
+///             "username": "greenswan671"
+///           }
+///         }
+///       ],
+///       "seed": "fdf3e44db843b3b000",
+///       "version": "0.7"
+///     }
+///
+/// Avoids adding an empty query when sending the request.
 public class RandomUser {
 
   static let URL = NSURL(string: "https://randomuser.me/api/")!
