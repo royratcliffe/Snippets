@@ -45,4 +45,23 @@ extension NSBundle {
     return try NSPropertyListSerialization.propertyListWithData(data, options: .Immutable, format: nil)
   }
 
+  /// - returns: Bundle's display name; returns the application's display name
+  ///   if applied to the application's main bundle,
+  ///   i.e. `NSBundle.mainBundle().displayName` gives you the application
+  ///   display name.
+  ///
+  /// See Technical Q&A QA1544 for more details.
+  ///
+  /// Note that some users enable "Show all filename extensions" in Finder. With
+  /// that option enabled, the application display name becomes
+  /// AppDisplayName.app rather than just AppDisplayName. The displayName
+  /// implementation removes the `app` extension so that when creating an
+  /// Application Support folder by this name, for example, the new support
+  /// folder does not also carry the `app` extension.
+  public var displayName: String {
+    let manager = NSFileManager.defaultManager()
+    let displayName = manager.displayNameAtPath(bundlePath) as NSString
+    return displayName.stringByDeletingPathExtension
+  }
+
 }
