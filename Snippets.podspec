@@ -1,0 +1,16 @@
+Pod::Spec.new do |spec|
+  spec.name = 'Snippets'
+  spec.version = '0.1.0'
+  spec.summary = ''
+  spec.description = <<-DESCRIPTION
+  DESCRIPTION
+  spec.homepage = 'https://github.com/royratcliffe/Snippets'
+  spec.license = { type: 'MIT', file: 'MIT-LICENSE.txt' }
+  spec.author = { 'Roy Ratcliffe' => 'roy@pioneeringsoftware.co.uk' }
+  spec.source = {
+    git: 'https://github.com/royratcliffe/Snippets.git',
+    tag: spec.version.to_s }
+  spec.source_files = 'Snippets/**/*.{swift,h}'
+  spec.platform = :ios, '9.0'
+  spec.requires_arc = true
+end
