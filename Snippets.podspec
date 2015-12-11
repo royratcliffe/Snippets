@@ -1,8 +1,10 @@
 Pod::Spec.new do |spec|
   spec.name = 'Snippets'
   spec.version = '0.1.0'
-  spec.summary = ''
+  spec.summary = 'Snippets in Swift'
   spec.description = <<-DESCRIPTION
+  A collection of Swift snippets for enhancing standard Apple frameworks. The
+  snippets have no non-standard dependencies, by design.
   DESCRIPTION
   spec.homepage = 'https://github.com/royratcliffe/Snippets'
   spec.license = { type: 'MIT', file: 'MIT-LICENSE.txt' }
