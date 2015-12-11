@@ -59,6 +59,10 @@ extension NSManagedObjectContext {
   /// Inserts a new object.
   /// - parameter entityName: Name of the entity to insert.
   /// - returns: New inserted object.
+  ///
+  /// If entityName does not exist in the data model, CoreData will throw an
+  /// internal consistency exception (NSInternalInconsistencyException) for the
+  /// reason that CoreData cannot find the named entity within the model.
   public func insertNewObject(entityName: String) -> NSManagedObject {
     return NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: self)
   }
