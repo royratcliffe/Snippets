@@ -1,4 +1,4 @@
-// SnippetsTests UIDeviceTests.swift
+// Snippets NSData+Snippets.swift
 //
 // Copyright © 2015, Roy Ratcliffe, Pioneering Software, United Kingdom
 //
@@ -22,13 +22,27 @@
 //
 //------------------------------------------------------------------------------
 
-import XCTest
-@testable import Snippets
+import Foundation
 
-class UIDeviceTests: XCTestCase {
+extension NSData {
 
-  func testCurrentDevice() {
-    XCTAssertEqual(UIDevice.currentDevice().systemMajorVersion, 9)
+  /// Converts the data object to a hexadecimal string. Each byte from the data
+  /// becomes two hexadecimal digits in the resulting character string. That
+  /// makes the length of the string twice as long as the data. The string
+  /// contains lower-case hexadecimal digits for 10 through 15, i.e. `a` through
+  /// `f`.
+  ///
+  /// The `bytes` getter answers an unsafe pointer to `Void`. Cast this to an
+  /// unsafe C character pointer; a pointer to signed 8-bit integers. On its
+  /// own, format specifier `%x` formats a 32-bit unsigned integer. Length
+  /// modifier `hh` adjusts this to a `char`.
+  public var hexString: String {
+    var hexString = ""
+    let bytes = UnsafePointer<CChar>(self.bytes)
+    for var index = 0; index < length; index++ {
+      hexString += String(format: "%02.2hhx", arguments: [bytes[index]])
+    }
+    return hexString
   }
 
 }

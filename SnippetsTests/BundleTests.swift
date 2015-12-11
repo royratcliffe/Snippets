@@ -1,6 +1,6 @@
-// SnippetsTests UIDeviceTests.swift
+// SnippetsTests BundleTests.swift
 //
-// Copyright © 2015, Roy Ratcliffe, Pioneering Software, United Kingdom
+// Copyright © 2008–2015, Roy Ratcliffe, Pioneering Software, United Kingdom
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the “Software”), to deal
@@ -23,12 +23,19 @@
 //------------------------------------------------------------------------------
 
 import XCTest
-@testable import Snippets
+import Snippets
 
-class UIDeviceTests: XCTestCase {
+class BundleTests: XCTestCase {
 
-  func testCurrentDevice() {
-    XCTAssertEqual(UIDevice.currentDevice().systemMajorVersion, 9)
+  func testMainBundle() {
+    // given
+    let mainBundle = NSBundle.mainBundle()
+
+    // when
+    let displayName = mainBundle.displayName
+
+    // then
+    XCTAssertEqual(displayName, "Agents")
   }
 
 }

@@ -1,4 +1,4 @@
-// SnippetsTests UIDeviceTests.swift
+// SnippetsTests DispatchTests.swift
 //
 // Copyright © 2015, Roy Ratcliffe, Pioneering Software, United Kingdom
 //
@@ -25,10 +25,10 @@
 import XCTest
 @testable import Snippets
 
-class UIDeviceTests: XCTestCase {
+class DispatchTests: XCTestCase {
 
-  func testCurrentDevice() {
-    XCTAssertEqual(UIDevice.currentDevice().systemMajorVersion, 9)
+  func testDispatchMainQueue() {
+    XCTAssertTrue(DispatchMainQueue === dispatch_get_main_queue())
   }
 
 }

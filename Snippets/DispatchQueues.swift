@@ -1,4 +1,4 @@
-// SnippetsTests UIDeviceTests.swift
+// Snippets DispatchQueues.swift
 //
 // Copyright © 2015, Roy Ratcliffe, Pioneering Software, United Kingdom
 //
@@ -22,13 +22,24 @@
 //
 //------------------------------------------------------------------------------
 
-import XCTest
-@testable import Snippets
+import Foundation
 
-class UIDeviceTests: XCTestCase {
+public var DispatchMainQueue: dispatch_queue_t {
+  return dispatch_get_main_queue()
+}
 
-  func testCurrentDevice() {
-    XCTAssertEqual(UIDevice.currentDevice().systemMajorVersion, 9)
-  }
+public var DispatchUserInteractiveQueue: dispatch_queue_t {
+  return dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0)
+}
 
+public var DispatchUserInitiatedQueue: dispatch_queue_t {
+  return dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)
+}
+
+public var DispatchUtilityQueue: dispatch_queue_t {
+  return dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)
+}
+
+public var DispatchBackgroundQueue: dispatch_queue_t {
+  return dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
 }
