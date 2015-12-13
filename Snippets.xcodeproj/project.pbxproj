@@ -13,6 +13,7 @@
 		783E7ECD1B9028D300227678 /* NSObject+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E7EC71B9028D300227678 /* NSObject+Snippets.swift */; };
 		783E7ECE1B9028D300227678 /* UITableViewFetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E7EC81B9028D300227678 /* UITableViewFetchedResultsController.swift */; };
 		783E7ECF1B9028D300227678 /* UITableViewFetchedResultsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E7EC91B9028D300227678 /* UITableViewFetchedResultsDataSource.swift */; };
+		783F0CF21C1D859800FC8AF4 /* WeakRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783F0CF11C1D859800FC8AF4 /* WeakRef.swift */; };
 		788071921C1697C2008C89DF /* BundleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788071911C1697C2008C89DF /* BundleTests.swift */; };
 		78BA52DA1B8F846D00D85C33 /* Snippets.h in Headers */ = {isa = PBXBuildFile; fileRef = 78BA52D91B8F846D00D85C33 /* Snippets.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		78BA52E11B8F846D00D85C33 /* Snippets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78BA52D61B8F846D00D85C33 /* Snippets.framework */; };
@@ -43,6 +44,7 @@
 		783E7EC71B9028D300227678 /* NSObject+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Snippets.swift"; sourceTree = "<group>"; };
 		783E7EC81B9028D300227678 /* UITableViewFetchedResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewFetchedResultsController.swift; sourceTree = "<group>"; };
 		783E7EC91B9028D300227678 /* UITableViewFetchedResultsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewFetchedResultsDataSource.swift; sourceTree = "<group>"; };
+		783F0CF11C1D859800FC8AF4 /* WeakRef.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakRef.swift; sourceTree = "<group>"; };
 		788071911C1697C2008C89DF /* BundleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleTests.swift; sourceTree = "<group>"; };
 		78BA52D61B8F846D00D85C33 /* Snippets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Snippets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78BA52D91B8F846D00D85C33 /* Snippets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Snippets.h; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				783E7EC81B9028D300227678 /* UITableViewFetchedResultsController.swift */,
 				783E7EC91B9028D300227678 /* UITableViewFetchedResultsDataSource.swift */,
 				78D191121B90A9ED0011219C /* DispatchQueues.swift */,
+				783F0CF11C1D859800FC8AF4 /* WeakRef.swift */,
 				78BA52DB1B8F846D00D85C33 /* Info.plist */,
 			);
 			path = Snippets;
@@ -242,6 +245,7 @@
 				783E7ECD1B9028D300227678 /* NSObject+Snippets.swift in Sources */,
 				78BA52F71B8F848F00D85C33 /* String+Snippets.swift in Sources */,
 				783E7ECB1B9028D300227678 /* NSBundle+Snippets.swift in Sources */,
+				783F0CF21C1D859800FC8AF4 /* WeakRef.swift in Sources */,
 				78BA52F91B8F848F00D85C33 /* UIViewController+Snippets.swift in Sources */,
 				783E7ECA1B9028D300227678 /* Array+Snippets.swift in Sources */,
 				783E7ECE1B9028D300227678 /* UITableViewFetchedResultsController.swift in Sources */,
