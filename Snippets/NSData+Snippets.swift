@@ -30,17 +30,19 @@ extension NSData {
   /// becomes two hexadecimal digits in the resulting character string. That
   /// makes the length of the string twice as long as the data. The string
   /// contains lower-case hexadecimal digits for 10 through 15, i.e. `a` through
-  /// `f`.
+  /// `f`. Use uppercaseString on the answer to convert to upper case.
   ///
   /// The `bytes` getter answers an unsafe pointer to `Void`. Cast this to an
-  /// unsafe C character pointer; a pointer to signed 8-bit integers. On its
-  /// own, format specifier `%x` formats a 32-bit unsigned integer. Length
-  /// modifier `hh` adjusts this to a `char`.
+  /// unsafe C pointer; a pointer to unsigned 8-bit integers. On its own, format
+  /// specifier `%x` formats a 32-bit unsigned integer. Length modifier `hh`
+  /// adjusts this to an 8-bit `char`. No need to worry too much about
+  /// sign-extension or formatting precision. The `hh` modifier will limit the
+  /// number of resulting characters to two, and no more than two, per byte.
   public var hexString: String {
     var hexString = ""
-    let bytes = UnsafePointer<CChar>(self.bytes)
+    let bytes = UnsafePointer<UInt8>(self.bytes)
     for var index = 0; index < length; index++ {
-      hexString += String(format: "%02.2hhx", arguments: [bytes[index]])
+      hexString += String(format: "%02hhx", arguments: [bytes[index]])
     }
     return hexString
   }
