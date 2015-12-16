@@ -67,4 +67,13 @@ extension NSManagedObjectContext {
     return NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: self)
   }
 
+  /// - returns: a new child managed-object context with private-queue or
+  ///   main-queue concurrency. The receiver context becomes the new context's
+  ///   parent.
+  public func childContext(concurrencyType: NSManagedObjectContextConcurrencyType) -> NSManagedObjectContext {
+    let context = NSManagedObjectContext(concurrencyType: concurrencyType)
+    context.parentContext = self
+    return context
+  }
+
 }
