@@ -1,4 +1,4 @@
-// Snippets NSData+Snippets.swift
+// Snippets NSError+Snippets.swift
 //
 // Copyright © 2015, Roy Ratcliffe, Pioneering Software, United Kingdom
 //
@@ -24,27 +24,21 @@
 
 import Foundation
 
-extension NSData {
+extension NSError {
 
-  /// Converts the data object to a hexadecimal string. Each byte from the data
-  /// becomes two hexadecimal digits in the resulting character string. That
-  /// makes the length of the string twice as long as the data. The string
-  /// contains lower-case hexadecimal digits for 10 through 15, i.e. `a` through
-  /// `f`. Use uppercaseString on the answer to convert to upper case.
-  ///
-  /// The `bytes` getter answers an unsafe pointer to `Void`. Cast this to an
-  /// unsafe C pointer; a pointer to unsigned 8-bit integers. On its own, format
-  /// specifier `%x` formats a 32-bit unsigned integer. Length modifier `hh`
-  /// adjusts this to an 8-bit `char`. No need to worry too much about
-  /// sign-extension or formatting precision. The `hh` modifier will limit the
-  /// number of resulting characters to two, and no more than two, per byte.
-  public var hexString: String {
-    var hexString = ""
-    let bytes = UnsafePointer<UInt8>(self.bytes)
-    for var index = 0; index < length; index++ {
-      hexString += String(format: "%02hhx", arguments: [bytes[index]])
+  /// Logs the error, sending its values to the console log, i.e. the Apple
+  /// System Log facility. Uses Key-Value-Coding introspection to log all the
+  /// primary error values; also logs the user-information dictionary entries if
+  /// present. Does not send nils to the log. Only logs non-nil error values.
+  public func log() {
+    for key in ["domain", "code", "localizedDescription", "localizedFailureReason", "localizedRecoverySuggestion"] {
+      if let value = valueForKey(key) {
+        NSLog("ERROR %@:%@", key, String(value))
+      }
     }
-    return hexString
+    for (key, value) in userInfo {
+      NSLog("ERROR userInfo:%@=%@", key, String(value))
+    }
   }
 
 }
