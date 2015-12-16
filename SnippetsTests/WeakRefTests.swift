@@ -1,4 +1,4 @@
-// Snippets WeakRef.swift
+// SnippetsTests WeakRefTests.swift
 //
 // Copyright © 2015, Roy Ratcliffe, Pioneering Software, United Kingdom
 //
@@ -22,23 +22,39 @@
 //
 //------------------------------------------------------------------------------
 
-import Foundation
+import XCTest
+import Snippets
 
-/// Encapsulates a weak reference to an object. You can strongly retain this
-/// object when you cannot weakly retain its object directly, such as associated
-/// objects.
-public class WeakRef {
+class WeakRefTests: SnippetsTests {
 
-  /// Weak reference to an object. Weak references must be optionals. At some
-  /// unspecified point in the future, a non-nil weak reference can become nil;
-  /// the unwrapped optional answers nil.
-  ///
-  /// You cannot use `weak let` in Swift 2. All weak object references must be
-  /// mutable. That makes sense. The optional can become `nil`.
-  public weak var object: AnyObject?
+  /// Notice that the weak reference to the number disappears. This is as
+  /// expected because nothing in the running object graph retains the
+  /// number. Its reference count becomes zero and the collector reclaims its
+  /// unreferenced space.
+  func testRetain() {
+    // given
+    let object = NSObject()
 
-  public init(object: AnyObject?) {
-    self.object = object
+    // when
+    object.retainAssociatedObject(WeakRef(object: 123), forKey: "number")
+
+    // then
+    XCTAssertNotNil(object.associatedObject(forKey: "number"))
+    XCTAssertNil(object.associatedObject(forKey: "number")?.object)
+  }
+
+  func testRetainWeakly() {
+    // given
+    let object = NSObject()
+    let otherObject = NSObject()
+    XCTAssertNil(object.associatedObject(forKey: "otherObject"))
+
+    // when
+    object.retainWeaklyAssociatedObject(otherObject, forKey: "otherObject")
+
+    // then
+    XCTAssertNotNil(object.associatedObject(forKey: "otherObject"))
+    XCTAssertNotNil(object.weaklyAssociatedObject(forKey: "otherObject"))
   }
 
 }
