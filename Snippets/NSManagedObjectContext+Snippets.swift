@@ -50,7 +50,7 @@ extension NSManagedObjectContext {
     let rhs = NSExpression(forConstantValue: value)
     let modifier = NSComparisonPredicateModifier.DirectPredicateModifier
     let type = NSPredicateOperatorType.EqualToPredicateOperatorType
-    let options = NSComparisonPredicateOptions(rawValue: 0)
+    let options: NSComparisonPredicateOptions = []
     request.predicate = NSComparisonPredicate(leftExpression: lhs, rightExpression: rhs, modifier: modifier, type: type, options: options)
     request.fetchLimit = 1
     return try executeFetchRequest(request).first
