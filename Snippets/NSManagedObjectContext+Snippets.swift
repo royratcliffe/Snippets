@@ -50,7 +50,7 @@ extension NSManagedObjectContext {
     let rhs = NSExpression(forConstantValue: value)
     let modifier = NSComparisonPredicateModifier.DirectPredicateModifier
     let type = NSPredicateOperatorType.EqualToPredicateOperatorType
-    let options = NSComparisonPredicateOptions(rawValue: 0)
+    let options: NSComparisonPredicateOptions = []
     request.predicate = NSComparisonPredicate(leftExpression: lhs, rightExpression: rhs, modifier: modifier, type: type, options: options)
     request.fetchLimit = 1
     return try executeFetchRequest(request).first
@@ -65,6 +65,15 @@ extension NSManagedObjectContext {
   /// reason that CoreData cannot find the named entity within the model.
   public func insertNewObject(entityName: String) -> NSManagedObject {
     return NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: self)
+  }
+
+  /// - returns: a new child managed-object context with private-queue or
+  ///   main-queue concurrency. The receiver context becomes the new context's
+  ///   parent.
+  public func childContext(concurrencyType: NSManagedObjectContextConcurrencyType) -> NSManagedObjectContext {
+    let context = NSManagedObjectContext(concurrencyType: concurrencyType)
+    context.parentContext = self
+    return context
   }
 
 }
