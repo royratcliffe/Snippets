@@ -1,4 +1,4 @@
-// Snippets WeakRef.swift
+// SnippetsTests UIColorTests.swift
 //
 // Copyright © 2015, Roy Ratcliffe, Pioneering Software, United Kingdom
 //
@@ -22,23 +22,29 @@
 //
 //------------------------------------------------------------------------------
 
-import Foundation
+import XCTest
 
-/// Encapsulates a weak reference to an object. You can strongly retain this
-/// object when you cannot weakly retain its object directly, such as associated
-/// objects.
-public class WeakRef {
+class UIColorTests: XCTestCase {
 
-  /// Weak reference to an object. Weak references must be optionals. At some
-  /// unspecified point in the future, a non-nil weak reference can become nil;
-  /// the unwrapped optional answers nil.
-  ///
-  /// You cannot use `weak let` in Swift 2. All weak object references must be
-  /// mutable. That makes sense. The optional can become `nil`.
-  public weak var object: AnyObject?
+  func testHashABC() {
+    // given
+    let color = UIColor.fromHTML("#abc")
 
-  public init(object: AnyObject?) {
-    self.object = object
+    // when
+    var red: CGFloat = 0
+    var green: CGFloat = 0
+    var blue: CGFloat = 0
+    var alpha: CGFloat = 0
+    color?.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+
+    // then
+    XCTAssertNotNil(color)
+    XCTAssertEqual(red, 0xaa / 255.0)
+    XCTAssertEqual(green, 0xbb / 255.0)
+    XCTAssertEqual(blue, 0xcc / 255.0)
+    XCTAssertEqual(alpha, 0xff / 255.0)
+    XCTAssertEqual(color, UIColor.fromHTML("aabbcc"))
+    XCTAssertEqual(color, UIColor.fromHTML("ffaabbcc"))
   }
 
 }

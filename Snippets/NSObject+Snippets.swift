@@ -54,4 +54,79 @@ extension NSObject {
     return properties
   }
 
+  //----------------------------------------------------------------------------
+  // MARK: - Associated Objects
+  //----------------------------------------------------------------------------
+
+  /// - returns: a unique void-pointer given a string. Always answers the same
+  ///   void pointer for the same string. Reuses the Objective-C
+  ///   selector-from-string mechanism to manufacture an atomic string, by
+  ///   default. Object classes or object instance can freely override the
+  ///   default mapping of strings to void pointers.
+  public func associatedObjectKey(key: String) -> UnsafePointer<Void> {
+    return unsafeBitCast(Selector(key), UnsafePointer<Void>.self)
+  }
+
+  /// Associates an object with this object by assignment.
+  public func assignAssociatedObject(object: AnyObject?, forKey key: String) {
+    objc_setAssociatedObject(self, associatedObjectKey(key), object, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
+  }
+
+  public var retainPolicy: objc_AssociationPolicy {
+    #if os(iOS)
+      return objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC
+    #else
+      return objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN
+    #endif
+  }
+
+  /// Associates an object with this object by retaining it.
+  public func retainAssociatedObject(object: AnyObject?, forKey key: String) {
+    objc_setAssociatedObject(self, associatedObjectKey(key), object, retainPolicy)
+  }
+
+  public var copyPolicy: objc_AssociationPolicy {
+    #if os(iOS)
+      return objc_AssociationPolicy.OBJC_ASSOCIATION_COPY_NONATOMIC
+    #else
+      return objc_AssociationPolicy.OBJC_ASSOCIATION_COPY
+    #endif
+  }
+
+  /// Associates an object with this object by copying it.
+  public func copyAssociatedObject(object: AnyObject?, forKey key: String) {
+    objc_setAssociatedObject(self, associatedObjectKey(key), object, copyPolicy)
+  }
+
+  public func associatedObject(forKey key: String) -> AnyObject? {
+    return objc_getAssociatedObject(self, associatedObjectKey(key))
+  }
+
+  public func removeAssociatedObjects() {
+    objc_removeAssociatedObjects(self)
+  }
+
+  //----------------------------------------------------------------------------
+  // MARK: - Associated Objects (Weak Ref)
+  //----------------------------------------------------------------------------
+
+  /// Associates an object with this object by *weakly* retaining it.
+  public func retainWeaklyAssociatedObject(object: AnyObject?, forKey key: String) {
+    retainAssociatedObject(WeakRef(object: object), forKey: key)
+  }
+
+  /// - returns: a weakly-retained object, or `nil` if there is no such
+  ///   associated object or if the object has been freed.
+  ///
+  /// Importantly, the associated object gets unwrapped as a WeakRef instance,
+  /// or `nil`. Answer is `nil` unless the object really is a weak reference; it
+  /// may not be. Funny things happen to Swift otherwise. Answers `nil` if the
+  /// associated object is *not* a WeakRef instance.
+  public func weaklyAssociatedObject(forKey key: String) -> AnyObject? {
+    guard let weakRef = associatedObject(forKey: key) as? WeakRef else {
+      return nil
+    }
+    return weakRef.object
+  }
+
 }

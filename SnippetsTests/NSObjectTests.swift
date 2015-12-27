@@ -1,4 +1,4 @@
-// Snippets WeakRef.swift
+// SnippetsTests NSObjectTests.swift
 //
 // Copyright © 2015, Roy Ratcliffe, Pioneering Software, United Kingdom
 //
@@ -22,23 +22,36 @@
 //
 //------------------------------------------------------------------------------
 
-import Foundation
+import XCTest
 
-/// Encapsulates a weak reference to an object. You can strongly retain this
-/// object when you cannot weakly retain its object directly, such as associated
-/// objects.
-public class WeakRef {
+class NSObjectTests: SnippetsTests {
 
-  /// Weak reference to an object. Weak references must be optionals. At some
-  /// unspecified point in the future, a non-nil weak reference can become nil;
-  /// the unwrapped optional answers nil.
-  ///
-  /// You cannot use `weak let` in Swift 2. All weak object references must be
-  /// mutable. That makes sense. The optional can become `nil`.
-  public weak var object: AnyObject?
+  func testAssociateNumber() {
+    // given
+    let object = NSObject()
 
-  public init(object: AnyObject?) {
-    self.object = object
+    // when
+    object.copyAssociatedObject(123, forKey: "number")
+
+    // then
+    XCTAssertEqual(object.associatedObject(forKey: "number") as? Int, 123)
+  }
+
+  /// Question is: Should `nil` be assigned or copied? Both work in exactly the
+  /// same way. So likely the policy does not matter when the associated value
+  /// is `nil`.
+  func testDisassociateNumber() {
+    // given
+    let object = NSObject()
+    XCTAssertNil(object.associatedObject(forKey: "number"))
+
+    // when
+    object.copyAssociatedObject(123, forKey: "number")
+    XCTAssertEqual(object.associatedObject(forKey: "number") as? Int, 123)
+    object.copyAssociatedObject(nil, forKey: "number")
+
+    // then
+    XCTAssertNil(object.associatedObject(forKey: "number"))
   }
 
 }
