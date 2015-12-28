@@ -30,14 +30,21 @@ extension NSError {
   /// System Log facility. Uses Key-Value-Coding introspection to log all the
   /// primary error values; also logs the user-information dictionary entries if
   /// present. Does not send nils to the log. Only logs non-nil error values.
+  ///
+  /// The implementation pads out the error keys with spaces so that the values
+  /// all start at the same column in the System Log, or debugger Console.
   public func log() {
-    for key in ["domain", "code", "localizedDescription", "localizedFailureReason", "localizedRecoverySuggestion"] {
-      if let value = valueForKey(key) {
-        NSLog("ERROR %@:%@", key, String(value))
-      }
-    }
+    let keys = ["domain", "code", "localizedDescription", "localizedFailureReason", "localizedRecoverySuggestion"]
+    var keysAndValues = keys.map { key in (key, valueForKey(key)) }.filter { (key, value) in value != nil }
     for (key, value) in userInfo {
-      NSLog("ERROR userInfo:%@=%@", key, String(value))
+      keysAndValues.append(("userInfo.\(key)", value))
+    }
+    let maxKeyLength = keysAndValues.map { (key, value) in key.characters.count }.maxElement() ?? 0
+    for (key, value) in keysAndValues {
+      if let value = value {
+        let padding = "".stringByPaddingToLength(maxKeyLength - key.characters.count, withString: " ", startingAtIndex: 0)
+        NSLog("ERROR %@%@:%@", padding, key, String(value))
+      }
     }
   }
 
