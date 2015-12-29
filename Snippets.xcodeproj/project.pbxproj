@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		783C10201C32714800ECB907 /* UITextFieldTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C101F1C32714800ECB907 /* UITextFieldTableViewController.swift */; };
+		783C10221C329A1000ECB907 /* UITableViewController+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C10211C329A1000ECB907 /* UITableViewController+Snippets.swift */; };
 		783E7ECA1B9028D300227678 /* Array+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E7EC41B9028D300227678 /* Array+Snippets.swift */; };
 		783E7ECB1B9028D300227678 /* NSBundle+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E7EC51B9028D300227678 /* NSBundle+Snippets.swift */; };
 		783E7ECC1B9028D300227678 /* NSManagedObjectContext+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E7EC61B9028D300227678 /* NSManagedObjectContext+Snippets.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		783C101F1C32714800ECB907 /* UITextFieldTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldTableViewController.swift; sourceTree = "<group>"; };
+		783C10211C329A1000ECB907 /* UITableViewController+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewController+Snippets.swift"; sourceTree = "<group>"; };
 		783E7EC41B9028D300227678 /* Array+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Snippets.swift"; sourceTree = "<group>"; };
 		783E7EC51B9028D300227678 /* NSBundle+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundle+Snippets.swift"; sourceTree = "<group>"; };
 		783E7EC61B9028D300227678 /* NSManagedObjectContext+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Snippets.swift"; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				78BA52F31B8F848F00D85C33 /* UIDevice+Snippets.swift */,
 				789A9CDA1C2FFAC6003D17FA /* UIColor+Snippets.swift */,
 				78BA52F41B8F848F00D85C33 /* UIViewController+Snippets.swift */,
+				783C10211C329A1000ECB907 /* UITableViewController+Snippets.swift */,
 				783E7EC81B9028D300227678 /* UITableViewFetchedResultsController.swift */,
 				783E7EC91B9028D300227678 /* UITableViewFetchedResultsDataSource.swift */,
 				783C101F1C32714800ECB907 /* UITextFieldTableViewController.swift */,
@@ -287,6 +290,7 @@
 				783E7ECC1B9028D300227678 /* NSManagedObjectContext+Snippets.swift in Sources */,
 				783C10201C32714800ECB907 /* UITextFieldTableViewController.swift in Sources */,
 				783F0CC11C1D399100FC8AF4 /* RandomUser.swift in Sources */,
+				783C10221C329A1000ECB907 /* UITableViewController+Snippets.swift in Sources */,
 				783F0CF41C1F40F100FC8AF4 /* NSError+Snippets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

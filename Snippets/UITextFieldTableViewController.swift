@@ -48,8 +48,31 @@ public class UITextFieldTableViewController: UITableViewController, UITextFieldD
   /// Tag of the first responder found in each cell. Assumes that there is only
   /// one view with this tag in each cell, somewhere within the cell or the
   /// cell's sub-views. Behaviour undefined if there is more than one with this
-  /// tag.
-  @IBInspectable var firstResponderTag: Int = 101
+  /// tag. The default 101 tag spells TXT using the mnemonic major system.
+  @IBInspectable public var firstResponderTag: Int = 101
+
+  /// - returns: all the first-responder views currently visible; or more
+  ///   specifically, all the views with matching first-responder tags found in
+  ///   the cells currently belonging to the table view.
+  ///
+  /// Notice that the answer is an array of views, not an array of text fields;
+  /// perform a flat map to extract the text fields. See visibleTextFields.
+  public var visibleFirstResponders: [UIView] {
+    var visibleFirstResponders = [UIView]()
+    for cell in tableView.visibleCells {
+      if let view = cell.viewWithTag(firstResponderTag) {
+        visibleFirstResponders.append(view)
+      }
+    }
+    return visibleFirstResponders
+  }
+
+  /// - returns: visible first responders filtered for text fields.
+  public var visibleTextFields: [UITextField] {
+    return visibleFirstResponders.flatMap { view in
+      view as? UITextField
+    }
+  }
 
   //----------------------------------------------------------------------------
   // MARK: - Table View Data Source
