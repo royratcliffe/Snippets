@@ -48,8 +48,8 @@ public class UITextFieldTableViewController: UITableViewController, UITextFieldD
   /// Tag of the first responder found in each cell. Assumes that there is only
   /// one view with this tag in each cell, somewhere within the cell or the
   /// cell's sub-views. Behaviour undefined if there is more than one with this
-  /// tag.
-  @IBInspectable var firstResponderTag: Int = 101
+  /// tag. The default 101 tag spells TXT using the mnemonic major system.
+  @IBInspectable public var firstResponderTag: Int = 101
 
   //----------------------------------------------------------------------------
   // MARK: - Table View Data Source
