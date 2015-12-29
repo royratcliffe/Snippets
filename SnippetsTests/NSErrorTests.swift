@@ -1,4 +1,4 @@
-// Snippets NSError+Snippets.swift
+// SnippetsTests NSErrorTests.swift
 //
 // Copyright © 2015, Roy Ratcliffe, Pioneering Software, United Kingdom
 //
@@ -22,30 +22,24 @@
 //
 //------------------------------------------------------------------------------
 
-import Foundation
+import XCTest
 
-extension NSError {
+class NSErrorTests: XCTestCase {
 
-  /// Logs the error, sending its values to the console log, i.e. the Apple
-  /// System Log facility. Uses Key-Value-Coding introspection to log all the
-  /// primary error values; also logs the user-information dictionary entries if
-  /// present. Does not send nils to the log. Only logs non-nil error values.
-  ///
-  /// The implementation pads out the error keys with spaces so that the values
-  /// all start at the same column in the System Log, or debugger Console.
-  public func log() {
-    let keys = ["domain", "code", "localizedDescription", "localizedFailureReason", "localizedRecoverySuggestion"]
-    var keysAndValues = keys.map { key in (key, valueForKey(key)) }.filter { (key, value) in value != nil }
-    for (key, value) in userInfo {
-      keysAndValues.append(("userInfo.\(key)", value))
-    }
-    let maxKeyLength = keysAndValues.map { (key, value) in key.characters.count }.maxElement() ?? 0
-    for (key, value) in keysAndValues {
-      if let value = value {
-        let padding = "".stringByPaddingToLength(maxKeyLength - key.characters.count, withString: " ", startingAtIndex: 0)
-        NSLog("ERROR %@%@:%@", padding, key, String(value))
-      }
-    }
+  func testLog() {
+    // given
+    let error = NSError(domain: "domain", code: 999, userInfo: [
+      NSLocalizedDescriptionKey: "localized description",
+      "lorem": 1,
+      "ipsum": 2,
+      "dolor": 3,
+      "null": NSNull(),
+      ])
+
+    // when
+    error.log()
+
+    // then
   }
 
 }

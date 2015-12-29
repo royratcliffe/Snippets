@@ -32,9 +32,15 @@ extension UIColor {
   ///
   /// Implementation uses a regular expression to extract all the hexadecimal
   /// digits, ignoring hash prefixes and whitespace if any. Aborts if the
-  /// regular expression for a hexadecimal digit fails to compile.
+  /// regular expression for a hexadecimal digit fails to compile, logging the
+  /// expression compilation error to the system log.
   public class func fromHTML(string: String) -> UIColor? {
-    guard let expression = try? NSRegularExpression(pattern: "[0-9a-f]", options: .CaseInsensitive) else {
+    var expression: NSRegularExpression
+    do {
+      expression = try NSRegularExpression(pattern: "[0-9a-f]", options: .CaseInsensitive)
+    }
+    catch {
+      (error as NSError).log()
       abort()
     }
     let range = NSMakeRange(0, string.characters.count)
