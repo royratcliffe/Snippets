@@ -35,6 +35,8 @@
 		78BA52F91B8F848F00D85C33 /* UIViewController+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA52F41B8F848F00D85C33 /* UIViewController+Snippets.swift */; };
 		78BA53001B8F84A100D85C33 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA52FC1B8F84A100D85C33 /* StringTests.swift */; };
 		78BA53011B8F84A100D85C33 /* UIDeviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA52FD1B8F84A100D85C33 /* UIDeviceTests.swift */; };
+		78C7D2BA1C5002860051FB0A /* NSRange+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C7D2B91C5002860051FB0A /* NSRange+Snippets.swift */; };
+		78C7D2BC1C5002B40051FB0A /* NSIndexSet+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C7D2BB1C5002B40051FB0A /* NSIndexSet+Snippets.swift */; };
 		78D191131B90A9ED0011219C /* DispatchQueues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D191121B90A9ED0011219C /* DispatchQueues.swift */; };
 		78D191151B90AA120011219C /* DispatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D191141B90AA120011219C /* DispatchTests.swift */; };
 /* End PBXBuildFile section */
@@ -81,6 +83,8 @@
 		78BA52F41B8F848F00D85C33 /* UIViewController+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Snippets.swift"; sourceTree = "<group>"; };
 		78BA52FC1B8F84A100D85C33 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		78BA52FD1B8F84A100D85C33 /* UIDeviceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceTests.swift; sourceTree = "<group>"; };
+		78C7D2B91C5002860051FB0A /* NSRange+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRange+Snippets.swift"; sourceTree = "<group>"; };
+		78C7D2BB1C5002B40051FB0A /* NSIndexSet+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSIndexSet+Snippets.swift"; sourceTree = "<group>"; };
 		78D191121B90A9ED0011219C /* DispatchQueues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchQueues.swift; sourceTree = "<group>"; };
 		78D191141B90AA120011219C /* DispatchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +137,8 @@
 				783E7EC71B9028D300227678 /* NSObject+Snippets.swift */,
 				783F0CF31C1F40F100FC8AF4 /* NSError+Snippets.swift */,
 				783E7EC51B9028D300227678 /* NSBundle+Snippets.swift */,
+				78C7D2B91C5002860051FB0A /* NSRange+Snippets.swift */,
+				78C7D2BB1C5002B40051FB0A /* NSIndexSet+Snippets.swift */,
 				78BA52F31B8F848F00D85C33 /* UIDevice+Snippets.swift */,
 				789A9CDA1C2FFAC6003D17FA /* UIColor+Snippets.swift */,
 				78BA52F41B8F848F00D85C33 /* UIViewController+Snippets.swift */,
@@ -286,10 +292,12 @@
 				783F0CF21C1D859800FC8AF4 /* WeakRef.swift in Sources */,
 				78BA52F91B8F848F00D85C33 /* UIViewController+Snippets.swift in Sources */,
 				783E7ECA1B9028D300227678 /* Array+Snippets.swift in Sources */,
+				78C7D2BC1C5002B40051FB0A /* NSIndexSet+Snippets.swift in Sources */,
 				783E7ECE1B9028D300227678 /* UITableViewFetchedResultsController.swift in Sources */,
 				783E7ECC1B9028D300227678 /* NSManagedObjectContext+Snippets.swift in Sources */,
 				783C10201C32714800ECB907 /* UITextFieldTableViewController.swift in Sources */,
 				783F0CC11C1D399100FC8AF4 /* RandomUser.swift in Sources */,
+				78C7D2BA1C5002860051FB0A /* NSRange+Snippets.swift in Sources */,
 				783C10221C329A1000ECB907 /* UITableViewController+Snippets.swift in Sources */,
 				783F0CF41C1F40F100FC8AF4 /* NSError+Snippets.swift in Sources */,
 			);
