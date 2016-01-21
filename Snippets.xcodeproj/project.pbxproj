@@ -37,6 +37,8 @@
 		78BA53011B8F84A100D85C33 /* UIDeviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA52FD1B8F84A100D85C33 /* UIDeviceTests.swift */; };
 		78C7D2BA1C5002860051FB0A /* NSRange+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C7D2B91C5002860051FB0A /* NSRange+Snippets.swift */; };
 		78C7D2BC1C5002B40051FB0A /* NSIndexSet+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C7D2BB1C5002B40051FB0A /* NSIndexSet+Snippets.swift */; };
+		78C7D2BE1C50C8820051FB0A /* JSONTransformerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C7D2BD1C50C8820051FB0A /* JSONTransformerTests.swift */; };
+		78D14EEF1C40DA97003DA8FB /* JSONTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D14EEE1C40DA97003DA8FB /* JSONTransformer.swift */; };
 		78D191131B90A9ED0011219C /* DispatchQueues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D191121B90A9ED0011219C /* DispatchQueues.swift */; };
 		78D191151B90AA120011219C /* DispatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D191141B90AA120011219C /* DispatchTests.swift */; };
 /* End PBXBuildFile section */
@@ -85,6 +87,8 @@
 		78BA52FD1B8F84A100D85C33 /* UIDeviceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceTests.swift; sourceTree = "<group>"; };
 		78C7D2B91C5002860051FB0A /* NSRange+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRange+Snippets.swift"; sourceTree = "<group>"; };
 		78C7D2BB1C5002B40051FB0A /* NSIndexSet+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSIndexSet+Snippets.swift"; sourceTree = "<group>"; };
+		78C7D2BD1C50C8820051FB0A /* JSONTransformerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTransformerTests.swift; sourceTree = "<group>"; };
+		78D14EEE1C40DA97003DA8FB /* JSONTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTransformer.swift; sourceTree = "<group>"; };
 		78D191121B90A9ED0011219C /* DispatchQueues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchQueues.swift; sourceTree = "<group>"; };
 		78D191141B90AA120011219C /* DispatchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +153,7 @@
 				78D191121B90A9ED0011219C /* DispatchQueues.swift */,
 				783F0CBE1C1D399100FC8AF4 /* RandomUser.swift */,
 				783F0CF11C1D859800FC8AF4 /* WeakRef.swift */,
+				78D14EEE1C40DA97003DA8FB /* JSONTransformer.swift */,
 				78BA52DB1B8F846D00D85C33 /* Info.plist */,
 			);
 			path = Snippets;
@@ -168,6 +173,7 @@
 				78D191141B90AA120011219C /* DispatchTests.swift */,
 				783F0CC31C1D399C00FC8AF4 /* RandomUserTests.swift */,
 				78601ECD1C21A7DD00F1593F /* WeakRefTests.swift */,
+				78C7D2BD1C50C8820051FB0A /* JSONTransformerTests.swift */,
 				78BA52E71B8F846D00D85C33 /* Info.plist */,
 			);
 			path = SnippetsTests;
@@ -297,6 +303,7 @@
 				783E7ECC1B9028D300227678 /* NSManagedObjectContext+Snippets.swift in Sources */,
 				783C10201C32714800ECB907 /* UITextFieldTableViewController.swift in Sources */,
 				783F0CC11C1D399100FC8AF4 /* RandomUser.swift in Sources */,
+				78D14EEF1C40DA97003DA8FB /* JSONTransformer.swift in Sources */,
 				78C7D2BA1C5002860051FB0A /* NSRange+Snippets.swift in Sources */,
 				783C10221C329A1000ECB907 /* UITableViewController+Snippets.swift in Sources */,
 				783F0CF41C1F40F100FC8AF4 /* NSError+Snippets.swift in Sources */,
@@ -312,6 +319,7 @@
 				78B32D0E1C201B650006F003 /* CoreDataTests.swift in Sources */,
 				785368151C31416400F6198B /* NSErrorTests.swift in Sources */,
 				78D191151B90AA120011219C /* DispatchTests.swift in Sources */,
+				78C7D2BE1C50C8820051FB0A /* JSONTransformerTests.swift in Sources */,
 				78BA53001B8F84A100D85C33 /* StringTests.swift in Sources */,
 				78BA53011B8F84A100D85C33 /* UIDeviceTests.swift in Sources */,
 				78601ECE1C21A7DD00F1593F /* WeakRefTests.swift in Sources */,
