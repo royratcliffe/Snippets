@@ -1,0 +1,5 @@
+# Ignore CocoaPods. See http://guides.cocoapods.org/using/using-cocoapods.html,
+# section entitled "Should I check the Pods directory into source control?" for
+# discussion. Benefits of ignoring: smaller source-control repo, no Pod merging
+# conflicts.
+Pods
