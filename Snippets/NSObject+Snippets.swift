@@ -111,8 +111,11 @@ extension NSObject {
   //----------------------------------------------------------------------------
 
   /// Associates an object with this object by *weakly* retaining it.
+  ///
+  /// Only retains non-nil objects weakly. Weakly-retaining nil retains nil
+  /// rather than strongly retaining a weak reference to nil.
   public func retainWeaklyAssociatedObject(object: AnyObject?, forKey key: String) {
-    retainAssociatedObject(WeakRef(object: object), forKey: key)
+    retainAssociatedObject(object != nil ? WeakRef(object: object) : nil, forKey: key)
   }
 
   /// - returns: a weakly-retained object, or `nil` if there is no such
