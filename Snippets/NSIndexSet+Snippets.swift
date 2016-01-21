@@ -1,6 +1,6 @@
-// SnippetsTests SnippetsTests.swift
+// Snippets NSIndexSet+Snippets.swift
 //
-// Copyright © 2015, 2016, Roy Ratcliffe, Pioneering Software, United Kingdom
+// Copyright © 2016, Roy Ratcliffe, Pioneering Software, United Kingdom
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the “Software”), to deal
@@ -22,7 +22,21 @@
 //
 //------------------------------------------------------------------------------
 
-import XCTest
-@testable import Snippets
+import Foundation
 
-class SnippetsTests: XCTestCase {}
+extension NSIndexSet {
+
+  /// - returns: an array of ranges.
+  ///
+  /// Index sets internally implement the set as a collection of NSRange
+  /// objects. Enumerates all ranges, constructing an immutable array of
+  /// ranges. Returns the result.
+  public var ranges: [NSRange] {
+    var ranges = [NSRange]()
+    enumerateRangesUsingBlock { (range, _) -> Void in
+      ranges.append(range)
+    }
+    return ranges
+  }
+
+}

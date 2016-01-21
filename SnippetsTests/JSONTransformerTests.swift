@@ -1,6 +1,6 @@
-// SnippetsTests SnippetsTests.swift
+// SnippetsTests JSONTransformerTests.swift
 //
-// Copyright © 2015, 2016, Roy Ratcliffe, Pioneering Software, United Kingdom
+// Copyright © 2016, Roy Ratcliffe, Pioneering Software, United Kingdom
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the “Software”), to deal
@@ -23,6 +23,20 @@
 //------------------------------------------------------------------------------
 
 import XCTest
-@testable import Snippets
 
-class SnippetsTests: XCTestCase {}
+class JSONTransformerTests: XCTestCase {
+
+  /// Tests transforming an array to JSON using the JSON transformer. The
+  /// transformer pretty-prints the JSON so compare against pretty JSON
+  /// output. White space makes it pretty.
+  func testArray() {
+    // given
+    let transformer = NSValueTransformer(forName: "Snippets.JSONTransformer")!
+    // when
+    let data = transformer.transformedValue([1, 2, 3]) as! NSData
+    let string = NSString(data: data, encoding: NSUTF8StringEncoding)!
+    // then
+    XCTAssertEqual(string, "[\n  1,\n  2,\n  3\n]")
+  }
+
+}

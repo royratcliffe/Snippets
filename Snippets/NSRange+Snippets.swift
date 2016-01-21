@@ -1,6 +1,6 @@
-// SnippetsTests SnippetsTests.swift
+// Snippets NSRange+Snippets.swift
 //
-// Copyright © 2015, 2016, Roy Ratcliffe, Pioneering Software, United Kingdom
+// Copyright © 2016, Roy Ratcliffe, Pioneering Software, United Kingdom
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the “Software”), to deal
@@ -22,7 +22,16 @@
 //
 //------------------------------------------------------------------------------
 
-import XCTest
-@testable import Snippets
+import Foundation
 
-class SnippetsTests: XCTestCase {}
+extension NSRange: CustomDebugStringConvertible {
+
+  /// - returns: debug description for a range, showing initial location and
+  ///   terminal exclusive boundary.
+  ///
+  /// Useful for debugging. Prints the range location and upper boundary.
+  public var debugDescription: String {
+    return "\(location)..<\(location + length))"
+  }
+
+}
