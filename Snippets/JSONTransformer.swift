@@ -58,8 +58,11 @@ public class JSONTransformer: NSValueTransformer {
     return try? NSJSONSerialization.JSONObjectWithData(value as! NSData, options: readingOptions)
   }
 
+  /// Initialises the class before it receives its first message. Use the
+  /// identity operator on the class and the receiver in order to avoid multiple
+  /// initialisations when sub-classes exist.
   public override class func initialize() {
-    guard self == JSONTransformer.self else { return }
+    guard self === JSONTransformer.self else { return }
     setValueTransformer(JSONTransformer(), forName: NSStringFromClass(self))
   }
 

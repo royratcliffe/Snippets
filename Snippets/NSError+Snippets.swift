@@ -36,7 +36,9 @@ extension NSError {
   public func log() {
     let keys = ["domain", "code", "localizedDescription", "localizedFailureReason", "localizedRecoverySuggestion"]
     var keysAndValues = keys.map { key in (key, valueForKey(key)) }.filter { (key, value) in value != nil }
-    for (key, value) in userInfo {
+    for (key, value) in userInfo.filter({ (key, _) -> Bool in
+      ![NSLocalizedDescriptionKey].contains(key)
+    }) {
       keysAndValues.append(("userInfo.\(key)", value))
     }
     let maxKeyLength = keysAndValues.map { (key, value) in key.characters.count }.maxElement() ?? 0

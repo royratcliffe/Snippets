@@ -41,7 +41,7 @@ class RandomUserTests: XCTestCase {
       XCTAssertNotNil(nationality)
       XCTAssertNotNil(results)
       XCTAssertNotNil(seed)
-      XCTAssertEqual(version, "0.7")
+      XCTAssertEqual(version, "0.8")
       XCTAssertTrue(results?.count == 1)
       expectation.fulfill()
     }

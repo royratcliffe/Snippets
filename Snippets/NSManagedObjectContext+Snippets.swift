@@ -44,14 +44,17 @@ extension NSManagedObjectContext {
   /// Implementation constructs the comparison predicate programmatically in
   /// order to avoid any issues with escaping string literals. Instead, let the
   /// `NSExpression` handle those machinations.
-  public func fetchFirst(entityName: String, by keyPath: String, value: AnyObject) throws -> AnyObject? {
+  public func fetchFirst(entityName: String,
+    by keyPath: String,
+    value: AnyObject) throws -> AnyObject?
+  {
     let request = NSFetchRequest(entityName: entityName)
-    let lhs = NSExpression(forKeyPath: keyPath)
-    let rhs = NSExpression(forConstantValue: value)
-    let modifier = NSComparisonPredicateModifier.DirectPredicateModifier
-    let type = NSPredicateOperatorType.EqualToPredicateOperatorType
-    let options: NSComparisonPredicateOptions = []
-    request.predicate = NSComparisonPredicate(leftExpression: lhs, rightExpression: rhs, modifier: modifier, type: type, options: options)
+    request.predicate = NSComparisonPredicate(
+      leftExpression: NSExpression(forKeyPath: keyPath),
+      rightExpression: NSExpression(forConstantValue: value),
+      modifier: .DirectPredicateModifier,
+      type: .EqualToPredicateOperatorType,
+      options: [])
     request.fetchLimit = 1
     return try executeFetchRequest(request).first
   }
