@@ -26,6 +26,27 @@ import Foundation
 
 extension NSIndexSet {
 
+  /// - returns: the first available range unless there are no indexes because
+  ///   the index set is empty.
+  public var firstRange: NSRange? {
+    var firstRange: NSRange?
+    enumerateRangesUsingBlock { (range, stop) -> Void in
+      firstRange = range
+      stop.memory = true
+    }
+    return firstRange
+  }
+
+  /// - returns: the last range in the index set, or `nil` if an empty set.
+  public var lastRange: NSRange? {
+    var lastRange: NSRange?
+    enumerateRangesWithOptions(.Reverse) { (range, stop) -> Void in
+      lastRange = range
+      stop.memory = true
+    }
+    return lastRange
+  }
+
   /// - returns: an array of ranges.
   ///
   /// Index sets internally implement the set as a collection of NSRange

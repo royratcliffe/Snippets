@@ -38,4 +38,31 @@ class IndexSetTests: XCTestCase {
     XCTAssertEqual(symmetricDifference, NSIndexSet(indexes: [2, 4, 7, 9]))
   }
 
+  /// Note, you cannot compare NSRange equal, i.e. assert equal, because they
+  /// are not `NSObject`s. NSRange is a `struct`. Instead, convert them to
+  /// `NSString`s and compare the strings for equality.
+  func testRanges() {
+    // given
+    let set = NSIndexSet(indexes: [1, 2, 4, 5])
+    // when
+    let ranges = set.ranges
+    // then
+    XCTAssertEqual(ranges.count, 2)
+    XCTAssertEqual(NSStringFromRange(ranges[0]), NSStringFromRange(NSMakeRange(1, 2)))
+    XCTAssertEqual(NSStringFromRange(ranges[1]), NSStringFromRange(NSMakeRange(4, 2)))
+  }
+
+  func testFirstLastRange() {
+    // given
+    let set = NSIndexSet(indexes: [0, 9])
+    // when
+    let firstRange = set.firstRange
+    let lastRange = set.lastRange
+    // then
+    XCTAssertNotNil(firstRange)
+    XCTAssertNotNil(lastRange)
+    XCTAssertEqual(NSStringFromRange(firstRange!), NSStringFromRange(NSMakeRange(0, 1)))
+    XCTAssertEqual(NSStringFromRange(lastRange!), NSStringFromRange(NSMakeRange(9, 1)))
+  }
+
 }
