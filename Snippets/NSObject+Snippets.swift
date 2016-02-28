@@ -72,30 +72,14 @@ extension NSObject {
     objc_setAssociatedObject(self, associatedObjectKey(key), object, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
   }
 
-  public var retainPolicy: objc_AssociationPolicy {
-    #if os(iOS)
-      return objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC
-    #else
-      return objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN
-    #endif
-  }
-
   /// Associates an object with this object by retaining it.
   public func retainAssociatedObject(object: AnyObject?, forKey key: String) {
-    objc_setAssociatedObject(self, associatedObjectKey(key), object, retainPolicy)
-  }
-
-  public var copyPolicy: objc_AssociationPolicy {
-    #if os(iOS)
-      return objc_AssociationPolicy.OBJC_ASSOCIATION_COPY_NONATOMIC
-    #else
-      return objc_AssociationPolicy.OBJC_ASSOCIATION_COPY
-    #endif
+    objc_setAssociatedObject(self, associatedObjectKey(key), object, objc_AssociationPolicy.associationRetain)
   }
 
   /// Associates an object with this object by copying it.
   public func copyAssociatedObject(object: AnyObject?, forKey key: String) {
-    objc_setAssociatedObject(self, associatedObjectKey(key), object, copyPolicy)
+    objc_setAssociatedObject(self, associatedObjectKey(key), object, objc_AssociationPolicy.associationCopy)
   }
 
   public func associatedObject(forKey key: String) -> AnyObject? {
