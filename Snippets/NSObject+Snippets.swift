@@ -61,7 +61,7 @@ extension NSObject {
   /// - returns: a unique void-pointer given a string. Always answers the same
   ///   void pointer for the same string. Reuses the Objective-C
   ///   selector-from-string mechanism to manufacture an atomic string, by
-  ///   default. Object classes or object instance can freely override the
+  ///   default. Object classes or object instance can freely override this
   ///   default mapping of strings to void pointers.
   public func associatedObjectKey(key: String) -> UnsafePointer<Void> {
     return unsafeBitCast(Selector(key), UnsafePointer<Void>.self)
