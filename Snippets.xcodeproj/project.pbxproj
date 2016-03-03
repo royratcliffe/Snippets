@@ -30,6 +30,7 @@
 		78A942C31C776553002C666B /* SequenceType+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A942C21C776553002C666B /* SequenceType+Snippets.swift */; };
 		78A942C51C7765AD002C666B /* SequenceTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A942C41C7765AD002C666B /* SequenceTypeTests.swift */; };
 		78B32D0E1C201B650006F003 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B32D0D1C201B650006F003 /* CoreDataTests.swift */; };
+		78B47F6D1C8088040036DBD8 /* objc_AssociationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B47F6C1C8088040036DBD8 /* objc_AssociationPolicy.swift */; };
 		78BA52DA1B8F846D00D85C33 /* Snippets.h in Headers */ = {isa = PBXBuildFile; fileRef = 78BA52D91B8F846D00D85C33 /* Snippets.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		78BA52E11B8F846D00D85C33 /* Snippets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78BA52D61B8F846D00D85C33 /* Snippets.framework */; };
 		78BA52E61B8F846D00D85C33 /* SnippetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA52E51B8F846D00D85C33 /* SnippetsTests.swift */; };
@@ -80,6 +81,7 @@
 		78A942C21C776553002C666B /* SequenceType+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SequenceType+Snippets.swift"; sourceTree = "<group>"; };
 		78A942C41C7765AD002C666B /* SequenceTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceTypeTests.swift; sourceTree = "<group>"; };
 		78B32D0D1C201B650006F003 /* CoreDataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
+		78B47F6C1C8088040036DBD8 /* objc_AssociationPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = objc_AssociationPolicy.swift; sourceTree = "<group>"; };
 		78BA52D61B8F846D00D85C33 /* Snippets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Snippets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78BA52D91B8F846D00D85C33 /* Snippets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Snippets.h; sourceTree = "<group>"; };
 		78BA52DB1B8F846D00D85C33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				783F0CBE1C1D399100FC8AF4 /* RandomUser.swift */,
 				783F0CF11C1D859800FC8AF4 /* WeakRef.swift */,
 				78D14EEE1C40DA97003DA8FB /* JSONTransformer.swift */,
+				78B47F6C1C8088040036DBD8 /* objc_AssociationPolicy.swift */,
 				78BA52DB1B8F846D00D85C33 /* Info.plist */,
 			);
 			path = Snippets;
@@ -307,6 +310,7 @@
 				783E7ECB1B9028D300227678 /* NSBundle+Snippets.swift in Sources */,
 				783F0CF21C1D859800FC8AF4 /* WeakRef.swift in Sources */,
 				78BA52F91B8F848F00D85C33 /* UIViewController+Snippets.swift in Sources */,
+				78B47F6D1C8088040036DBD8 /* objc_AssociationPolicy.swift in Sources */,
 				783E7ECA1B9028D300227678 /* Array+Snippets.swift in Sources */,
 				78C7D2BC1C5002B40051FB0A /* NSIndexSet+Snippets.swift in Sources */,
 				783E7ECE1B9028D300227678 /* UITableViewFetchedResultsController.swift in Sources */,

@@ -61,7 +61,7 @@ extension NSObject {
   /// - returns: a unique void-pointer given a string. Always answers the same
   ///   void pointer for the same string. Reuses the Objective-C
   ///   selector-from-string mechanism to manufacture an atomic string, by
-  ///   default. Object classes or object instance can freely override the
+  ///   default. Object classes or object instance can freely override this
   ///   default mapping of strings to void pointers.
   public func associatedObjectKey(key: String) -> UnsafePointer<Void> {
     return unsafeBitCast(Selector(key), UnsafePointer<Void>.self)
@@ -72,30 +72,14 @@ extension NSObject {
     objc_setAssociatedObject(self, associatedObjectKey(key), object, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
   }
 
-  public var retainPolicy: objc_AssociationPolicy {
-    #if os(iOS)
-      return objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC
-    #else
-      return objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN
-    #endif
-  }
-
   /// Associates an object with this object by retaining it.
   public func retainAssociatedObject(object: AnyObject?, forKey key: String) {
-    objc_setAssociatedObject(self, associatedObjectKey(key), object, retainPolicy)
-  }
-
-  public var copyPolicy: objc_AssociationPolicy {
-    #if os(iOS)
-      return objc_AssociationPolicy.OBJC_ASSOCIATION_COPY_NONATOMIC
-    #else
-      return objc_AssociationPolicy.OBJC_ASSOCIATION_COPY
-    #endif
+    objc_setAssociatedObject(self, associatedObjectKey(key), object, objc_AssociationPolicy.associationRetain)
   }
 
   /// Associates an object with this object by copying it.
   public func copyAssociatedObject(object: AnyObject?, forKey key: String) {
-    objc_setAssociatedObject(self, associatedObjectKey(key), object, copyPolicy)
+    objc_setAssociatedObject(self, associatedObjectKey(key), object, objc_AssociationPolicy.associationCopy)
   }
 
   public func associatedObject(forKey key: String) -> AnyObject? {
@@ -130,6 +114,19 @@ extension NSObject {
       return nil
     }
     return weakRef.object
+  }
+
+  /// Conditionally performs a given selector string using the given object as
+  /// argument. The selector string should have a colon terminator, the only
+  /// colon in the string.
+  public func perform(selectorString: String,
+    withObject object: AnyObject) -> AnyObject?
+  {
+    let selector = Selector(selectorString)
+    guard respondsToSelector(selector) else {
+      return nil
+    }
+    return performSelector(selector, withObject: object).takeRetainedValue()
   }
 
 }
