@@ -122,8 +122,7 @@ extension NSObject {
   public func perform(selectorString: String,
     withObject object: AnyObject) -> AnyObject?
   {
-    let hasColonSuffix = selectorString.hasSuffix(":")
-    let selector = hasColonSuffix ? Selector(selectorString) : Selector(selectorString + ":")
+    let selector = Selector(selectorString)
     guard respondsToSelector(selector) else {
       return nil
     }
