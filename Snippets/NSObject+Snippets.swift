@@ -116,4 +116,18 @@ extension NSObject {
     return weakRef.object
   }
 
+  /// Conditionally performs a given selector string using the given object as
+  /// argument. The selector string should have a colon terminator, the only
+  /// colon in the string.
+  public func perform(selectorString: String,
+    withObject object: AnyObject) -> AnyObject?
+  {
+    let hasColonSuffix = selectorString.hasSuffix(":")
+    let selector = hasColonSuffix ? Selector(selectorString) : Selector(selectorString + ":")
+    guard respondsToSelector(selector) else {
+      return nil
+    }
+    return performSelector(selector, withObject: object).takeRetainedValue()
+  }
+
 }
