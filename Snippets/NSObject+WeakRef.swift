@@ -1,4 +1,4 @@
-// Snippets NSObject+Snippets.swift
+// Snippets NSObject+WeakRef.swift
 //
 // Copyright © 2015, 2016, Roy Ratcliffe, Pioneering Software, United Kingdom
 //
@@ -26,45 +26,30 @@ import Foundation
 
 extension NSObject {
 
-  public class var objCRuntimePropertyNames: [String] {
-    var count: UInt32 = 0
-    var propertyNames = [String]()
-    let propertyList = class_copyPropertyList(self, &count)
-    if propertyList != nil {
-      for index in 0..<Int(count) {
-        let name = property_getName(propertyList[index])
-        propertyNames.append(NSString(UTF8String: name) as! String)
-      }
-      free(propertyList)
-    }
-    return propertyNames
+  //----------------------------------------------------------------------------
+  // MARK: - Associated Objects (Weak Ref)
+  //----------------------------------------------------------------------------
+
+  /// Associates an object with this object by *weakly* retaining it.
+  ///
+  /// Only retains non-nil objects weakly. Weakly-retaining nil retains nil
+  /// rather than strongly retaining a weak reference to nil.
+  public func retainWeaklyAssociatedObject(object: AnyObject?, forKey key: String) {
+    retainAssociatedObject(object != nil ? WeakRef(object: object) : nil, forKey: key)
   }
 
-  public var objCRuntimePropertyNames: [String] {
-    return self.dynamicType.objCRuntimePropertyNames
-  }
-
-  public var objCRuntimeProperties: [String: AnyObject] {
-    var properties = [String: AnyObject]()
-    for name in objCRuntimePropertyNames {
-      if let value = valueForKey(name) {
-        properties[name] = value
-      }
-    }
-    return properties
-  }
-
-  /// Conditionally performs a given selector string using the given object as
-  /// argument. The selector string should have a colon terminator, the only
-  /// colon in the string.
-  public func perform(selectorString: String,
-    withObject object: AnyObject) -> AnyObject?
-  {
-    let selector = Selector(selectorString)
-    guard respondsToSelector(selector) else {
+  /// - returns: a weakly-retained object, or `nil` if there is no such
+  ///   associated object or if the object has been freed.
+  ///
+  /// Importantly, the associated object gets unwrapped as a WeakRef instance,
+  /// or `nil`. Answer is `nil` unless the object really is a weak reference; it
+  /// may not be. Funny things happen to Swift otherwise. Answers `nil` if the
+  /// associated object is *not* a WeakRef instance.
+  public func weaklyAssociatedObject(forKey key: String) -> AnyObject? {
+    guard let weakRef = associatedObject(forKey: key) as? WeakRef else {
       return nil
     }
-    return performSelector(selector, withObject: object).takeRetainedValue()
+    return weakRef.object
   }
 
 }
