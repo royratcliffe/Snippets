@@ -64,4 +64,16 @@ extension NSBundle {
     return displayName.stringByDeletingPathExtension
   }
 
+  /// - parameter subpath: sub-folder within this bundle.
+  /// - returns: an array of storyboard names found in this bundle.
+  ///
+  /// Compiled storyboards have the `storyboardc` extension; `c` standing for
+  /// compiled, presumably.
+  public func storyboardNames(inDirectory subpath: String?) -> [String] {
+    return pathsForResourcesOfType("storyboardc", inDirectory: subpath).map { path in
+      let component = (path as NSString).lastPathComponent
+      return (component as NSString).stringByDeletingPathExtension
+    }
+  }
+
 }
