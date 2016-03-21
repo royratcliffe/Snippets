@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'Snippets'
-  spec.version = '0.1.7'
+  spec.version = '0.1.8'
   spec.summary = 'Snippets in Swift'
   spec.description = <<-DESCRIPTION
   A collection of Swift snippets for enhancing standard Apple frameworks. The
