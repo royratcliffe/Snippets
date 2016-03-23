@@ -67,4 +67,27 @@ extension NSObject {
     return performSelector(selector, withObject: object).takeRetainedValue()
   }
 
+  /// Sets up values for keys where the values originate from
+  /// conditionally-called captures. Only calls the captures if this object has
+  /// a corresponding setter method.
+  ///
+  /// Ignores keys which are invalid for this object. There is no key-value
+  /// coding introspection method. The implementation cannot directly ask this
+  /// class, or its sub-classes, which keys are valid and which are not
+  /// valid. Simulates key-value introspection by synthesising the setter method
+  /// selector.
+  ///
+  /// - parameter keyedValueBlocks: key-value coding names mapping to captures
+  ///   answering some object if and when called. If this object has a key-value
+  ///   coding property corresponding to the key, then ask the capture for some
+  ///   object and send the object to `self` using key-value coding.
+  public func setValuesForKeys(keyedValueBlocks: [String: () -> AnyObject]) {
+    for (key, valueBlock) in keyedValueBlocks {
+      let selector = Selector("set\(key.capitalizedString):")
+      if respondsToSelector(selector) {
+        setValue(valueBlock(), forKey: key)
+      }
+    }
+  }
+
 }
