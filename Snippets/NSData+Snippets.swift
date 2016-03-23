@@ -41,7 +41,7 @@ extension NSData {
   public var hexString: String {
     var hexString = ""
     let bytes = UnsafePointer<UInt8>(self.bytes)
-    for var index = 0; index < length; index++ {
+    for index in 0 ..< length {
       hexString += String(format: "%02hhx", arguments: [bytes[index]])
     }
     return hexString
