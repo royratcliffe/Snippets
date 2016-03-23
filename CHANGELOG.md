@@ -1,6 +1,17 @@
 # Change Log
 
-## [0.1.8](https://github.com/royratcliffe/snippets/tree/0.1.8)
+## [0.1.9](https://github.com/royratcliffe/snippets/tree/0.1.9) (2016-03-23)
+
+- Swift 2.2 deprecates postfix ++; use a generator instead
+- Core Data tests moved to ManagedObject pod
+- NSObject.setValuesForKeys method
+- Updated for Swift 2.2
+- Renamed childContext to newChildContext
+- Change log added
+
+[Full Changelog](https://github.com/royratcliffe/snippets/compare/0.1.8...0.1.9)
+
+## [0.1.8](https://github.com/royratcliffe/snippets/tree/0.1.8) (2016-03-21)
 
 - NSBundle.storyboardNames method
 - ObjectsDidChangeObserver moved to ManagedObject framework

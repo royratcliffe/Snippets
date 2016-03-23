@@ -71,11 +71,11 @@ extension UIColor {
       NSScanner(string: digitPair).scanHexInt(&result)
       return CGFloat(result) / 255.0
     }
-    var index = 0
-    let alpha = components.count == 4 ? components[index++] : 1.0
-    let red = components[index++]
-    let green = components[index++]
-    let blue = components[index]
+    var floats = components.generate()
+    let alpha = components.count == 4 ? floats.next()! : 1.0
+    let red = floats.next()!
+    let green = floats.next()!
+    let blue = floats.next()!
     return UIColor(red: red, green: green, blue: blue, alpha: alpha)
   }
 
