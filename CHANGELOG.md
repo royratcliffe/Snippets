@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.1.10](https://github.com/royratcliffe/snippets/tree/0.1.10) (2016-03-24)
+
+- NSManagedObjectContext extensions moved to ManagedObject pod
+
+[Full Changelog](https://github.com/royratcliffe/snippets/compare/0.1.9...0.1.10)
+
 ## [0.1.9](https://github.com/royratcliffe/snippets/tree/0.1.9) (2016-03-23)
 
 - Swift 2.2 deprecates postfix ++; use a generator instead
