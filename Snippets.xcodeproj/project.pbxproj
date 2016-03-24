@@ -11,7 +11,6 @@
 		783C10221C329A1000ECB907 /* UITableViewController+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C10211C329A1000ECB907 /* UITableViewController+Snippets.swift */; };
 		783E7ECA1B9028D300227678 /* Array+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E7EC41B9028D300227678 /* Array+Snippets.swift */; };
 		783E7ECB1B9028D300227678 /* NSBundle+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E7EC51B9028D300227678 /* NSBundle+Snippets.swift */; };
-		783E7ECC1B9028D300227678 /* NSManagedObjectContext+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E7EC61B9028D300227678 /* NSManagedObjectContext+Snippets.swift */; };
 		783E7ECD1B9028D300227678 /* NSObject+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E7EC71B9028D300227678 /* NSObject+Snippets.swift */; };
 		783E7ECE1B9028D300227678 /* UITableViewFetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E7EC81B9028D300227678 /* UITableViewFetchedResultsController.swift */; };
 		783E7ECF1B9028D300227678 /* UITableViewFetchedResultsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E7EC91B9028D300227678 /* UITableViewFetchedResultsDataSource.swift */; };
@@ -63,7 +62,6 @@
 		783C10211C329A1000ECB907 /* UITableViewController+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewController+Snippets.swift"; sourceTree = "<group>"; };
 		783E7EC41B9028D300227678 /* Array+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Snippets.swift"; sourceTree = "<group>"; };
 		783E7EC51B9028D300227678 /* NSBundle+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundle+Snippets.swift"; sourceTree = "<group>"; };
-		783E7EC61B9028D300227678 /* NSManagedObjectContext+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Snippets.swift"; sourceTree = "<group>"; };
 		783E7EC71B9028D300227678 /* NSObject+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Snippets.swift"; sourceTree = "<group>"; };
 		783E7EC81B9028D300227678 /* UITableViewFetchedResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewFetchedResultsController.swift; sourceTree = "<group>"; };
 		783E7EC91B9028D300227678 /* UITableViewFetchedResultsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewFetchedResultsDataSource.swift; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 				78A942C21C776553002C666B /* SequenceType+Snippets.swift */,
 				783F0CBD1C1D399100FC8AF4 /* NSData+Snippets.swift */,
 				783E7EC41B9028D300227678 /* Array+Snippets.swift */,
-				783E7EC61B9028D300227678 /* NSManagedObjectContext+Snippets.swift */,
 				783E7EC71B9028D300227678 /* NSObject+Snippets.swift */,
 				78B145A31C8D6E8A002F733B /* NSObject+AssociatedObject.swift */,
 				78B145A51C8D6EF3002F733B /* NSObject+WeakRef.swift */,
@@ -318,7 +315,6 @@
 				783E7ECA1B9028D300227678 /* Array+Snippets.swift in Sources */,
 				78C7D2BC1C5002B40051FB0A /* NSIndexSet+Snippets.swift in Sources */,
 				783E7ECE1B9028D300227678 /* UITableViewFetchedResultsController.swift in Sources */,
-				783E7ECC1B9028D300227678 /* NSManagedObjectContext+Snippets.swift in Sources */,
 				78B145A61C8D6EF3002F733B /* NSObject+WeakRef.swift in Sources */,
 				783C10201C32714800ECB907 /* UITextFieldTableViewController.swift in Sources */,
 				783F0CC11C1D399100FC8AF4 /* RandomUser.swift in Sources */,
