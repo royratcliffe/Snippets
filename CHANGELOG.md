@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.1.11](https://github.com/royratcliffe/snippets/tree/0.1.11) (2016-03-27)
+
+- ObjectFromClassName method added
+- Keep Swift extensions together within the project
+
+[Full Changelog](https://github.com/royratcliffe/snippets/compare/0.1.10...0.1.11)
+
 ## [0.1.10](https://github.com/royratcliffe/snippets/tree/0.1.10) (2016-03-24)
 
 - NSManagedObjectContext extensions moved to ManagedObject pod
