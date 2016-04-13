@@ -42,8 +42,8 @@ public struct KeyValueChange {
   ///   dictionary does not contain a change kind, or the change kind is not a
   ///   number, or that number does not match any of the enumerator values.
   public var kind: NSKeyValueChange? {
-    guard let kindNumber = change[NSKeyValueChangeKindKey] as? NSNumber,
-      let kind = NSKeyValueChange(rawValue: kindNumber.unsignedIntegerValue) else {
+    guard let rawKind = change[NSKeyValueChangeKindKey] as? NSNumber,
+      let kind = NSKeyValueChange(rawValue: rawKind.unsignedIntegerValue) else {
         return nil
     }
     return kind
