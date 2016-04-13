@@ -1,5 +1,15 @@
 # Change Log
 
+## [0.1.12](https://github.com/royratcliffe/snippets/tree/0.1.12) (2016-04-13)
+
+- Implement KeyValueChange.isPrior
+- Comment about KVO retain cycles
+- Use rawKind rather than kindNumber
+- Key-value changes and their observers
+- Added objc_getClasses method
+
+[Full Changelog](https://github.com/royratcliffe/snippets/compare/0.1.11...0.1.12)
+
 ## [0.1.11](https://github.com/royratcliffe/snippets/tree/0.1.11) (2016-03-27)
 
 - ObjectFromClassName method added
