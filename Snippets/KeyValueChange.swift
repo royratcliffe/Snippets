@@ -64,4 +64,13 @@ public struct KeyValueChange {
     return change[NSKeyValueChangeIndexesKey] as? NSIndexSet
   }
 
+  /// - returns: if the change is a prior notification or not. Returns false if
+  ///   prior notifications were not requested in the options when adding the
+  ///   observer. In such cases when there is no is-prior indication, assumes
+  ///   that the change is *not* a prior notification; priors must have an
+  ///   is-prior key-boolean pair *and* the boolean must be true.
+  public var isPrior: Bool {
+    return change[NSKeyValueChangeNotificationIsPriorKey] as? Bool ?? false
+  }
+
 }
