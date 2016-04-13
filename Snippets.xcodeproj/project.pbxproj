@@ -48,6 +48,7 @@
 		78C819001CBD01DA00959144 /* KeyValueObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C818FF1CBD01DA00959144 /* KeyValueObserver.swift */; };
 		78C819021CBD137C00959144 /* KeyValueChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C819011CBD137C00959144 /* KeyValueChange.swift */; };
 		78C819041CBD272E00959144 /* KeyValueChangeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C819031CBD272E00959144 /* KeyValueChangeHandler.swift */; };
+		78C819521CBEB46700959144 /* NSOperation+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C819511CBEB46700959144 /* NSOperation+Snippets.swift */; };
 		78D14EEF1C40DA97003DA8FB /* JSONTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D14EEE1C40DA97003DA8FB /* JSONTransformer.swift */; };
 		78D191131B90A9ED0011219C /* DispatchQueues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D191121B90A9ED0011219C /* DispatchQueues.swift */; };
 		78D191151B90AA120011219C /* DispatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D191141B90AA120011219C /* DispatchTests.swift */; };
@@ -108,6 +109,7 @@
 		78C818FF1CBD01DA00959144 /* KeyValueObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueObserver.swift; sourceTree = "<group>"; };
 		78C819011CBD137C00959144 /* KeyValueChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueChange.swift; sourceTree = "<group>"; };
 		78C819031CBD272E00959144 /* KeyValueChangeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueChangeHandler.swift; sourceTree = "<group>"; };
+		78C819511CBEB46700959144 /* NSOperation+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSOperation+Snippets.swift"; sourceTree = "<group>"; };
 		78D14EEE1C40DA97003DA8FB /* JSONTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTransformer.swift; sourceTree = "<group>"; };
 		78D191121B90A9ED0011219C /* DispatchQueues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchQueues.swift; sourceTree = "<group>"; };
 		78D191141B90AA120011219C /* DispatchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchTests.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				783E7EC51B9028D300227678 /* NSBundle+Snippets.swift */,
 				78C7D2B91C5002860051FB0A /* NSRange+Snippets.swift */,
 				78C7D2BB1C5002B40051FB0A /* NSIndexSet+Snippets.swift */,
+				78C819511CBEB46700959144 /* NSOperation+Snippets.swift */,
 				78BA52F31B8F848F00D85C33 /* UIDevice+Snippets.swift */,
 				789A9CDA1C2FFAC6003D17FA /* UIColor+Snippets.swift */,
 				78BA52F41B8F848F00D85C33 /* UIViewController+Snippets.swift */,
@@ -326,6 +329,7 @@
 				78BA52F81B8F848F00D85C33 /* UIDevice+Snippets.swift in Sources */,
 				783E7ECD1B9028D300227678 /* NSObject+Snippets.swift in Sources */,
 				785C9CC51CA7C28C00F2E872 /* ObjectFromClassName.swift in Sources */,
+				78C819521CBEB46700959144 /* NSOperation+Snippets.swift in Sources */,
 				78BA52F71B8F848F00D85C33 /* String+Snippets.swift in Sources */,
 				789A9CDB1C2FFAC6003D17FA /* UIColor+Snippets.swift in Sources */,
 				783E7ECB1B9028D300227678 /* NSBundle+Snippets.swift in Sources */,
