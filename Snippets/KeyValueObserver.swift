@@ -37,6 +37,10 @@ public class KeyValueObserver: NSObject {
   /// Retains the observed objects and observed key-paths. Used by the
   /// destructor to cleanly remove the observer from the key-value observation
   /// mechanism. Observer removal does not happen automatically or by default.
+  ///
+  /// Take care not to create retain cycles between the observer and the
+  /// observed. The observer strongly retains the observed, so the observed
+  /// should never do likewise to the observer. Otherwise, both will leak.
   var observing = [(object: NSObject, keyPath: String)]()
 
   deinit {
