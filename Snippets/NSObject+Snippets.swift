@@ -83,7 +83,8 @@ extension NSObject {
   ///   object and send the object to `self` using key-value coding.
   public func setValuesForKeys(keyedValueBlocks: [String: () -> AnyObject]) {
     for (key, valueBlock) in keyedValueBlocks {
-      let selector = Selector("set\(key.uppercaseFirstCharacterString):")
+      let index = key.startIndex.advancedBy(1)
+      let selector = Selector("set\(key.substringToIndex(index).uppercaseString)\(key.substringFromIndex(index)):")
       if respondsToSelector(selector) {
         setValue(valueBlock(), forKey: key)
       }
