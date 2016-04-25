@@ -52,6 +52,8 @@
 		78D14EEF1C40DA97003DA8FB /* JSONTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D14EEE1C40DA97003DA8FB /* JSONTransformer.swift */; };
 		78D191131B90A9ED0011219C /* DispatchQueues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D191121B90A9ED0011219C /* DispatchQueues.swift */; };
 		78D191151B90AA120011219C /* DispatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D191141B90AA120011219C /* DispatchTests.swift */; };
+		78E87EE71CC7C25700A99AF6 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E87EE61CC7C25700A99AF6 /* Configuration.swift */; };
+		78E87EE91CC7C69200A99AF6 /* ConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E87EE81CC7C69200A99AF6 /* ConfigurationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,8 @@
 		78D14EEE1C40DA97003DA8FB /* JSONTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTransformer.swift; sourceTree = "<group>"; };
 		78D191121B90A9ED0011219C /* DispatchQueues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchQueues.swift; sourceTree = "<group>"; };
 		78D191141B90AA120011219C /* DispatchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchTests.swift; sourceTree = "<group>"; };
+		78E87EE61CC7C25700A99AF6 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		78E87EE81CC7C69200A99AF6 /* ConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +185,7 @@
 				78C818FF1CBD01DA00959144 /* KeyValueObserver.swift */,
 				78C819011CBD137C00959144 /* KeyValueChange.swift */,
 				78C819031CBD272E00959144 /* KeyValueChangeHandler.swift */,
+				78E87EE61CC7C25700A99AF6 /* Configuration.swift */,
 				78D14EEE1C40DA97003DA8FB /* JSONTransformer.swift */,
 				78B47F6C1C8088040036DBD8 /* objc_AssociationPolicy.swift */,
 				785C9CC81CA7E6F800F2E872 /* objc_getClasses.swift */,
@@ -205,6 +210,7 @@
 				78D191141B90AA120011219C /* DispatchTests.swift */,
 				783F0CC31C1D399C00FC8AF4 /* RandomUserTests.swift */,
 				78601ECD1C21A7DD00F1593F /* WeakRefTests.swift */,
+				78E87EE81CC7C69200A99AF6 /* ConfigurationTests.swift */,
 				78C7D2BD1C50C8820051FB0A /* JSONTransformerTests.swift */,
 				785C9CCA1CA7E86400F2E872 /* objc_Tests.swift */,
 				78BA52E71B8F846D00D85C33 /* Info.plist */,
@@ -326,6 +332,7 @@
 				78D191131B90A9ED0011219C /* DispatchQueues.swift in Sources */,
 				785C9CC91CA7E6F800F2E872 /* objc_getClasses.swift in Sources */,
 				78C819001CBD01DA00959144 /* KeyValueObserver.swift in Sources */,
+				78E87EE71CC7C25700A99AF6 /* Configuration.swift in Sources */,
 				78BA52F81B8F848F00D85C33 /* UIDevice+Snippets.swift in Sources */,
 				783E7ECD1B9028D300227678 /* NSObject+Snippets.swift in Sources */,
 				785C9CC51CA7C28C00F2E872 /* ObjectFromClassName.swift in Sources */,
@@ -370,6 +377,7 @@
 				788071921C1697C2008C89DF /* BundleTests.swift in Sources */,
 				783F0CC41C1D399C00FC8AF4 /* RandomUserTests.swift in Sources */,
 				789480D51C69CC31007F4F2A /* IndexSetTests.swift in Sources */,
+				78E87EE91CC7C69200A99AF6 /* ConfigurationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
