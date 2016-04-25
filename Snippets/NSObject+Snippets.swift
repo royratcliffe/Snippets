@@ -81,11 +81,17 @@ extension NSObject {
   ///   answering some object if and when called. If this object has a key-value
   ///   coding property corresponding to the key, then ask the capture for some
   ///   object and send the object to `self` using key-value coding.
-  public func setValuesForKeys(keyedValueBlocks: [String: () -> AnyObject]) {
+  public func setValuesForKeys(keyedValueBlocks: [String: () -> AnyObject?]) {
     for (key, valueBlock) in keyedValueBlocks {
-      let selector = Selector("set\(key.capitalizedString):")
+      let index = key.startIndex.advancedBy(1)
+      let selector = Selector("set\(key.substringToIndex(index).uppercaseString)\(key.substringFromIndex(index)):")
       if respondsToSelector(selector) {
-        setValue(valueBlock(), forKey: key)
+        if let value = valueBlock() {
+          setValue(value, forKey: key)
+        }
+        else {
+          setNilValueForKey(key)
+        }
       }
     }
   }
