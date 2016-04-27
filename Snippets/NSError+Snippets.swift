@@ -34,17 +34,25 @@ extension NSError {
   /// The implementation pads out the error keys with spaces so that the values
   /// all start at the same column in the System Log, or debugger Console.
   public func log() {
-    let keys = ["domain", "code", "localizedDescription", "localizedFailureReason", "localizedRecoverySuggestion"]
-    var keysAndValues = keys.map { key in (key, valueForKey(key)) }.filter { (key, value) in value != nil }
+    let keys = ["domain",
+                "code",
+                "localizedDescription",
+                "localizedFailureReason",
+                "localizedRecoverySuggestion"]
+    var keysAndValues = keys.map { key in
+      (key, valueForKey(key)) }.filter { (key, value) in
+        value != nil }
     for (key, value) in userInfo.filter({ (key, _) -> Bool in
       ![NSLocalizedDescriptionKey].contains(key)
     }) {
       keysAndValues.append(("userInfo.\(key)", value))
     }
-    let maxKeyLength = keysAndValues.map { (key, value) in key.characters.count }.maxElement() ?? 0
+    let maxKeyLength = keysAndValues.map { (key, value) in
+      key.characters.count }.maxElement() ?? 0
     for (key, value) in keysAndValues {
       if let value = value {
-        let padding = "".stringByPaddingToLength(maxKeyLength - key.characters.count, withString: " ", startingAtIndex: 0)
+        let length = maxKeyLength - key.characters.count
+        let padding = "".stringByPaddingToLength(length, withString: " ", startingAtIndex: 0)
         NSLog("ERROR %@%@:%@", padding, key, String(value))
       }
     }

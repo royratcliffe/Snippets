@@ -35,8 +35,7 @@ public class UITableViewFetchedResultsController: UITableViewController, NSFetch
     // Disable error propagation.
     do {
       try fetchedResultsController.performFetch()
-    }
-    catch {
+    } catch {
       NSLog("%@", (error as NSError).localizedDescription)
       abort()
     }
@@ -55,7 +54,10 @@ public class UITableViewFetchedResultsController: UITableViewController, NSFetch
   /// key-path and cache name.
   public var fetchedResultsController: NSFetchedResultsController {
     if dataSource.fetchedResultsController == nil {
-      dataSource.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: sectionNameKeyPath, cacheName: cacheName)
+      dataSource.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                                       managedObjectContext: managedObjectContext,
+                                                                       sectionNameKeyPath: sectionNameKeyPath,
+                                                                       cacheName: cacheName)
       dataSource.fetchedResultsController.delegate = self
     }
     return dataSource.fetchedResultsController
@@ -142,7 +144,11 @@ public class UITableViewFetchedResultsController: UITableViewController, NSFetch
   //----------------------------------------------------------------------------
   // MARK: - Fetched Results Controller Delegate
 
-  public func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+  public func controller(controller: NSFetchedResultsController,
+                         didChangeObject anObject: AnyObject,
+                         atIndexPath indexPath: NSIndexPath?,
+                         forChangeType type: NSFetchedResultsChangeType,
+                         newIndexPath: NSIndexPath?) {
     switch type {
     case .Insert:
       tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)

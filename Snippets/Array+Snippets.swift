@@ -28,6 +28,7 @@ extension Array {
 
   /// Calls the given closure once for each element in this array, passing the
   /// element as the closure parameter. Useful for generating side effects.
+  /// - parameter block: Block that consumes an element.
   /// - returns: Answers this array.
   public func each(block: (Element) -> ()) -> Array {
     for element in self {

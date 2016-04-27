@@ -38,8 +38,7 @@ extension SequenceType {
       if var values = groups[group] {
         values.append(element)
         groups[group] = values
-      }
-      else {
+      } else {
         groups[group] = [element]
       }
     }

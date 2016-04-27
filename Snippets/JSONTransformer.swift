@@ -52,10 +52,10 @@ public class JSONTransformer: NSValueTransformer {
   }
 
   public override func reverseTransformedValue(value: AnyObject?) -> AnyObject? {
-    guard let value = value else {
+    guard let value = value as? NSData else {
       return nil
     }
-    return try? NSJSONSerialization.JSONObjectWithData(value as! NSData, options: readingOptions)
+    return try? NSJSONSerialization.JSONObjectWithData(value, options: readingOptions)
   }
 
   /// Initialises the class before it receives its first message. Use the

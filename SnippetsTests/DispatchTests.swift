@@ -28,7 +28,7 @@ import XCTest
 class DispatchTests: XCTestCase {
 
   func testDispatchMainQueue() {
-    XCTAssertTrue(DispatchMainQueue === dispatch_get_main_queue())
+    XCTAssertTrue(dispatchMainQueue === dispatch_get_main_queue())
   }
 
 }

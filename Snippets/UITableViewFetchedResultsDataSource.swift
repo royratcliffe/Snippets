@@ -32,6 +32,7 @@ public class UITableViewFetchedResultsDataSource: NSObject, UITableViewDataSourc
   public var configureCellForObjectBlock: ((cell: UITableViewCell, object: NSManagedObject) -> Void)!
 
   public func objectAtIndexPath(indexPath: NSIndexPath) -> NSManagedObject {
+    // swiftlint:disable:next force_cast
     return fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
   }
   public func cellIdentifierForRow(indexPath: NSIndexPath) -> String {
@@ -45,8 +46,7 @@ public class UITableViewFetchedResultsDataSource: NSObject, UITableViewDataSourc
   public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let sections = fetchedResultsController.sections {
       return sections[section].numberOfObjects
-    }
-    else {
+    } else {
       // There are no sections, only one section for everything. In that case,
       // use the context and fetch request to count everything. Log any errors.
       let context = fetchedResultsController.managedObjectContext
@@ -97,8 +97,7 @@ public class UITableViewFetchedResultsDataSource: NSObject, UITableViewDataSourc
   public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     if let sections = fetchedResultsController.sections {
       return sections.count
-    }
-    else {
+    } else {
       return 1
     }
   }
@@ -106,8 +105,7 @@ public class UITableViewFetchedResultsDataSource: NSObject, UITableViewDataSourc
   public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     if let sections = fetchedResultsController.sections {
       return sections[section].name
-    }
-    else {
+    } else {
       return nil
     }
   }

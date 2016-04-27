@@ -24,22 +24,22 @@
 
 import Foundation
 
-public var DispatchMainQueue: dispatch_queue_t {
+public var dispatchMainQueue: dispatch_queue_t {
   return dispatch_get_main_queue()
 }
 
-public var DispatchUserInteractiveQueue: dispatch_queue_t {
+public var dispatchUserInteractiveQueue: dispatch_queue_t {
   return dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0)
 }
 
-public var DispatchUserInitiatedQueue: dispatch_queue_t {
+public var dispatchUserInitiatedQueue: dispatch_queue_t {
   return dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)
 }
 
-public var DispatchUtilityQueue: dispatch_queue_t {
+public var dispatchUtilityQueue: dispatch_queue_t {
   return dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)
 }
 
-public var DispatchBackgroundQueue: dispatch_queue_t {
+public var dispatchBackgroundQueue: dispatch_queue_t {
   return dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
 }
