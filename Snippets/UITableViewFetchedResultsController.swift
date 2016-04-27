@@ -55,7 +55,10 @@ public class UITableViewFetchedResultsController: UITableViewController, NSFetch
   /// key-path and cache name.
   public var fetchedResultsController: NSFetchedResultsController {
     if dataSource.fetchedResultsController == nil {
-      dataSource.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: sectionNameKeyPath, cacheName: cacheName)
+      dataSource.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                                       managedObjectContext: managedObjectContext,
+                                                                       sectionNameKeyPath: sectionNameKeyPath,
+                                                                       cacheName: cacheName)
       dataSource.fetchedResultsController.delegate = self
     }
     return dataSource.fetchedResultsController
