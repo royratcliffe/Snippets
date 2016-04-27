@@ -1,5 +1,43 @@
 # Change Log
 
+## [0.1.14](https://github.com/royratcliffe/snippets/tree/0.1.14) (2016-04-27)
+
+[swiftlint]:https://github.com/realm/SwiftLint
+
+Snippets now conform to [SwiftLint][swiftlint] rules with only minor
+exceptions. SwiftLint automatically runs at end of build.
+
+- Clean up Pod description whitespace
+- Changelog -> Change Log
+- Upgrade random-user API to version 1.0
+- Merge branch 'feature/swift_lint' into develop
+- Document block parameter; prevent valid_docs Lint violation
+- Accept some Lint violations
+- Fixed another statement position Lint-violation
+- Replaced legacy constructors
+- Fix statement position violations
+- Open braces moved to end-of-line
+- Warn at 150 columns; disable documentation rules
+- Split up long line
+- Removed trailing semi-colon
+- Run swiftlint at end of build
+- Variable names begin with lowercase letters
+- Shorten long lines
+- Avoid as-bang (as!)
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.1.13...0.1.14)
+
+## [0.1.13](https://github.com/royratcliffe/snippets/tree/0.1.13) (2016-04-25)
+
+- Configuration using keyed value-blocks
+- Allow nil block returns when setting values for keys
+- Use uppercaseString on substring
+- FIX: capitalised string lower-cases everything but the first character
+- String methods firstCharacterString and uppercaseFirstCharacterString
+- NSOperation.cancelledDependencies method
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.1.12...0.1.13)
+
 ## [0.1.12](https://github.com/royratcliffe/snippets/tree/0.1.12) (2016-04-13)
 
 - Implement KeyValueChange.isPrior
@@ -8,20 +46,20 @@
 - Key-value changes and their observers
 - Added objc_getClasses method
 
-[Full Changelog](https://github.com/royratcliffe/snippets/compare/0.1.11...0.1.12)
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.1.11...0.1.12)
 
 ## [0.1.11](https://github.com/royratcliffe/snippets/tree/0.1.11) (2016-03-27)
 
 - ObjectFromClassName method added
 - Keep Swift extensions together within the project
 
-[Full Changelog](https://github.com/royratcliffe/snippets/compare/0.1.10...0.1.11)
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.1.10...0.1.11)
 
 ## [0.1.10](https://github.com/royratcliffe/snippets/tree/0.1.10) (2016-03-24)
 
 - NSManagedObjectContext extensions moved to ManagedObject pod
 
-[Full Changelog](https://github.com/royratcliffe/snippets/compare/0.1.9...0.1.10)
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.1.9...0.1.10)
 
 ## [0.1.9](https://github.com/royratcliffe/snippets/tree/0.1.9) (2016-03-23)
 
@@ -32,7 +70,7 @@
 - Renamed childContext to newChildContext
 - Change log added
 
-[Full Changelog](https://github.com/royratcliffe/snippets/compare/0.1.8...0.1.9)
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.1.8...0.1.9)
 
 ## [0.1.8](https://github.com/royratcliffe/snippets/tree/0.1.8) (2016-03-21)
 
@@ -41,7 +79,7 @@
 - ObjectsDidChangeObserver class added
 - Give associated-object extensions their own sources
 
-[Full Changelog](https://github.com/royratcliffe/snippets/compare/0.1.7...0.1.8)
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.1.7...0.1.8)
 
 ## [0.1.7](https://github.com/royratcliffe/snippets/tree/0.1.7) (2016-03-03)
 
@@ -52,7 +90,7 @@
 - Add objc_AssociationPolicy extension to project
 - objc_AssociationPolicy extension
 
-[Full Changelog](https://github.com/royratcliffe/snippets/compare/0.1.6...0.1.7)
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.1.6...0.1.7)
 
 ## [0.1.6](https://github.com/royratcliffe/snippets/tree/0.1.6) (2016-02-19)
 
@@ -64,7 +102,7 @@
 - Use identity operator when comparing class self
 - NSIndexSet union, intersect and symmetricDifference methods added
 
-[Full Changelog](https://github.com/royratcliffe/snippets/compare/0.1.5...0.1.6)
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.1.5...0.1.6)
 
 ## [0.1.5](https://github.com/royratcliffe/snippets/tree/0.1.5) (2016-01-21)
 
@@ -75,7 +113,7 @@
 - Index-set snippets
 - Range snippets
 
-[Full Changelog](https://github.com/royratcliffe/snippets/compare/0.1.4...0.1.5)
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.1.4...0.1.5)
 
 ## [0.1.4](https://github.com/royratcliffe/snippets/tree/0.1.4) (2015-12-29)
 
@@ -83,7 +121,7 @@
 - First responder tag is public
 - UITableViewController.selectRowAtIndexPath method
 
-[Full Changelog](https://github.com/royratcliffe/snippets/compare/0.1.3...0.1.4)
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.1.3...0.1.4)
 
 ## [0.1.3](https://github.com/royratcliffe/snippets/tree/0.1.3) (2015-12-29)
 
@@ -93,14 +131,14 @@
 - Tests for NSError
 - Right-justify error keys
 
-[Full Changelog](https://github.com/royratcliffe/snippets/compare/0.1.2...0.1.3)
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.1.2...0.1.3)
 
 ## [0.1.2](https://github.com/royratcliffe/snippets/tree/0.1.2) (2015-12-27)
 
 - UIColor.fromHTML(string) implementation
 - Associated objects, including weakly retained
 
-[Full Changelog](https://github.com/royratcliffe/snippets/compare/0.1.1...0.1.2)
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.1.1...0.1.2)
 
 ## [0.1.1](https://github.com/royratcliffe/snippets/tree/0.1.1) (2015-12-16)
 
@@ -130,7 +168,7 @@
 - Tidying up
 - Dispatch queues
 
-[Full Changelog](https://github.com/royratcliffe/snippets/compare/0.1.0...0.1.1)
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.1.0...0.1.1)
 
 ## [0.1.0](https://github.com/royratcliffe/snippets/tree/0.1.0) (2015-12-11)
 

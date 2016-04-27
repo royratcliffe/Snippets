@@ -48,8 +48,8 @@ class IndexSetTests: XCTestCase {
     let ranges = set.ranges
     // then
     XCTAssertEqual(ranges.count, 2)
-    XCTAssertEqual(NSStringFromRange(ranges[0]), NSStringFromRange(NSMakeRange(1, 2)))
-    XCTAssertEqual(NSStringFromRange(ranges[1]), NSStringFromRange(NSMakeRange(4, 2)))
+    XCTAssertEqual(NSStringFromRange(ranges[0]), NSStringFromRange(NSRange(location: 1, length: 2)))
+    XCTAssertEqual(NSStringFromRange(ranges[1]), NSStringFromRange(NSRange(location: 4, length: 2)))
   }
 
   func testFirstLastRange() {
@@ -61,8 +61,8 @@ class IndexSetTests: XCTestCase {
     // then
     XCTAssertNotNil(firstRange)
     XCTAssertNotNil(lastRange)
-    XCTAssertEqual(NSStringFromRange(firstRange!), NSStringFromRange(NSMakeRange(0, 1)))
-    XCTAssertEqual(NSStringFromRange(lastRange!), NSStringFromRange(NSMakeRange(9, 1)))
+    XCTAssertEqual(NSStringFromRange(firstRange!), NSStringFromRange(NSRange(location: 0, length: 1)))
+    XCTAssertEqual(NSStringFromRange(lastRange!), NSStringFromRange(NSRange(location: 9, length: 1)))
   }
 
 }

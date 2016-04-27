@@ -54,6 +54,7 @@ class ConfigurationTests: XCTestCase {
 
   func testConfigureObject() {
     // and given
+    // swiftlint:disable:next nesting
     class Object: NSObject {
       @objc var configuration: Configuration?
     }

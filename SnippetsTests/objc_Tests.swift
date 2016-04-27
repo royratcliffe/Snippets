@@ -25,6 +25,7 @@
 import XCTest
 import Snippets
 
+// swiftlint:disable:next type_name
 class objc_Tests: XCTestCase {
 
   func testClassNames() {

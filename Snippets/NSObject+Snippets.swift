@@ -33,6 +33,7 @@ extension NSObject {
     if propertyList != nil {
       for index in 0..<Int(count) {
         let name = property_getName(propertyList[index])
+        // swiftlint:disable:next force_cast
         propertyNames.append(NSString(UTF8String: name) as! String)
       }
       free(propertyList)
@@ -58,8 +59,7 @@ extension NSObject {
   /// argument. The selector string should have a colon terminator, the only
   /// colon in the string.
   public func perform(selectorString: String,
-    withObject object: AnyObject) -> AnyObject?
-  {
+    withObject object: AnyObject) -> AnyObject? {
     let selector = Selector(selectorString)
     guard respondsToSelector(selector) else {
       return nil
@@ -88,8 +88,7 @@ extension NSObject {
       if respondsToSelector(selector) {
         if let value = valueBlock() {
           setValue(value, forKey: key)
-        }
-        else {
+        } else {
           setNilValueForKey(key)
         }
       }

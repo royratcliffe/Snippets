@@ -34,14 +34,15 @@ class RandomUserTests: XCTestCase {
 
     // when
     randomUser.get { (randomUser) -> Void in
-      let nationality = randomUser["nationality"] as? String
       let results = randomUser["results"] as? [NSDictionary]
-      let seed = randomUser["seed"] as? String
-      let version = randomUser["version"] as? String
-      XCTAssertNotNil(nationality)
+      let nat = results?.first?["nat"] as? String
+      let info = randomUser["info"] as? NSDictionary
+      let seed = info?["seed"] as? String
+      let version = info?["version"] as? String
+      XCTAssertNotNil(nat)
       XCTAssertNotNil(results)
       XCTAssertNotNil(seed)
-      XCTAssertEqual(version, "0.8")
+      XCTAssertEqual(version, "1.0")
       XCTAssertTrue(results?.count == 1)
       expectation.fulfill()
     }
@@ -88,9 +89,10 @@ class RandomUserTests: XCTestCase {
     // when
     randomUser.nat = "GB"
     randomUser.get { (randomUser) -> Void in
-      let nationality = randomUser["nationality"] as? String
-      XCTAssertNotNil(nationality)
-      XCTAssertEqual(nationality, "GB")
+      let results = randomUser["results"] as? [NSDictionary]
+      let nat = results?.first?["nat"] as? String
+      XCTAssertNotNil(nat)
+      XCTAssertEqual(nat, "GB")
       expectation.fulfill()
     }
 

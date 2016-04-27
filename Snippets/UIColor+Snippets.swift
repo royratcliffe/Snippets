@@ -38,12 +38,11 @@ extension UIColor {
     var expression: NSRegularExpression
     do {
       expression = try NSRegularExpression(pattern: "[0-9a-f]", options: .CaseInsensitive)
-    }
-    catch {
+    } catch {
       (error as NSError).log()
       abort()
     }
-    let range = NSMakeRange(0, string.characters.count)
+    let range = NSRange(location: 0, length: string.characters.count)
     let matches = expression.matchesInString(string, options: [], range: range)
     let digits = matches.map { (match) -> String in
       (string as NSString).substringWithRange(match.range)
@@ -64,7 +63,7 @@ extension UIColor {
       return nil
     }
     let components = digitPairs.map { (digitPair) -> CGFloat in
-      var result: UInt32 = 0;
+      var result: UInt32 = 0
       // Ignore the fact that the scanner can answer false. It never will
       // because we already know that the scanner will always see hexadecimal,
       // nothing more, nothing less.

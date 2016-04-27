@@ -93,7 +93,7 @@ public class UITextFieldTableViewController: UITableViewController, UITextFieldD
   //----------------------------------------------------------------------------
 
   public func textFieldDidBeginEditing(textField: UITextField) {
-    if let indexPath = tableView.indexPathForRowAtPoint(textField.convertPoint(CGPointZero, toView: tableView)) {
+    if let indexPath = tableView.indexPathForRowAtPoint(textField.convertPoint(CGPoint.zero, toView: tableView)) {
       if indexPath != tableView.indexPathForSelectedRow {
         tableView.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: .None)
       }
