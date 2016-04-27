@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78064E2B1CD10EE200A8224F /* NSTimeInterval+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78064E2A1CD10EE200A8224F /* NSTimeInterval+Snippets.swift */; };
 		783C10201C32714800ECB907 /* UITextFieldTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C101F1C32714800ECB907 /* UITextFieldTableViewController.swift */; };
 		783C10221C329A1000ECB907 /* UITableViewController+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C10211C329A1000ECB907 /* UITableViewController+Snippets.swift */; };
 		783E7ECA1B9028D300227678 /* Array+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E7EC41B9028D300227678 /* Array+Snippets.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		78064E2A1CD10EE200A8224F /* NSTimeInterval+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "NSTimeInterval+Snippets.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		783C101F1C32714800ECB907 /* UITextFieldTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldTableViewController.swift; sourceTree = "<group>"; };
 		783C10211C329A1000ECB907 /* UITableViewController+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewController+Snippets.swift"; sourceTree = "<group>"; };
 		783E7EC41B9028D300227678 /* Array+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Snippets.swift"; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				78BA52F21B8F848F00D85C33 /* String+Snippets.swift */,
 				78A942C21C776553002C666B /* SequenceType+Snippets.swift */,
 				783E7EC41B9028D300227678 /* Array+Snippets.swift */,
+				78064E2A1CD10EE200A8224F /* NSTimeInterval+Snippets.swift */,
 				783F0CBD1C1D399100FC8AF4 /* NSData+Snippets.swift */,
 				783E7EC71B9028D300227678 /* NSObject+Snippets.swift */,
 				78B145A31C8D6E8A002F733B /* NSObject+AssociatedObject.swift */,
@@ -358,6 +361,7 @@
 				789A9CDB1C2FFAC6003D17FA /* UIColor+Snippets.swift in Sources */,
 				783E7ECB1B9028D300227678 /* NSBundle+Snippets.swift in Sources */,
 				783F0CF21C1D859800FC8AF4 /* WeakRef.swift in Sources */,
+				78064E2B1CD10EE200A8224F /* NSTimeInterval+Snippets.swift in Sources */,
 				78BA52F91B8F848F00D85C33 /* UIViewController+Snippets.swift in Sources */,
 				78B47F6D1C8088040036DBD8 /* objc_AssociationPolicy.swift in Sources */,
 				78B145A41C8D6E8A002F733B /* NSObject+AssociatedObject.swift in Sources */,
