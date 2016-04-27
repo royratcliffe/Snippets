@@ -1,5 +1,16 @@
 # Change Log
 
+## [0.1.13](https://github.com/royratcliffe/snippets/tree/0.1.13) (2016-04-25)
+
+- Configuration using keyed value-blocks
+- Allow nil block returns when setting values for keys
+- Use uppercaseString on substring
+- FIX: capitalised string lower-cases everything but the first character
+- String methods firstCharacterString and uppercaseFirstCharacterString
+- NSOperation.cancelledDependencies method
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.1.12...0.1.13)
+
 ## [0.1.12](https://github.com/royratcliffe/snippets/tree/0.1.12) (2016-04-13)
 
 - Implement KeyValueChange.isPrior
