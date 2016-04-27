@@ -58,8 +58,7 @@ extension NSObject {
   /// argument. The selector string should have a colon terminator, the only
   /// colon in the string.
   public func perform(selectorString: String,
-    withObject object: AnyObject) -> AnyObject?
-  {
+    withObject object: AnyObject) -> AnyObject? {
     let selector = Selector(selectorString)
     guard respondsToSelector(selector) else {
       return nil

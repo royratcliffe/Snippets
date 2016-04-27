@@ -49,8 +49,7 @@ extension UIViewController {
   /// belonging to a parent container. Content views join the container's view
   /// hierarchy.
   public func displayContentController(content: UIViewController,
-    frameForContent: ((UIView) -> CGRect)? = nil)
-  {
+                                       frameForContent: ((UIView) -> CGRect)? = nil) {
     addChildViewController(content)
     if let frameForContent = frameForContent {
       content.view.frame = frameForContent(view)
@@ -71,12 +70,11 @@ extension UIViewController {
   /// content view controller from the parent view controller when animation
   /// finishes.
   public func cycleFromContentController(content: UIViewController,
-    toContentController newContent: UIViewController,
-    duration: NSTimeInterval,
-    options: UIViewAnimationOptions,
-    newContentStartFrame: CGRect?,
-    contentEndFrame: CGRect?)
-  {
+                                         toContentController newContent: UIViewController,
+                                         duration: NSTimeInterval,
+                                         options: UIViewAnimationOptions,
+                                         newContentStartFrame: CGRect?,
+                                         contentEndFrame: CGRect?) {
     content.willMoveToParentViewController(nil)
     addChildViewController(newContent)
     if let frame = newContentStartFrame {
@@ -102,12 +100,11 @@ extension UIViewController {
   /// exist; hides if only the outgoing controller exists; or displays if only
   /// the incoming controller exists.
   public func cycleFromContentController(content: UIViewController?,
-    toContentController newContent: UIViewController?,
-    duration: NSTimeInterval,
-    options: UIViewAnimationOptions,
-    newContentStartFrame: CGRect?,
-    contentEndFrame: CGRect?)
-  {
+                                         toContentController newContent: UIViewController?,
+                                         duration: NSTimeInterval,
+                                         options: UIViewAnimationOptions,
+                                         newContentStartFrame: CGRect?,
+                                         contentEndFrame: CGRect?) {
     if let content = content {
       if let newContent = newContent {
         cycleFromContentController(content,
