@@ -35,8 +35,7 @@ public class UITableViewFetchedResultsController: UITableViewController, NSFetch
     // Disable error propagation.
     do {
       try fetchedResultsController.performFetch()
-    }
-    catch {
+    } catch {
       NSLog("%@", (error as NSError).localizedDescription)
       abort()
     }

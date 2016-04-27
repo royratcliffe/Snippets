@@ -113,12 +113,10 @@ extension UIViewController {
           options: options,
           newContentStartFrame: newContentStartFrame,
           contentEndFrame: contentEndFrame)
-      }
-      else {
+      } else {
         hideContentController(content)
       }
-    }
-    else {
+    } else {
       if let newContent = newContent {
         displayContentController(newContent)
       }

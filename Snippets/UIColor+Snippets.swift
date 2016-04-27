@@ -38,8 +38,7 @@ extension UIColor {
     var expression: NSRegularExpression
     do {
       expression = try NSRegularExpression(pattern: "[0-9a-f]", options: .CaseInsensitive)
-    }
-    catch {
+    } catch {
       (error as NSError).log()
       abort()
     }
