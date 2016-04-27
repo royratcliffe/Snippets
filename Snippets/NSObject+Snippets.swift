@@ -87,8 +87,7 @@ extension NSObject {
       if respondsToSelector(selector) {
         if let value = valueBlock() {
           setValue(value, forKey: key)
-        }
-        else {
+        } else {
           setNilValueForKey(key)
         }
       }
