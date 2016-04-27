@@ -1,5 +1,32 @@
 # Change Log
 
+## [0.1.14](https://github.com/royratcliffe/snippets/tree/0.1.14) (2016-04-27)
+
+[swiftlint]:https://github.com/realm/SwiftLint
+
+Snippets now conform to [SwiftLint][swiftlint] rules with only minor
+exceptions. SwiftLint automatically runs at end of build.
+
+- Clean up Pod description whitespace
+- Changelog -> Change Log
+- Upgrade random-user API to version 1.0
+- Merge branch 'feature/swift_lint' into develop
+- Document block parameter; prevent valid_docs Lint violation
+- Accept some Lint violations
+- Fixed another statement position Lint-violation
+- Replaced legacy constructors
+- Fix statement position violations
+- Open braces moved to end-of-line
+- Warn at 150 columns; disable documentation rules
+- Split up long line
+- Removed trailing semi-colon
+- Run swiftlint at end of build
+- Variable names begin with lowercase letters
+- Shorten long lines
+- Avoid as-bang (as!)
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.1.13...0.1.14)
+
 ## [0.1.13](https://github.com/royratcliffe/snippets/tree/0.1.13) (2016-04-25)
 
 - Configuration using keyed value-blocks
