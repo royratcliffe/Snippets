@@ -42,7 +42,7 @@ extension UIColor {
       (error as NSError).log()
       abort()
     }
-    let range = NSMakeRange(0, string.characters.count)
+    let range = NSRange(location: 0, length: string.characters.count)
     let matches = expression.matchesInString(string, options: [], range: range)
     let digits = matches.map { (match) -> String in
       (string as NSString).substringWithRange(match.range)
