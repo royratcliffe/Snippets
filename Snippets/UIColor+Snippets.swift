@@ -64,7 +64,7 @@ extension UIColor {
       return nil
     }
     let components = digitPairs.map { (digitPair) -> CGFloat in
-      var result: UInt32 = 0;
+      var result: UInt32 = 0
       // Ignore the fact that the scanner can answer false. It never will
       // because we already know that the scanner will always see hexadecimal,
       // nothing more, nothing less.
