@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.1.15](https://github.com/royratcliffe/snippets/tree/0.1.15) (2016-04-27)
+
+Adds NSTimeInterval extensions.
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.1.14...0.1.15)
+
 ## [0.1.14](https://github.com/royratcliffe/snippets/tree/0.1.14) (2016-04-27)
 
 [swiftlint]:https://github.com/realm/SwiftLint
