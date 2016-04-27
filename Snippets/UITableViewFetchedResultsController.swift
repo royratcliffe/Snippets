@@ -145,7 +145,11 @@ public class UITableViewFetchedResultsController: UITableViewController, NSFetch
   //----------------------------------------------------------------------------
   // MARK: - Fetched Results Controller Delegate
 
-  public func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+  public func controller(controller: NSFetchedResultsController,
+                         didChangeObject anObject: AnyObject,
+                         atIndexPath indexPath: NSIndexPath?,
+                         forChangeType type: NSFetchedResultsChangeType,
+                         newIndexPath: NSIndexPath?) {
     switch type {
     case .Insert:
       tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
