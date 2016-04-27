@@ -70,6 +70,7 @@ extension UIViewController {
   /// content view controller from the parent view controller when animation
   /// finishes.
   public func cycleFromContentController(content: UIViewController,
+                                         // swiftlint:disable:previous function_parameter_count
                                          toContentController newContent: UIViewController,
                                          duration: NSTimeInterval,
                                          options: UIViewAnimationOptions,
@@ -100,6 +101,7 @@ extension UIViewController {
   /// exist; hides if only the outgoing controller exists; or displays if only
   /// the incoming controller exists.
   public func cycleFromContentController(content: UIViewController?,
+                                         // swiftlint:disable:previous function_parameter_count
                                          toContentController newContent: UIViewController?,
                                          duration: NSTimeInterval,
                                          options: UIViewAnimationOptions,

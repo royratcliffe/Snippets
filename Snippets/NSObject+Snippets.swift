@@ -33,6 +33,7 @@ extension NSObject {
     if propertyList != nil {
       for index in 0..<Int(count) {
         let name = property_getName(propertyList[index])
+        // swiftlint:disable:next force_cast
         propertyNames.append(NSString(UTF8String: name) as! String)
       }
       free(propertyList)

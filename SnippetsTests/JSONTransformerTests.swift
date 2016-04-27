@@ -33,6 +33,7 @@ class JSONTransformerTests: XCTestCase {
     // given
     let transformer = NSValueTransformer(forName: "Snippets.JSONTransformer")!
     // when
+    // swiftlint:disable:next force_cast
     let data = transformer.transformedValue([1, 2, 3]) as! NSData
     let string = NSString(data: data, encoding: NSUTF8StringEncoding)!
     // then

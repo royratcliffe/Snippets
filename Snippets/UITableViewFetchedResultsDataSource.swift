@@ -32,6 +32,7 @@ public class UITableViewFetchedResultsDataSource: NSObject, UITableViewDataSourc
   public var configureCellForObjectBlock: ((cell: UITableViewCell, object: NSManagedObject) -> Void)!
 
   public func objectAtIndexPath(indexPath: NSIndexPath) -> NSManagedObject {
+    // swiftlint:disable:next force_cast
     return fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
   }
   public func cellIdentifierForRow(indexPath: NSIndexPath) -> String {
