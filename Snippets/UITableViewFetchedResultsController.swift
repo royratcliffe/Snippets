@@ -44,7 +44,10 @@ public class UITableViewFetchedResultsController: UITableViewController, NSFetch
   //----------------------------------------------------------------------------
   // MARK: - UI Table View Fetched Results Data Source
 
-  let dataSource = UITableViewFetchedResultsDataSource()
+  /// Gives public access to the data-source object so that controller
+  /// sub-classes can access the data source and set up blocks for mapping rows
+  /// to cell identifiers and configuring table cells using managed objects.
+  public let dataSource = UITableViewFetchedResultsDataSource()
 
   // Delegate to the embedded data source.
 
