@@ -1,5 +1,14 @@
 # Change Log
 
+## [0.1.16](https://github.com/royratcliffe/snippets/tree/0.1.16) (2016-05-10)
+
+- Switch off conditional binding cascade nags
+- Make observeValueForKeyPath public for overriding
+- Table-view fetched-results controller has *public* data source
+- Adjust indents
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.1.15...0.1.16)
+
 ## [0.1.15](https://github.com/royratcliffe/snippets/tree/0.1.15) (2016-04-27)
 
 Adds NSTimeInterval extensions.
