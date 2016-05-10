@@ -35,9 +35,9 @@ public class KeyValueChangeHandler: KeyValueObserver {
     self.block = block
   }
 
-  override func observeValueForKeyPath(keyPath: String,
-                                       ofObject object: NSObject,
-                                                change: KeyValueChange) {
+  public override func observeValueForKeyPath(keyPath: String,
+                                              ofObject object: NSObject,
+                                                       change: KeyValueChange) {
     block(keyPath: keyPath, object: object, change: change)
   }
 

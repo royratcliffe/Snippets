@@ -89,7 +89,7 @@ public class KeyValueObserver: NSObject {
   }
 
   /// Sub-classes override this method.
-  func observeValueForKeyPath(keyPath: String, ofObject object: NSObject, change: KeyValueChange) {}
+  public func observeValueForKeyPath(keyPath: String, ofObject object: NSObject, change: KeyValueChange) {}
 
   //----------------------------------------------------------------------------
   // MARK: - NSObject Overrides
