@@ -81,18 +81,25 @@ extension NSObject {
   ///   answering some object if and when called. If this object has a key-value
   ///   coding property corresponding to the key, then ask the capture for some
   ///   object and send the object to `self` using key-value coding.
-  public func setValuesForKeys(keyedValueBlocks: [String: () -> AnyObject?]) {
+  /// - returns: number of values set. This includes only non-nil values, even
+  ///   though nil values are transferred to the object as well. Useful for
+  ///   knowing if the object responds to the value blocks or not. Answer zero
+  ///   if no transfer of values at all.
+  public func setValuesForKeys(keyedValueBlocks: [String: () -> AnyObject?]) -> Int {
+    var result = 0
     for (key, valueBlock) in keyedValueBlocks {
       let index = key.startIndex.advancedBy(1)
       let selector = Selector("set\(key.substringToIndex(index).uppercaseString)\(key.substringFromIndex(index)):")
       if respondsToSelector(selector) {
         if let value = valueBlock() {
           setValue(value, forKey: key)
+          result += 1
         } else {
           setNilValueForKey(key)
         }
       }
     }
+    return result
   }
 
 }

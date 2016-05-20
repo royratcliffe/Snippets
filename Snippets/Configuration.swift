@@ -47,8 +47,10 @@ public class Configuration: NSObject {
   /// Configures the given object. Results in a sequence of zero or more
   /// key-value coding (KVC) set-value or set-nil-value calls for zero or more
   /// setter-responding keys.
-  public func configure(object: NSObject) {
-    object.setValuesForKeys(keyedValueBlocks)
+  /// - parameter object: KVC-compliant object to receive new values.
+  /// - returns: Total number of non-nil values transferred to the object.
+  public func configure(object: NSObject) -> Int {
+    return object.setValuesForKeys(keyedValueBlocks)
   }
 
 }
