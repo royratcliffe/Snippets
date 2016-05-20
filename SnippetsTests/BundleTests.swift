@@ -35,7 +35,7 @@ class BundleTests: XCTestCase {
     let displayName = mainBundle.displayName
 
     // then
-    XCTAssertEqual(displayName, "Agents")
+    XCTAssertTrue(["Agents", "bin"].contains(displayName))
   }
 
 }

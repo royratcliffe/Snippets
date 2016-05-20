@@ -1,5 +1,14 @@
 # Change Log
 
+## [0.1.17](https://github.com/royratcliffe/snippets/tree/0.1.17) (2016-05-20)
+
+- NSObject.setValuesForKeys answers Int
+- Travis gives "bin" as the display name
+- Share the scheme, for Travis
+- Travis configuration
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.1.16...0.1.17)
+
 ## [0.1.16](https://github.com/royratcliffe/snippets/tree/0.1.16) (2016-05-10)
 
 - Switch off conditional binding cascade nags
