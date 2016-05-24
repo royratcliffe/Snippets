@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		78064E2B1CD10EE200A8224F /* NSTimeInterval+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78064E2A1CD10EE200A8224F /* NSTimeInterval+Snippets.swift */; };
+		783892D41CF4420100D005D4 /* SequenceType+Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783892D31CF4420100D005D4 /* SequenceType+Bool.swift */; };
 		783C10201C32714800ECB907 /* UITextFieldTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C101F1C32714800ECB907 /* UITextFieldTableViewController.swift */; };
 		783C10221C329A1000ECB907 /* UITableViewController+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C10211C329A1000ECB907 /* UITableViewController+Snippets.swift */; };
 		783E7ECA1B9028D300227678 /* Array+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E7EC41B9028D300227678 /* Array+Snippets.swift */; };
@@ -69,6 +70,7 @@
 
 /* Begin PBXFileReference section */
 		78064E2A1CD10EE200A8224F /* NSTimeInterval+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "NSTimeInterval+Snippets.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		783892D31CF4420100D005D4 /* SequenceType+Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SequenceType+Bool.swift"; sourceTree = "<group>"; };
 		783C101F1C32714800ECB907 /* UITextFieldTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldTableViewController.swift; sourceTree = "<group>"; };
 		783C10211C329A1000ECB907 /* UITableViewController+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewController+Snippets.swift"; sourceTree = "<group>"; };
 		783E7EC41B9028D300227678 /* Array+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Snippets.swift"; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				78BA52D91B8F846D00D85C33 /* Snippets.h */,
 				78BA52F21B8F848F00D85C33 /* String+Snippets.swift */,
 				78A942C21C776553002C666B /* SequenceType+Snippets.swift */,
+				783892D31CF4420100D005D4 /* SequenceType+Bool.swift */,
 				783E7EC41B9028D300227678 /* Array+Snippets.swift */,
 				78064E2A1CD10EE200A8224F /* NSTimeInterval+Snippets.swift */,
 				783F0CBD1C1D399100FC8AF4 /* NSData+Snippets.swift */,
@@ -350,6 +353,7 @@
 				783F0CC01C1D399100FC8AF4 /* NSData+Snippets.swift in Sources */,
 				78A942C31C776553002C666B /* SequenceType+Snippets.swift in Sources */,
 				78D191131B90A9ED0011219C /* DispatchQueues.swift in Sources */,
+				783892D41CF4420100D005D4 /* SequenceType+Bool.swift in Sources */,
 				785C9CC91CA7E6F800F2E872 /* objc_getClasses.swift in Sources */,
 				78C819001CBD01DA00959144 /* KeyValueObserver.swift in Sources */,
 				78E87EE71CC7C25700A99AF6 /* Configuration.swift in Sources */,

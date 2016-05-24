@@ -1,4 +1,4 @@
-// SnippetsTests SequenceTypeTests.swift
+// Snippets SequenceType+Bool.swift
 //
 // Copyright © 2016, Roy Ratcliffe, Pioneering Software, United Kingdom
 //
@@ -22,40 +22,19 @@
 //
 //------------------------------------------------------------------------------
 
-import XCTest
-import Snippets
+extension SequenceType where Generator.Element == Bool {
 
-class SequenceTypeTests: XCTestCase {
-
-  /// `Array(1...6).groupBy { $0 % 3 } == [0: [3, 6], 1: [1, 4], 2: [2, 5]]`
-  func testGroupBy() {
-    // given
-    let elements = Array(1...6)
-    // when
-    let groups = elements.groupBy { (i) -> NSObject in
-      i % 3
-    }
-    // then
-    XCTAssertEqual(groups.count, 3)
-    XCTAssertNotNil(groups[0])
-    XCTAssertNotNil(groups[1])
-    XCTAssertNotNil(groups[2])
-    XCTAssertEqual(groups[0]!, [3, 6])
-    XCTAssertEqual(groups[1]!, [1, 4])
-    XCTAssertEqual(groups[2]!, [2, 5])
-    XCTAssertEqual(groups, [0: [3, 6], 1: [1, 4], 2: [2, 5]])
+  /// - returns: True if all true, i.e. the sequence contains no false. This
+  ///   includes empty sequences because they also contain no false.
+  public var all: Bool {
+    return !contains(false)
   }
 
-  func testAll() {
-    XCTAssertTrue(["ant", "bear", "cat"].all { $0.length >= 3 })
-    XCTAssertFalse(["ant", "bear", "cat"].all { $0.length >= 4 })
-    XCTAssertTrue([].all)
-  }
-
-  func testAny() {
-    XCTAssertTrue(["ant", "bear", "cat"].any { $0.length >= 3 })
-    XCTAssertTrue(["ant", "bear", "cat"].any { $0.length >= 4 })
-    XCTAssertFalse([].any)
+  /// - returns: True if at least one element is true. False if there is no true
+  ///   element, which includes entirely false sets of elements and empty
+  ///   sequences of elements; hence `[].any` answers false.
+  public var any: Bool {
+    return contains(true)
   }
 
 }
