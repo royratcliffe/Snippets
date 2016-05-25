@@ -45,4 +45,52 @@ extension SequenceType {
     return groups
   }
 
+  /// - parameter block: Block answering true or false for each given element.
+  /// - returns: True if all blocks answer true or there are no elements in the
+  ///   sequence; in other words, true if there are no blocks answering false.
+  ///
+  /// Searches for false returned by the block with each sequence element. The
+  /// implementation optimises the sequence iteration by searching the sequence
+  /// for the first false, then returning. A less-efficient implementation might
+  /// first map all the blocks to a sequence of booleans, then search for false;
+  /// as follows.
+  ///
+  ///     return map { (element) -> Bool in
+  ///       block(element)
+  ///     }.all
+  ///
+  public func all(block: (Generator.Element) -> Bool) -> Bool {
+    for element in self {
+      if !block(element) {
+        return false
+      }
+    }
+    return true
+  }
+
+  /// - parameter block: Block that answers a true or false condition for a
+  ///   given sequence element.
+  /// - returns: True if any element answers true, false otherwise; false also
+  ///   for empty sequences.
+  ///
+  /// Searches for true. The implementation performs an early-out
+  /// optimisation. It calls the block for all the elements until a block
+  /// returns true, and immediately returns true thereafter. It does not
+  /// continue to iterate through any remaining elements, nor continue to call
+  /// the block as the straightforward implementation might, see below. There is
+  /// no need.
+  ///
+  ///     return map { (element) -> Bool in
+  ///       block(element)
+  ///     }.any
+  ///
+  public func any(block: (Generator.Element) -> Bool) -> Bool {
+    for element in self {
+      if block(element) {
+        return true
+      }
+    }
+    return false
+  }
+
 }
