@@ -145,8 +145,8 @@
 		78BA52CC1B8F846C00D85C33 = {
 			isa = PBXGroup;
 			children = (
-				78BA52D81B8F846D00D85C33 /* Snippets */,
-				78BA52E41B8F846D00D85C33 /* SnippetsTests */,
+				78BA52D81B8F846D00D85C33 /* Sources */,
+				78BA52E41B8F846D00D85C33 /* Tests */,
 				78BA52D71B8F846D00D85C33 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -160,7 +160,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		78BA52D81B8F846D00D85C33 /* Snippets */ = {
+		78BA52D81B8F846D00D85C33 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				78BA52D91B8F846D00D85C33 /* Snippets.h */,
@@ -198,10 +198,10 @@
 				785C9CC41CA7C28C00F2E872 /* ObjectFromClassName.swift */,
 				78BA52DB1B8F846D00D85C33 /* Info.plist */,
 			);
-			path = Snippets;
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		78BA52E41B8F846D00D85C33 /* SnippetsTests */ = {
+		78BA52E41B8F846D00D85C33 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				78BA52E51B8F846D00D85C33 /* SnippetsTests.swift */,
@@ -221,7 +221,7 @@
 				785C9CCA1CA7E86400F2E872 /* objc_Tests.swift */,
 				78BA52E71B8F846D00D85C33 /* Info.plist */,
 			);
-			path = SnippetsTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
