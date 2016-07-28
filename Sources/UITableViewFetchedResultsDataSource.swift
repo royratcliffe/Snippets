@@ -51,12 +51,12 @@ public class UITableViewFetchedResultsDataSource: NSObject, UITableViewDataSourc
       // use the context and fetch request to count everything. Log any errors.
       let context = fetchedResultsController.managedObjectContext
       let request = fetchedResultsController.fetchRequest
-      var error: NSError?
-      let count = context.countForFetchRequest(request, error: &error)
-      if count == NSNotFound {
-        NSLog("%@", error!.localizedDescription)
+      do {
+        return try context.countForFetchRequest(request)
+      } catch {
+        NSLog("%@", (error as NSError).localizedDescription)
       }
-      return count == NSNotFound ? 0 : count
+      return 0
     }
   }
 

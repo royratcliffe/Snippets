@@ -145,8 +145,8 @@
 		78BA52CC1B8F846C00D85C33 = {
 			isa = PBXGroup;
 			children = (
-				78BA52D81B8F846D00D85C33 /* Snippets */,
-				78BA52E41B8F846D00D85C33 /* SnippetsTests */,
+				78BA52D81B8F846D00D85C33 /* Sources */,
+				78BA52E41B8F846D00D85C33 /* Tests */,
 				78BA52D71B8F846D00D85C33 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -160,7 +160,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		78BA52D81B8F846D00D85C33 /* Snippets */ = {
+		78BA52D81B8F846D00D85C33 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				78BA52D91B8F846D00D85C33 /* Snippets.h */,
@@ -198,10 +198,10 @@
 				785C9CC41CA7C28C00F2E872 /* ObjectFromClassName.swift */,
 				78BA52DB1B8F846D00D85C33 /* Info.plist */,
 			);
-			path = Snippets;
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		78BA52E41B8F846D00D85C33 /* SnippetsTests */ = {
+		78BA52E41B8F846D00D85C33 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				78BA52E51B8F846D00D85C33 /* SnippetsTests.swift */,
@@ -221,7 +221,7 @@
 				785C9CCA1CA7E86400F2E872 /* objc_Tests.swift */,
 				78BA52E71B8F846D00D85C33 /* Info.plist */,
 			);
-			path = SnippetsTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,14 +282,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Pioneering Software, United Kingdom";
 				TargetAttributes = {
 					78BA52D51B8F846D00D85C33 = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
 					};
 					78BA52DF1B8F846D00D85C33 = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -514,13 +516,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 0.1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Snippets/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.pioneeringsoftware.Snippets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -532,32 +535,37 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 0.1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Snippets/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.pioneeringsoftware.Snippets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
 		78BA52EE1B8F846D00D85C33 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = SnippetsTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.pioneeringsoftware.SnippetsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
 		78BA52EF1B8F846D00D85C33 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = SnippetsTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.pioneeringsoftware.SnippetsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};

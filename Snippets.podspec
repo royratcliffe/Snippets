@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'Snippets'
-  spec.version = '0.1.18'
+  spec.version = '0.1.19'
   spec.summary = 'Snippets in Swift'
   spec.description = <<-DESCRIPTION.gsub(/\s+/, ' ').chomp
   A collection of Swift snippets for enhancing standard Apple frameworks. The
@@ -12,7 +12,7 @@ Pod::Spec.new do |spec|
   spec.source = {
     git: 'https://github.com/royratcliffe/Snippets.git',
     tag: spec.version.to_s }
-  spec.source_files = 'Snippets/**/*.{swift,h}'
+  spec.source_files = 'Sources/**/*.{swift,h}'
   spec.platform = :ios, '9.0'
   spec.requires_arc = true
 end

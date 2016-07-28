@@ -1,5 +1,18 @@
 # Change Log
 
+## [0.1.19](https://github.com/royratcliffe/snippets/tree/0.1.19) (2016-07-28)
+
+- Merge branch 'feature/swift_2_3' into develop
+- Adjusted paths to Info.plist's
+- Snippets folder renamed to Sources, SnippetTests renamed to Tests
+- Upgrade for Xcode 8.x
+- Enable whole-module optimisation
+- Test for success under iOS 10
+- Swift 2.3 throws when countForFetchRequest fails
+- Start Swift 2.3 migration
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.1.18...0.1.19)
+
 ## [0.1.18](https://github.com/royratcliffe/snippets/tree/0.1.18) (2016-05-25)
 
 - SequenceType.all and any
