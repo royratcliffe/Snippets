@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.1.20](https://github.com/royratcliffe/snippets/tree/0.1.20) (2016-08-01)
+
+- Removed Podfile
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.1.19...0.1.20)
+
 ## [0.1.19](https://github.com/royratcliffe/snippets/tree/0.1.19) (2016-07-28)
 
 - Merge branch 'feature/swift_2_3' into develop
