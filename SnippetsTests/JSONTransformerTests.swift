@@ -31,11 +31,11 @@ class JSONTransformerTests: XCTestCase {
   /// output. White space makes it pretty.
   func testArray() {
     // given
-    let transformer = NSValueTransformer(forName: "Snippets.JSONTransformer")!
+    let transformer = ValueTransformer(forName: "Snippets.JSONTransformer" as NSValueTransformerName)!
     // when
     // swiftlint:disable:next force_cast
-    let data = transformer.transformedValue([1, 2, 3]) as! NSData
-    let string = NSString(data: data, encoding: NSUTF8StringEncoding)!
+    let data = transformer.transformedValue([1, 2, 3]) as! Data
+    let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)!
     // then
     XCTAssertEqual(string, "[\n  1,\n  2,\n  3\n]")
   }

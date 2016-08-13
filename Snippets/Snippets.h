@@ -22,7 +22,7 @@
  *
  ******************************************************************************/
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 FOUNDATION_EXPORT double SnippetsVersionNumber;
 FOUNDATION_EXPORT const unsigned char SnippetsVersionString[];

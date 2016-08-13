@@ -25,25 +25,25 @@
 import UIKit
 import CoreData
 
-public class UITableViewFetchedResultsDataSource: NSObject, UITableViewDataSource {
+public class UITableViewFetchedResultsDataSource<Result: NSFetchRequestResult>: NSObject, UITableViewDataSource {
 
-  public var fetchedResultsController: NSFetchedResultsController!
-  public var cellIdentifierForRowBlock: ((indexPath: NSIndexPath, object: NSManagedObject) -> String)!
+  public var fetchedResultsController: NSFetchedResultsController<Result>!
+  public var cellIdentifierForRowBlock: ((indexPath: IndexPath, object: NSManagedObject) -> String)!
   public var configureCellForObjectBlock: ((cell: UITableViewCell, object: NSManagedObject) -> Void)!
 
-  public func objectAtIndexPath(indexPath: NSIndexPath) -> NSManagedObject {
+  public func object(at indexPath: IndexPath) -> NSManagedObject {
     // swiftlint:disable:next force_cast
-    return fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
+    return fetchedResultsController.object(at: indexPath) as! NSManagedObject
   }
-  public func cellIdentifierForRow(indexPath: NSIndexPath) -> String {
-    let object = objectAtIndexPath(indexPath)
+  public func cellIdentifier(forRow indexPath: IndexPath) -> String {
+    let object = self.object(at: indexPath)
     return cellIdentifierForRowBlock(indexPath: indexPath, object: object)
   }
 
   //----------------------------------------------------------------------------
   // MARK: - UI Table View Data Source
 
-  public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let sections = fetchedResultsController.sections {
       return sections[section].numberOfObjects
     } else {
@@ -51,12 +51,12 @@ public class UITableViewFetchedResultsDataSource: NSObject, UITableViewDataSourc
       // use the context and fetch request to count everything. Log any errors.
       let context = fetchedResultsController.managedObjectContext
       let request = fetchedResultsController.fetchRequest
-      var error: NSError?
-      let count = context.countForFetchRequest(request, error: &error)
-      if count == NSNotFound {
-        NSLog("%@", error!.localizedDescription)
+      do {
+        return try context.count(for: request)
+      } catch {
+        NSLog("%@", error.localizedDescription)
       }
-      return count == NSNotFound ? 0 : count
+      return 0
     }
   }
 
@@ -81,10 +81,10 @@ public class UITableViewFetchedResultsDataSource: NSObject, UITableViewDataSourc
   // as well as the row's index path. The block can ignore it, if not useful,
   // but the block might also use it to select the cell identifier based on the
   // state of the object.
-  public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cellIdentifier = cellIdentifierForRow(indexPath)
-    let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
-    configureCellForObjectBlock(cell: cell, object: objectAtIndexPath(indexPath))
+  public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cellIdentifier = self.cellIdentifier(forRow: indexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+    configureCellForObjectBlock(cell: cell, object: object(at: indexPath))
     return cell
   }
 
@@ -94,7 +94,7 @@ public class UITableViewFetchedResultsDataSource: NSObject, UITableViewDataSourc
   // section. Otherwise you will see nothing in the table view. Zero sections
   // displays nothing at all. Always return one section when no sections
   // exist. The one and only section contains everything.
-  public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  public func numberOfSections(in tableView: UITableView) -> Int {
     if let sections = fetchedResultsController.sections {
       return sections.count
     } else {
@@ -102,7 +102,7 @@ public class UITableViewFetchedResultsDataSource: NSObject, UITableViewDataSourc
     }
   }
 
-  public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+  public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     if let sections = fetchedResultsController.sections {
       return sections[section].name
     } else {
@@ -113,12 +113,12 @@ public class UITableViewFetchedResultsDataSource: NSObject, UITableViewDataSourc
   //----------------------------------------------------------------------------
   // MARK: - Section Index
 
-  public func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
+  public func sectionIndexTitles(for tableView: UITableView) -> [String]? {
     return fetchedResultsController.sectionIndexTitles
   }
 
-  public func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
-    return fetchedResultsController.sectionForSectionIndexTitle(title, atIndex: index)
+  public func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+    return fetchedResultsController.section(forSectionIndexTitle: title, at: index)
   }
 
 }

@@ -40,7 +40,7 @@ extension NSError {
                 "localizedFailureReason",
                 "localizedRecoverySuggestion"]
     var keysAndValues = keys.map { key in
-      (key, valueForKey(key)) }.filter { (key, value) in
+      (key, value(forKey: key)) }.filter { (key, value) in
         value != nil }
     for (key, value) in userInfo.filter({ (key, _) -> Bool in
       ![NSLocalizedDescriptionKey].contains(key)
@@ -48,11 +48,11 @@ extension NSError {
       keysAndValues.append(("userInfo.\(key)", value))
     }
     let maxKeyLength = keysAndValues.map { (key, value) in
-      key.characters.count }.maxElement() ?? 0
+      key.characters.count }.max() ?? 0
     for (key, value) in keysAndValues {
       if let value = value {
         let length = maxKeyLength - key.characters.count
-        let padding = "".stringByPaddingToLength(length, withString: " ", startingAtIndex: 0)
+        let padding = "".padding(toLength: length, withPad: " ", startingAt: 0)
         NSLog("ERROR %@%@:%@", padding, key, String(value))
       }
     }

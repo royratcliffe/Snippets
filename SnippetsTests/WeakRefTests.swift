@@ -36,7 +36,7 @@ class WeakRefTests: SnippetsTests {
     let object = NSObject()
 
     // when
-    object.retainAssociatedObject(WeakRef(object: 123), forKey: "number")
+    object.retainAssociated(object: WeakRef(object: 123), forKey: "number")
 
     // then
     XCTAssertNotNil(object.associatedObject(forKey: "number"))
@@ -50,7 +50,7 @@ class WeakRefTests: SnippetsTests {
     XCTAssertNil(object.associatedObject(forKey: "otherObject"))
 
     // when
-    object.retainWeaklyAssociatedObject(otherObject, forKey: "otherObject")
+    object.retainWeaklyAssociated(object: otherObject, forKey: "otherObject")
 
     // then
     XCTAssertNotNil(object.associatedObject(forKey: "otherObject"))

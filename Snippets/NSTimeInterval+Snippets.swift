@@ -24,7 +24,7 @@
 
 import Foundation
 
-extension NSTimeInterval {
+extension TimeInterval {
 
   /// - returns: 64-bit unsigned integer conversion of time interval scaled and
   ///   rounded to whole nanoseconds, suitable for Grand-Central Dispatch
@@ -33,8 +33,8 @@ extension NSTimeInterval {
   ///   signed, e.g. negative intervals might represent _elapsed_ spans of
   ///   time. This method always ignores the sign however by first converting
   ///   the double-precision interval to an absolute double.
-  public var nsecPerSec: dispatch_time_t {
-    return dispatch_time_t(abs(self) * NSTimeInterval(NSEC_PER_SEC))
+  public var nsecPerSec: DispatchTime {
+    return DispatchTime(uptimeNanoseconds: UInt64(abs(self) * TimeInterval(NSEC_PER_SEC)))
   }
 
 }

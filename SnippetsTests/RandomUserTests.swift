@@ -29,7 +29,7 @@ class RandomUserTests: XCTestCase {
 
   func testDefault() {
     // given
-    let expectation = expectationWithDescription("Default")
+    let expectation = self.expectation(description: "Default")
     let randomUser = RandomUser()
 
     // when
@@ -48,7 +48,7 @@ class RandomUserTests: XCTestCase {
     }
 
     // then
-    waitForExpectationsWithTimeout(10.0) { (error) -> Void in
+    waitForExpectations(timeout: 10.0) { (error) -> Void in
       if let error = error {
         NSLog("%@", error.localizedDescription)
       }
@@ -59,7 +59,7 @@ class RandomUserTests: XCTestCase {
   /// Ask for three, you should receive three.
   func testThree() {
     // given
-    let expectation = expectationWithDescription("Three")
+    let expectation = self.expectation(description: "Three")
     let randomUser = RandomUser()
 
     // when
@@ -72,7 +72,7 @@ class RandomUserTests: XCTestCase {
     }
 
     // then
-    waitForExpectationsWithTimeout(10.0) { (error) -> Void in
+    waitForExpectations(timeout: 10.0) { (error) -> Void in
       if let error = error {
         NSLog("%@", error.localizedDescription)
       }
@@ -83,7 +83,7 @@ class RandomUserTests: XCTestCase {
   /// Ask for British people.
   func testGB() {
     // given
-    let expectation = expectationWithDescription("GB")
+    let expectation = self.expectation(description: "GB")
     let randomUser = RandomUser()
 
     // when
@@ -97,7 +97,7 @@ class RandomUserTests: XCTestCase {
     }
 
     // then
-    waitForExpectationsWithTimeout(10.0) { (error) -> Void in
+    waitForExpectations(timeout: 10.0) { (error) -> Void in
       if let error = error {
         NSLog("%@", error.localizedDescription)
       }

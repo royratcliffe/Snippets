@@ -78,10 +78,10 @@ public class UITextFieldTableViewController: UITableViewController, UITextFieldD
   // MARK: - Table View Data Source
   //----------------------------------------------------------------------------
 
-  public override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+  public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    if let cell = tableView.cellForRow(at: indexPath) {
       if let view = cell.viewWithTag(firstResponderTag) {
-        if !view.isFirstResponder() {
+        if !view.isFirstResponder {
           view.becomeFirstResponder()
         }
       }
@@ -92,10 +92,10 @@ public class UITextFieldTableViewController: UITableViewController, UITextFieldD
   // MARK: - Text Field Delegate
   //----------------------------------------------------------------------------
 
-  public func textFieldDidBeginEditing(textField: UITextField) {
-    if let indexPath = tableView.indexPathForRowAtPoint(textField.convertPoint(CGPoint.zero, toView: tableView)) {
+  public func textFieldDidBeginEditing(_ textField: UITextField) {
+    if let indexPath = tableView.indexPathForRow(at: textField.convert(CGPoint.zero, to: tableView)) {
       if indexPath != tableView.indexPathForSelectedRow {
-        tableView.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: .None)
+        tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
       }
     }
   }

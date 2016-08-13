@@ -32,8 +32,8 @@ import Foundation
 public func objc_getClasses() -> [AnyClass] {
   var classes = [AnyClass]()
   let classCount = objc_getClassList(nil, 0)
-  let classList = UnsafeMutablePointer<AnyClass?>.alloc(Int(classCount))
-  defer { classList.dealloc(Int(classCount)) }
+  let classList = UnsafeMutablePointer<AnyClass?>.allocate(capacity: Int(classCount))
+  defer { classList.deallocate(capacity: Int(classCount)) }
   let classBuffer = AutoreleasingUnsafeMutablePointer<AnyClass?>(classList)
   objc_getClassList(classBuffer, classCount)
   for classIndex in 0..<classCount {

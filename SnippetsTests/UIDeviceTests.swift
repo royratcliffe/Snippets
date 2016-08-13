@@ -28,7 +28,7 @@ import XCTest
 class UIDeviceTests: XCTestCase {
 
   func testCurrentDevice() {
-    XCTAssertEqual(UIDevice.currentDevice().systemMajorVersion, 9)
+    XCTAssertEqual(UIDevice.current.systemMajorVersion, 10)
   }
 
 }

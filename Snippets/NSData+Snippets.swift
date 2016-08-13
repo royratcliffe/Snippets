@@ -24,7 +24,7 @@
 
 import Foundation
 
-extension NSData {
+extension Data {
 
   /// Converts the data object to a hexadecimal string. Each byte from the data
   /// becomes two hexadecimal digits in the resulting character string. That
@@ -40,8 +40,8 @@ extension NSData {
   /// number of resulting characters to two, and no more than two, per byte.
   public var hexString: String {
     var hexString = ""
-    let bytes = UnsafePointer<UInt8>(self.bytes)
-    for index in 0 ..< length {
+    let bytes = UnsafePointer<UInt8>((self as NSData).bytes)
+    for index in 0 ..< count {
       hexString += String(format: "%02hhx", arguments: [bytes[index]])
     }
     return hexString

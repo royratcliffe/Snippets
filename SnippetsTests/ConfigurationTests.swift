@@ -33,7 +33,7 @@ class ConfigurationTests: XCTestCase {
     super.setUp()
 
     // given
-    configuration.addValueBlockForKey("configuration") { () -> AnyObject in
+    configuration.add(forKey: "configuration") { () -> AnyObject in
       return self.configuration
     }
   }
@@ -46,7 +46,7 @@ class ConfigurationTests: XCTestCase {
     // and given
     let dictionary = NSMutableDictionary()
     // when
-    configuration.configure(dictionary)
+    _ = configuration.configure(object: dictionary)
     // then
     let value = dictionary["configuration"]
     XCTAssertNil(value)
@@ -60,9 +60,9 @@ class ConfigurationTests: XCTestCase {
     }
     let object = Object()
     // when
-    self.configuration.configure(object)
+    _ = self.configuration.configure(object: object)
     // then
-    let configuration = object.valueForKey("configuration")
+    let configuration = object.value(forKey: "configuration")
     XCTAssertNotNil(configuration)
     XCTAssert(configuration === self.configuration)
   }

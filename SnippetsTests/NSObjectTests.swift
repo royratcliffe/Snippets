@@ -31,7 +31,7 @@ class NSObjectTests: SnippetsTests {
     let object = NSObject()
 
     // when
-    object.copyAssociatedObject(123, forKey: "number")
+    object.copyAssociated(object: 123, forKey: "number")
 
     // then
     XCTAssertEqual(object.associatedObject(forKey: "number") as? Int, 123)
@@ -46,9 +46,9 @@ class NSObjectTests: SnippetsTests {
     XCTAssertNil(object.associatedObject(forKey: "number"))
 
     // when
-    object.copyAssociatedObject(123, forKey: "number")
+    object.copyAssociated(object: 123, forKey: "number")
     XCTAssertEqual(object.associatedObject(forKey: "number") as? Int, 123)
-    object.copyAssociatedObject(nil, forKey: "number")
+    object.copyAssociated(object: nil, forKey: "number")
 
     // then
     XCTAssertNil(object.associatedObject(forKey: "number"))

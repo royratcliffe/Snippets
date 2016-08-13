@@ -32,7 +32,7 @@ extension UIDevice {
   /// array of integers.
   /// - returns: Answers the system version number as an array of integers.
   public var systemVersionNumbers: [Int] {
-    return systemVersion.componentsSeparatedByString(".").map { Int($0) ?? 0 }
+    return systemVersion.components(separatedBy: ".").map { Int($0) ?? 0 }
   }
 
   /// - returns: Answers the first version number. Answers `nil` if there is no

@@ -35,22 +35,22 @@ extension NSObject {
   ///   selector-from-string mechanism to manufacture an atomic string, by
   ///   default. Object classes or object instance can freely override this
   ///   default mapping of strings to void pointers.
-  public func associatedObjectKey(key: String) -> UnsafePointer<Void> {
-    return unsafeBitCast(Selector(key), UnsafePointer<Void>.self)
+  public func associatedObjectKey(_ key: String) -> UnsafePointer<Void> {
+    return unsafeBitCast(Selector(key), to: UnsafePointer<Void>.self)
   }
 
   /// Associates an object with this object by assignment.
-  public func assignAssociatedObject(object: AnyObject?, forKey key: String) {
+  public func assignAssociated(object: AnyObject?, forKey key: String) {
     objc_setAssociatedObject(self, associatedObjectKey(key), object, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
   }
 
   /// Associates an object with this object by retaining it.
-  public func retainAssociatedObject(object: AnyObject?, forKey key: String) {
+  public func retainAssociated(object: AnyObject?, forKey key: String) {
     objc_setAssociatedObject(self, associatedObjectKey(key), object, objc_AssociationPolicy.associationRetain)
   }
 
   /// Associates an object with this object by copying it.
-  public func copyAssociatedObject(object: AnyObject?, forKey key: String) {
+  public func copyAssociated(object: AnyObject?, forKey key: String) {
     objc_setAssociatedObject(self, associatedObjectKey(key), object, objc_AssociationPolicy.associationCopy)
   }
 

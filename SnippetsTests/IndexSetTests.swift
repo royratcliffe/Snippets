@@ -33,7 +33,7 @@ class IndexSetTests: XCTestCase {
     let setA = NSIndexSet(indexes: [1, 3, 5, 7, 9])
     let setB = NSIndexSet(indexes: [1, 2, 3, 4, 5])
     // when
-    let symmetricDifference = setA.symmetricDifference(setB)
+    let symmetricDifference = setA.symmetricDifference(setB as IndexSet)
     // then
     XCTAssertEqual(symmetricDifference, NSIndexSet(indexes: [2, 4, 7, 9]))
   }
