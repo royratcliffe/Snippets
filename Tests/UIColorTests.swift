@@ -28,7 +28,7 @@ class UIColorTests: XCTestCase {
 
   func testHashABC() {
     // given
-    let color = UIColor.fromHTML("#abc")
+    let color = UIColor.from(html: "#abc")
 
     // when
     var red: CGFloat = 0
@@ -43,8 +43,8 @@ class UIColorTests: XCTestCase {
     XCTAssertEqual(green, 0xbb / 255.0)
     XCTAssertEqual(blue, 0xcc / 255.0)
     XCTAssertEqual(alpha, 0xff / 255.0)
-    XCTAssertEqual(color, UIColor.fromHTML("aabbcc"))
-    XCTAssertEqual(color, UIColor.fromHTML("ffaabbcc"))
+    XCTAssertEqual(color, UIColor.from(html: "aabbcc"))
+    XCTAssertEqual(color, UIColor.from(html: "ffaabbcc"))
   }
 
 }

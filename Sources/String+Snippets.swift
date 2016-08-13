@@ -26,8 +26,8 @@ import Foundation
 
 extension String {
 
-  enum EncodingError: ErrorType {
-    case UTF8
+  enum EncodingError: Error {
+    case utf8
   }
 
   /// - returns: Answers an Internet socket address if the string represents a
@@ -48,11 +48,11 @@ extension String {
   /// if this string fails to convert to UTF-8. In such a case, no error
   /// returns; the caller receives a `nil` address _and_ a `nil` error.
   public func toInternetAddressIPv4() throws -> in_addr {
-    guard let cString = cStringUsingEncoding(NSUTF8StringEncoding) else {
+    guard let cString = cString(using: String.Encoding.utf8) else {
       // What error to throw when this string fails to convert to a UTF-8
       // encoded character array? There does not seem to be a standard error for
       // such. Make one up. Swift makes it easy.
-      throw EncodingError.UTF8
+      throw EncodingError.utf8
     }
     // The operating system function `inet_pton` converts an address from
     // presentation format to network format, hence p-to-n. It answers 1 for
@@ -67,8 +67,8 @@ extension String {
 
   // same as above but for Internet version 6 addresses
   public func toInternetAddressIPv6() throws -> in6_addr {
-    guard let cString = cStringUsingEncoding(NSUTF8StringEncoding) else {
-      throw EncodingError.UTF8
+    guard let cString = cString(using: String.Encoding.utf8) else {
+      throw EncodingError.utf8
     }
     var internetAddress = in6_addr()
     guard inet_pton(AF_INET6, cString, &internetAddress) != 0 else {
@@ -97,7 +97,7 @@ extension String {
   /// - returns: answers a string where the first character is uppercase, if not
   ///   already so.
   public var uppercaseFirstCharacterString: String {
-    return firstCharacterString.uppercaseString + String(characters.dropFirst())
+    return firstCharacterString.uppercased() + String(characters.dropFirst())
   }
 
 }

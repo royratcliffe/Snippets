@@ -25,7 +25,7 @@
 import UIKit
 import CoreData
 
-public class UITableViewFetchedResultsController: UITableViewController, NSFetchedResultsControllerDelegate {
+public class UITableViewFetchedResultsController<Result: NSFetchRequestResult>: UITableViewController, NSFetchedResultsControllerDelegate {
 
   /// Use `prepareForSegue` to propagate the managed-object context. The
   /// controller needs one.
@@ -47,7 +47,7 @@ public class UITableViewFetchedResultsController: UITableViewController, NSFetch
   /// Gives public access to the data-source object so that controller
   /// sub-classes can access the data source and set up blocks for mapping rows
   /// to cell identifiers and configuring table cells using managed objects.
-  public let dataSource = UITableViewFetchedResultsDataSource()
+  public let dataSource = UITableViewFetchedResultsDataSource<Result>()
 
   // Delegate to the embedded data source.
 
@@ -55,7 +55,7 @@ public class UITableViewFetchedResultsController: UITableViewController, NSFetch
   /// set up. Uses user-defined run-time attributes to derive the entity
   /// description and sort descriptor, and optionally also the section name
   /// key-path and cache name.
-  public var fetchedResultsController: NSFetchedResultsController {
+  public var fetchedResultsController: NSFetchedResultsController<Result> {
     if dataSource.fetchedResultsController == nil {
       dataSource.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                                        managedObjectContext: managedObjectContext,
@@ -66,16 +66,16 @@ public class UITableViewFetchedResultsController: UITableViewController, NSFetch
     return dataSource.fetchedResultsController
   }
 
-  public override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return dataSource.tableView(tableView, numberOfRowsInSection: section)
   }
-  public override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    return dataSource.tableView(tableView, cellForRowAtIndexPath: indexPath)
+  public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    return dataSource.tableView(tableView, cellForRowAt: indexPath)
   }
-  public override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return dataSource.numberOfSectionsInTableView(tableView)
+  public override func numberOfSections(in tableView: UITableView) -> Int {
+    return dataSource.numberOfSections(in: tableView)
   }
-  public override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+  public override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     return dataSource.tableView(tableView, titleForHeaderInSection: section)
   }
 
@@ -90,7 +90,7 @@ public class UITableViewFetchedResultsController: UITableViewController, NSFetch
   @IBInspectable var cacheName: String?
 
   public var entity: NSEntityDescription? {
-    return NSEntityDescription.entityForName(entityName, inManagedObjectContext: managedObjectContext)
+    return NSEntityDescription.entity(forEntityName: entityName, in: managedObjectContext)
   }
 
   /// Constructs a fetch request based on the controller's user-defined run-time
@@ -98,8 +98,8 @@ public class UITableViewFetchedResultsController: UITableViewController, NSFetch
   /// instance of `NSFetchedResultsController` requires a fetch request *with*
   /// sort descriptors. Otherwise you will get an exception to that effect.
   /// - returns: Answers a pre-configured fetch request.
-  public var fetchRequest: NSFetchRequest {
-    let request = NSFetchRequest()
+  public var fetchRequest: NSFetchRequest<Result> {
+    let request = NSFetchRequest<Result>()
     request.entity = entity
     let descriptor = NSSortDescriptor(key: sortDescriptorKey, ascending: sortDescriptorAscending ?? true)
     request.sortDescriptors = [descriptor]
@@ -131,46 +131,46 @@ public class UITableViewFetchedResultsController: UITableViewController, NSFetch
   // recurse. Configure the cell and send back the height of the compressed
   // fitting size. This relies on an explicit preferred width and constraints
   // properly set up. If there are no constraints, use the cell's frame height.
-  public override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    let cellIdentifier = dataSource.cellIdentifierForRow(indexPath)
-    guard let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) else {
-      return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+  public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    let cellIdentifier = dataSource.cellIdentifier(forRow: indexPath)
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) else {
+      return super.tableView(tableView, heightForRowAt: indexPath)
     }
-    let object = dataSource.objectAtIndexPath(indexPath)
+    let object = dataSource.object(at: indexPath)
     dataSource.configureCellForObjectBlock(cell: cell, object: object)
     guard !cell.constraints.isEmpty else {
       return cell.frame.height
     }
-    return cell.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
+    return cell.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
   }
 
   //----------------------------------------------------------------------------
   // MARK: - Fetched Results Controller Delegate
 
-  public func controller(controller: NSFetchedResultsController,
-                         didChangeObject anObject: AnyObject,
-                         atIndexPath indexPath: NSIndexPath?,
-                         forChangeType type: NSFetchedResultsChangeType,
-                         newIndexPath: NSIndexPath?) {
+  public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                         didChange anObject: AnyObject,
+                         at indexPath: IndexPath?,
+                         for type: NSFetchedResultsChangeType,
+                         newIndexPath: IndexPath?) {
     switch type {
-    case .Insert:
-      tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
-    case .Delete:
-      tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-    case .Move:
+    case .insert:
+      tableView.insertRows(at: [newIndexPath!], with: .fade)
+    case .delete:
+      tableView.deleteRows(at: [indexPath!], with: .fade)
+    case .move:
       if indexPath != newIndexPath {
-        tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-        tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+        tableView.deleteRows(at: [indexPath!], with: .fade)
+        tableView.insertRows(at: [newIndexPath!], with: .fade)
       }
-    case .Update:
+    case .update:
       // Nothing to delete, nothing to insert.
-      tableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+      tableView.reloadRows(at: [indexPath!], with: .fade)
     }
   }
-  public func controllerWillChangeContent(controller: NSFetchedResultsController) {
+  public func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     tableView.beginUpdates()
   }
-  public func controllerDidChangeContent(controller: NSFetchedResultsController) {
+  public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     tableView.endUpdates()
   }
 

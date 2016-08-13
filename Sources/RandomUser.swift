@@ -75,7 +75,7 @@ import Foundation
 /// Avoids adding an empty query when sending the request.
 public class RandomUser {
 
-  static let URL = NSURL(string: "https://randomuser.me/api/")!
+  static let url = URL(string: "https://randomuser.me/api/")!
 
   public var results: Int?
 
@@ -86,29 +86,29 @@ public class RandomUser {
   public var nat: String?
 
   public func get(handler: (NSDictionary) -> Void) {
-    let session = NSURLSession.sharedSession()
-    let URLComponents = NSURLComponents(URL: RandomUser.URL, resolvingAgainstBaseURL: false)!
-    var queryItems = [NSURLQueryItem]()
+    let session = URLSession.shared
+    var urlComponents = URLComponents(url: RandomUser.url, resolvingAgainstBaseURL: false)!
+    var queryItems = [URLQueryItem]()
     if let results = results {
-      queryItems.append(NSURLQueryItem(name: "results", value: String(results)))
+      queryItems.append(URLQueryItem(name: "results", value: String(results)))
     }
     if let gender = gender {
-      queryItems.append(NSURLQueryItem(name: "gender", value: gender))
+      queryItems.append(URLQueryItem(name: "gender", value: gender))
     }
     if let seed = seed {
-      queryItems.append(NSURLQueryItem(name: "seed", value: seed))
+      queryItems.append(URLQueryItem(name: "seed", value: seed))
     }
     if let nat = nat {
-      queryItems.append(NSURLQueryItem(name: "nat", value: nat))
+      queryItems.append(URLQueryItem(name: "nat", value: nat))
     }
     if queryItems.count > 0 {
-      URLComponents.queryItems = queryItems
+      urlComponents.queryItems = queryItems
     }
-    let task = session.dataTaskWithURL(URLComponents.URL!) { data, response, error in
+    let task = session.dataTask(with: urlComponents.url!) { data, response, error in
       guard let data = data else {
         return
       }
-      guard let object = try? NSJSONSerialization.JSONObjectWithData(data, options: []) else {
+      guard let object = try? JSONSerialization.jsonObject(with: data, options: []) else {
         return
       }
       guard let dictionary = object as? NSDictionary else {

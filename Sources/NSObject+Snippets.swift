@@ -32,9 +32,9 @@ extension NSObject {
     let propertyList = class_copyPropertyList(self, &count)
     if propertyList != nil {
       for index in 0..<Int(count) {
-        let name = property_getName(propertyList[index])
+        let name = property_getName(propertyList?[index])
         // swiftlint:disable:next force_cast
-        propertyNames.append(NSString(UTF8String: name) as! String)
+        propertyNames.append(NSString(utf8String: name!) as! String)
       }
       free(propertyList)
     }
@@ -48,7 +48,7 @@ extension NSObject {
   public var objCRuntimeProperties: [String: AnyObject] {
     var properties = [String: AnyObject]()
     for name in objCRuntimePropertyNames {
-      if let value = valueForKey(name) {
+      if let value = value(forKey: name) {
         properties[name] = value
       }
     }
@@ -58,13 +58,13 @@ extension NSObject {
   /// Conditionally performs a given selector string using the given object as
   /// argument. The selector string should have a colon terminator, the only
   /// colon in the string.
-  public func perform(selectorString: String,
+  public func perform(_ selectorString: String,
     withObject object: AnyObject) -> AnyObject? {
     let selector = Selector(selectorString)
-    guard respondsToSelector(selector) else {
+    guard responds(to: selector) else {
       return nil
     }
-    return performSelector(selector, withObject: object).takeRetainedValue()
+    return self.perform(selector, with: object).takeRetainedValue()
   }
 
   /// Sets up values for keys where the values originate from
@@ -85,12 +85,12 @@ extension NSObject {
   ///   though nil values are transferred to the object as well. Useful for
   ///   knowing if the object responds to the value blocks or not. Answer zero
   ///   if no transfer of values at all.
-  public func setValuesForKeys(keyedValueBlocks: [String: () -> AnyObject?]) -> Int {
+  public func setValues(forKeys keyedValueBlocks: [String: () -> AnyObject?]) -> Int {
     var result = 0
     for (key, valueBlock) in keyedValueBlocks {
-      let index = key.startIndex.advancedBy(1)
-      let selector = Selector("set\(key.substringToIndex(index).uppercaseString)\(key.substringFromIndex(index)):")
-      if respondsToSelector(selector) {
+      let index = key.characters.index(key.startIndex, offsetBy: 1)
+      let selector = Selector("set\(key.substring(to: index).uppercased())\(key.substring(from: index)):")
+      if responds(to: selector) {
         if let value = valueBlock() {
           setValue(value, forKey: key)
           result += 1

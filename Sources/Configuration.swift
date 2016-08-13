@@ -40,7 +40,7 @@ public class Configuration: NSObject {
 
   /// Adds a new value block for the given key. Replaces an existing value block
   /// if the key already exists.
-  public func addValueBlockForKey(key: String, valueBlock: ValueBlock) {
+  public func add(forKey key: String, valueBlock: ValueBlock) {
     keyedValueBlocks[key] = valueBlock
   }
 
@@ -50,7 +50,7 @@ public class Configuration: NSObject {
   /// - parameter object: KVC-compliant object to receive new values.
   /// - returns: Total number of non-nil values transferred to the object.
   public func configure(object: NSObject) -> Int {
-    return object.setValuesForKeys(keyedValueBlocks)
+    return object.setValues(forKeys: keyedValueBlocks)
   }
 
 }

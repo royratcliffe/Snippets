@@ -30,9 +30,9 @@ extension NSIndexSet {
   ///   the index set is empty.
   public var firstRange: NSRange? {
     var firstRange: NSRange?
-    enumerateRangesUsingBlock { (range, stop) -> Void in
+    enumerateRanges(options: []) { (range, stop) -> Void in
       firstRange = range
-      stop.memory = true
+      stop.pointee = true
     }
     return firstRange
   }
@@ -40,9 +40,9 @@ extension NSIndexSet {
   /// - returns: the last range in the index set, or `nil` if an empty set.
   public var lastRange: NSRange? {
     var lastRange: NSRange?
-    enumerateRangesWithOptions(.Reverse) { (range, stop) -> Void in
+    enumerateRanges(options: .reverse) { (range, stop) -> Void in
       lastRange = range
-      stop.memory = true
+      stop.pointee = true
     }
     return lastRange
   }
@@ -54,25 +54,27 @@ extension NSIndexSet {
   /// ranges. Returns the result.
   public var ranges: [NSRange] {
     var ranges = [NSRange]()
-    enumerateRangesUsingBlock { (range, _) -> Void in
+    enumerateRanges(options: []) { (range, _) -> Void in
       ranges.append(range)
     }
     return ranges
   }
 
   /// Adds this index set to another.
-  public func union(other: NSIndexSet) -> NSIndexSet {
-    let selfPlusOther = NSMutableIndexSet(indexSet: self)
-    selfPlusOther.addIndexes(other)
-    return selfPlusOther
+  public func union(_ other: IndexSet) -> IndexSet {
+    let selfPlusOther = NSMutableIndexSet()
+    selfPlusOther.add(self as IndexSet)
+    selfPlusOther.add(other)
+    return selfPlusOther as IndexSet
   }
 
   /// - returns: the set of all indexes in this set that also belong to another.
-  public func intersect(other: NSIndexSet) -> NSIndexSet {
-    let intersect = NSMutableIndexSet(indexSet: self)
-    intersect.addIndexes(other)
-    intersect.removeIndexes(symmetricDifference(other))
-    return intersect
+  public func intersect(_ other: IndexSet) -> IndexSet {
+    let intersect = NSMutableIndexSet()
+    intersect.add(self as IndexSet)
+    intersect.add(other)
+    intersect.remove(symmetricDifference(other))
+    return intersect as IndexSet
   }
 
   /// Computes the difference between two index sets excluding any indexes in
@@ -81,23 +83,25 @@ extension NSIndexSet {
   /// - returns: the difference between this index set and another index set
   ///   where the symmetric result *excludes* indexes that appear in both this
   ///   and the other set.
-  public func symmetricDifference(other: NSIndexSet) -> NSIndexSet {
-    let otherMinusSelf = NSMutableIndexSet(indexSet: other)
-    otherMinusSelf.removeIndexes(self)
+  public func symmetricDifference(_ other: IndexSet) -> IndexSet {
+    let otherMinusSelf = NSMutableIndexSet()
+    otherMinusSelf.add(other)
+    otherMinusSelf.remove(self as IndexSet)
 
-    let selfMinusOtherPlusOtherMinusSelf = NSMutableIndexSet(indexSet: self)
-    selfMinusOtherPlusOtherMinusSelf.removeIndexes(other)
-    selfMinusOtherPlusOtherMinusSelf.addIndexes(otherMinusSelf)
-    return selfMinusOtherPlusOtherMinusSelf
+    let selfMinusOtherPlusOtherMinusSelf = NSMutableIndexSet()
+    selfMinusOtherPlusOtherMinusSelf.add(self as IndexSet)
+    selfMinusOtherPlusOtherMinusSelf.remove(other)
+    selfMinusOtherPlusOtherMinusSelf.add(otherMinusSelf as IndexSet)
+    return selfMinusOtherPlusOtherMinusSelf as IndexSet
   }
 
   /// Conveniently constructs a new index set using an array of indexes.
   public convenience init(indexes: [Int]) {
     let indexSet = NSMutableIndexSet()
     for index in indexes {
-      indexSet.addIndex(index)
+      indexSet.add(index)
     }
-    self.init(indexSet: indexSet)
+    self.init(indexSet: indexSet as IndexSet)
   }
 
 }

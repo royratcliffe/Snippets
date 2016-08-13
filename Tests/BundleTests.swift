@@ -29,7 +29,7 @@ class BundleTests: XCTestCase {
 
   func testMainBundle() {
     // given
-    let mainBundle = NSBundle.mainBundle()
+    let mainBundle = Bundle.main
 
     // when
     let displayName = mainBundle.displayName

@@ -31,7 +31,7 @@ extension UIViewController {
   /// - parameter content: Content view controller to display within this
   ///     container's content hierarchy.
   ///
-  /// - parameter frameForContent: Optional capture describing how to set up the
+  /// - parameter frameForView: Optional capture describing how to set up the
   ///     new content's frame. If not given, the content's frame remains
   ///     unchanged, and therefore assumes that layout constraints will
   ///     determine the view's position and size within the new container. The
@@ -48,18 +48,18 @@ extension UIViewController {
   /// container-content relationship. Content controllers become children
   /// belonging to a parent container. Content views join the container's view
   /// hierarchy.
-  public func displayContentController(content: UIViewController,
-                                       frameForContent: ((UIView) -> CGRect)? = nil) {
+  public func display(content: UIViewController,
+                      frameForView: ((UIView) -> CGRect)? = nil) {
     addChildViewController(content)
-    if let frameForContent = frameForContent {
-      content.view.frame = frameForContent(view)
+    if let frameForView = frameForView {
+      content.view.frame = frameForView(view)
     }
     view.addSubview(content.view)
-    content.didMoveToParentViewController(self)
+    content.didMove(toParentViewController: self)
   }
 
-  public func hideContentController(content: UIViewController) {
-    content.willMoveToParentViewController(nil)
+  public func hide(content: UIViewController) {
+    content.willMove(toParentViewController: nil)
     content.view.removeFromSuperview()
     content.removeFromParentViewController()
   }
@@ -69,30 +69,30 @@ extension UIViewController {
   /// both the incoming and outgoing view controllers. Removes the existing
   /// content view controller from the parent view controller when animation
   /// finishes.
-  public func cycleFromContentController(content: UIViewController,
-                                         // swiftlint:disable:previous function_parameter_count
-                                         toContentController newContent: UIViewController,
-                                         duration: NSTimeInterval,
-                                         options: UIViewAnimationOptions,
-                                         newContentStartFrame: CGRect?,
-                                         contentEndFrame: CGRect?) {
-    content.willMoveToParentViewController(nil)
+  public func cycle(from content: UIViewController,
+                    // swiftlint:disable:previous function_parameter_count
+                    to newContent: UIViewController,
+                    duration: TimeInterval,
+                    options: UIViewAnimationOptions,
+                    newContentStartFrame: CGRect?,
+                    contentEndFrame: CGRect?) {
+    content.willMove(toParentViewController: nil)
     addChildViewController(newContent)
     if let frame = newContentStartFrame {
       newContent.view.frame = frame
     }
-    transitionFromViewController(content,
-      toViewController: newContent,
-      duration: duration,
-      options: options,
-      animations: {
+    transition(from: content,
+               to: newContent,
+               duration: duration,
+               options: options,
+               animations: {
       newContent.view.frame = content.view.frame
       if let frame = contentEndFrame {
         content.view.frame = frame
       }
     }) { finished in
       content.removeFromParentViewController()
-      newContent.didMoveToParentViewController(self)
+      newContent.didMove(toParentViewController: self)
     }
   }
 
@@ -100,27 +100,27 @@ extension UIViewController {
   /// the controllers: cycles if both the incoming and outgoing controllers
   /// exist; hides if only the outgoing controller exists; or displays if only
   /// the incoming controller exists.
-  public func cycleFromContentController(content: UIViewController?,
-                                         // swiftlint:disable:previous function_parameter_count
-                                         toContentController newContent: UIViewController?,
-                                         duration: NSTimeInterval,
-                                         options: UIViewAnimationOptions,
-                                         newContentStartFrame: CGRect?,
-                                         contentEndFrame: CGRect?) {
+  public func cycle(from content: UIViewController?,
+                    // swiftlint:disable:previous function_parameter_count
+                    to newContent: UIViewController?,
+                    duration: TimeInterval,
+                    options: UIViewAnimationOptions,
+                    newContentStartFrame: CGRect?,
+                    contentEndFrame: CGRect?) {
     if let content = content {
       if let newContent = newContent {
-        cycleFromContentController(content,
-          toContentController: newContent,
-          duration: duration,
-          options: options,
-          newContentStartFrame: newContentStartFrame,
-          contentEndFrame: contentEndFrame)
+        cycle(from: content,
+              to: newContent,
+              duration: duration,
+              options: options,
+              newContentStartFrame: newContentStartFrame,
+              contentEndFrame: contentEndFrame)
       } else {
-        hideContentController(content)
+        hide(content: content)
       }
     } else {
       if let newContent = newContent {
-        displayContentController(newContent)
+        display(content: newContent)
       }
     }
   }

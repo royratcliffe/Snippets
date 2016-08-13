@@ -22,7 +22,7 @@
 //
 //------------------------------------------------------------------------------
 
-extension SequenceType where Generator.Element == Bool {
+extension Sequence where Iterator.Element == Bool {
 
   /// - returns: True if all true, i.e. the sequence contains no false. This
   ///   includes empty sequences because they also contain no false.

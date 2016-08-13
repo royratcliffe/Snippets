@@ -22,7 +22,7 @@
 //
 //------------------------------------------------------------------------------
 
-extension SequenceType {
+extension Sequence {
 
   /// Groups a sequence by the results of the given block.
   /// - parameter block: answers a group for a given element.
@@ -30,8 +30,8 @@ extension SequenceType {
   ///   results of the block, and the values are arrays of elements belonging to
   ///   each group. The array values preserve the order of the original
   ///   sequence.
-  public func groupBy(block: (Generator.Element) -> NSObject) -> [NSObject: [Generator.Element]] {
-    typealias Element = Generator.Element
+  public func groupBy(_ block: (Iterator.Element) -> NSObject) -> [NSObject: [Iterator.Element]] {
+    typealias Element = Iterator.Element
     var groups = [NSObject: [Element]]()
     forEach { (element) -> () in
       let group = block(element)
@@ -59,7 +59,7 @@ extension SequenceType {
   ///       block(element)
   ///     }.all
   ///
-  public func all(block: (Generator.Element) -> Bool) -> Bool {
+  public func all(_ block: (Iterator.Element) -> Bool) -> Bool {
     for element in self {
       if !block(element) {
         return false
@@ -84,7 +84,7 @@ extension SequenceType {
   ///       block(element)
   ///     }.any
   ///
-  public func any(block: (Generator.Element) -> Bool) -> Bool {
+  public func any(_ block: (Iterator.Element) -> Bool) -> Bool {
     for element in self {
       if block(element) {
         return true
