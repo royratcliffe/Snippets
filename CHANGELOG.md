@@ -1,5 +1,16 @@
 # Change Log
 
+## [0.2.0](https://github.com/royratcliffe/snippets/tree/0.2.0) (2016-08-13)
+
+- Merge branch 'feature/swift_3_0' into develop
+- Convert to Swift 3.0 syntax using Xcode 8, beta 5
+- Upgraded to Xcode 8 (beta 5)
+- Disable code signing; enable whole-module optimisation
+- Update Travis configuration for Swift 3, Xcode 8
+- Removed workspace
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.1.20...0.2.0)
+
 ## [0.1.20](https://github.com/royratcliffe/snippets/tree/0.1.20) (2016-08-01)
 
 - Removed Podfile
