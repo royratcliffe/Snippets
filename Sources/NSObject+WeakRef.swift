@@ -34,8 +34,8 @@ extension NSObject {
   ///
   /// Only retains non-nil objects weakly. Weakly-retaining nil retains nil
   /// rather than strongly retaining a weak reference to nil.
-  public func retainWeaklyAssociatedObject(object: AnyObject?, forKey key: String) {
-    retainAssociatedObject(object != nil ? WeakRef(object: object) : nil, forKey: key)
+  public func retainWeaklyAssociated(object: AnyObject?, forKey key: String) {
+    retainAssociated(object: object != nil ? WeakRef(object: object) : nil, forKey: key)
   }
 
   /// - returns: a weakly-retained object, or `nil` if there is no such

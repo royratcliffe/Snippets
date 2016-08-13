@@ -24,15 +24,15 @@
 
 import Foundation
 
-extension NSOperation {
+extension Operation {
 
   /// - returns: All cancelled dependencies, or an empty array of operations if
   ///   no dependencies or none cancelled. This is useful to know when you want
   ///   to make an operation only continue if all its dependences finished
   ///   without cancellation.
-  public var cancelledDependencies: [NSOperation] {
+  public var cancelledDependencies: [Operation] {
     return dependencies.filter { (op) -> Bool in
-      return op.cancelled
+      return op.isCancelled
     }
   }
 

@@ -24,7 +24,7 @@
 
 import Foundation
 
-extension NSBundle {
+extension Bundle {
 
   /// Loads an immutable property list from a named resource within a named
   /// sub-directory. Fails by answering `nil` if the resource does not exist, or
@@ -35,14 +35,14 @@ extension NSBundle {
   /// documentation does not make it clear what happens if the name is
   /// `nil`. This method does not follow the same pattern. The name string is
   /// *not* optional.
-  public func propertyListForResource(name: String, subdirectory: String?) throws -> AnyObject? {
-    guard let URL = URLForResource(name, withExtension: "plist", subdirectory: subdirectory) else {
+  public func propertyList(forResource name: String, subdirectory: String?) throws -> AnyObject? {
+    guard let URL = url(forResource: name, withExtension: "plist", subdirectory: subdirectory) else {
       return nil
     }
-    guard let data = NSData(contentsOfURL: URL) else {
+    guard let data = try? Data(contentsOf: URL) else {
       return nil
     }
-    return try NSPropertyListSerialization.propertyListWithData(data, options: .Immutable, format: nil)
+    return try PropertyListSerialization.propertyList(from: data, options: PropertyListSerialization.MutabilityOptions(), format: nil)
   }
 
   /// - returns: Bundle's display name; returns the application's display name
@@ -59,9 +59,9 @@ extension NSBundle {
   /// Application Support folder by this name, for example, the new support
   /// folder does not also carry the `app` extension.
   public var displayName: String {
-    let manager = NSFileManager.defaultManager()
-    let displayName = manager.displayNameAtPath(bundlePath) as NSString
-    return displayName.stringByDeletingPathExtension
+    let manager = FileManager.default
+    let displayName = manager.displayName(atPath: bundlePath) as NSString
+    return displayName.deletingPathExtension
   }
 
   /// - parameter subpath: sub-folder within this bundle.
@@ -70,9 +70,9 @@ extension NSBundle {
   /// Compiled storyboards have the `storyboardc` extension; `c` standing for
   /// compiled, presumably.
   public func storyboardNames(inDirectory subpath: String?) -> [String] {
-    return pathsForResourcesOfType("storyboardc", inDirectory: subpath).map { path in
+    return paths(forResourcesOfType: "storyboardc", inDirectory: subpath).map { path in
       let component = (path as NSString).lastPathComponent
-      return (component as NSString).stringByDeletingPathExtension
+      return (component as NSString).deletingPathExtension
     }
   }
 

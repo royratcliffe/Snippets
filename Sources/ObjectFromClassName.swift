@@ -32,7 +32,7 @@ import Foundation
 ///   is global.
 /// - returns: an instance of the class matching the class name, or `nil` if the
 ///   class does not match anything currently loaded.
-public func ObjectFromClassName(className: String) -> NSObject? {
+public func Object(from className: String) -> NSObject? {
   guard let objectClass = NSClassFromString(className) as? NSObject.Type else {
     return nil
   }

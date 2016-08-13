@@ -34,9 +34,9 @@ extension UITableViewController {
   /// a table view delegate method in response, directly or indirectly, to a
   /// table row selection event. The implementation does not know, nor can know,
   /// that the delegate has already been invoked.
-  public func selectRowAtIndexPath(indexPath: NSIndexPath, animated: Bool, scrollPosition: UITableViewScrollPosition) {
-    tableView.selectRowAtIndexPath(indexPath, animated: animated, scrollPosition: scrollPosition)
-    tableView.delegate?.tableView?(tableView, didSelectRowAtIndexPath: indexPath)
+  public func selectRow(at indexPath: IndexPath, animated: Bool, scrollPosition: UITableViewScrollPosition) {
+    tableView.selectRow(at: indexPath, animated: animated, scrollPosition: scrollPosition)
+    tableView.delegate?.tableView?(tableView, didSelectRowAt: indexPath)
   }
 
 }

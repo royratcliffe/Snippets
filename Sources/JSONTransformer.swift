@@ -31,31 +31,32 @@ import Foundation
 /// Pretty-prints the JSON by default. Allows solo JSON primitives by
 /// default. Adjust the reading and writing options if defaults require an
 /// alternative configuration.
-public class JSONTransformer: NSValueTransformer {
+public class JSONTransformer: ValueTransformer {
 
-  public var readingOptions: NSJSONReadingOptions = .AllowFragments
-  public var writingOptions: NSJSONWritingOptions = .PrettyPrinted
+  public var readingOptions: JSONSerialization.ReadingOptions = .allowFragments
+  public var writingOptions: JSONSerialization.WritingOptions = .prettyPrinted
 
   public override class func allowsReverseTransformation() -> Bool {
     return true
   }
 
   public override class func transformedValueClass() -> AnyClass {
-    return NSData.self
+    // swiftlint:disable:next force_cast
+    return Data.self as! AnyClass
   }
 
-  public override func transformedValue(value: AnyObject?) -> AnyObject? {
+  public override func transformedValue(_ value: AnyObject?) -> AnyObject? {
     guard let value = value else {
       return nil
     }
-    return try? NSJSONSerialization.dataWithJSONObject(value, options: writingOptions)
+    return try? JSONSerialization.data(withJSONObject: value, options: writingOptions)
   }
 
-  public override func reverseTransformedValue(value: AnyObject?) -> AnyObject? {
-    guard let value = value as? NSData else {
+  public override func reverseTransformedValue(_ value: AnyObject?) -> AnyObject? {
+    guard let value = value as? Data else {
       return nil
     }
-    return try? NSJSONSerialization.JSONObjectWithData(value, options: readingOptions)
+    return try? JSONSerialization.jsonObject(with: value, options: readingOptions)
   }
 
   /// Initialises the class before it receives its first message. Use the
@@ -63,7 +64,7 @@ public class JSONTransformer: NSValueTransformer {
   /// initialisations when sub-classes exist.
   public override class func initialize() {
     guard self === JSONTransformer.self else { return }
-    setValueTransformer(JSONTransformer(), forName: NSStringFromClass(self))
+    setValueTransformer(JSONTransformer(), forName: NSValueTransformerName(rawValue: NSStringFromClass(self)))
   }
 
 }
