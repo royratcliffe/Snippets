@@ -30,9 +30,9 @@ extension Sequence {
   ///   results of the block, and the values are arrays of elements belonging to
   ///   each group. The array values preserve the order of the original
   ///   sequence.
-  public func groupBy(_ block: (Iterator.Element) -> NSObject) -> [NSObject: [Iterator.Element]] {
+  public func groupBy(_ block: (Iterator.Element) -> AnyHashable) -> [AnyHashable: [Iterator.Element]] {
     typealias Element = Iterator.Element
-    var groups = [NSObject: [Element]]()
+    var groups = [AnyHashable: [Element]]()
     forEach { (element) -> () in
       let group = block(element)
       if var values = groups[group] {

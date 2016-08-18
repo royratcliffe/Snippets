@@ -53,7 +53,7 @@ extension NSError {
       if let value = value {
         let length = maxKeyLength - key.characters.count
         let padding = "".padding(toLength: length, withPad: " ", startingAt: 0)
-        NSLog("ERROR %@%@:%@", padding, key, String(value))
+        NSLog("ERROR %@%@:%@", padding, key, String(describing: value))
       }
     }
   }

@@ -35,7 +35,7 @@ class IndexSetTests: XCTestCase {
     // when
     let symmetricDifference = setA.symmetricDifference(setB as IndexSet)
     // then
-    XCTAssertEqual(symmetricDifference, NSIndexSet(indexes: [2, 4, 7, 9]))
+    XCTAssertEqual(symmetricDifference, NSIndexSet(indexes: [2, 4, 7, 9]) as IndexSet)
   }
 
   /// Note, you cannot compare NSRange equal, i.e. assert equal, because they

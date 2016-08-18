@@ -85,7 +85,7 @@ public class RandomUser {
 
   public var nat: String?
 
-  public func get(handler: (NSDictionary) -> Void) {
+  public func get(handler: @escaping (NSDictionary) -> Void) {
     let session = URLSession.shared
     var urlComponents = URLComponents(url: RandomUser.url, resolvingAgainstBaseURL: false)!
     var queryItems = [URLQueryItem]()

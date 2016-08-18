@@ -40,9 +40,10 @@ extension Data {
   /// number of resulting characters to two, and no more than two, per byte.
   public var hexString: String {
     var hexString = ""
-    let bytes = UnsafePointer<UInt8>((self as NSData).bytes)
-    for index in 0 ..< count {
-      hexString += String(format: "%02hhx", arguments: [bytes[index]])
+    withUnsafeBytes { (bytes: UnsafePointer<UInt8>) in
+      for index in 0 ..< count {
+        hexString += String(format: "%02hhx", arguments: [bytes[index]])
+      }
     }
     return hexString
   }

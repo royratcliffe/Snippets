@@ -35,7 +35,7 @@ extension Bundle {
   /// documentation does not make it clear what happens if the name is
   /// `nil`. This method does not follow the same pattern. The name string is
   /// *not* optional.
-  public func propertyList(forResource name: String, subdirectory: String?) throws -> AnyObject? {
+  public func propertyList(forResource name: String, subdirectory: String?) throws -> Any? {
     guard let URL = url(forResource: name, withExtension: "plist", subdirectory: subdirectory) else {
       return nil
     }

@@ -34,7 +34,7 @@ import Foundation
 public class Configuration: NSObject {
 
   /// Value blocks are captures that answer an optional object.
-  public typealias ValueBlock = () -> AnyObject?
+  public typealias ValueBlock = () -> Any?
 
   var keyedValueBlocks = [String: ValueBlock]()
 

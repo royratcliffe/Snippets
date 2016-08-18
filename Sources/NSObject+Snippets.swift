@@ -42,11 +42,11 @@ extension NSObject {
   }
 
   public var objCRuntimePropertyNames: [String] {
-    return self.dynamicType.objCRuntimePropertyNames
+    return type(of: self).objCRuntimePropertyNames
   }
 
-  public var objCRuntimeProperties: [String: AnyObject] {
-    var properties = [String: AnyObject]()
+  public var objCRuntimeProperties: [String: Any] {
+    var properties = [String: Any]()
     for name in objCRuntimePropertyNames {
       if let value = value(forKey: name) {
         properties[name] = value
@@ -58,8 +58,7 @@ extension NSObject {
   /// Conditionally performs a given selector string using the given object as
   /// argument. The selector string should have a colon terminator, the only
   /// colon in the string.
-  public func perform(_ selectorString: String,
-    withObject object: AnyObject) -> AnyObject? {
+  public func perform(_ selectorString: String, withObject object: Any) -> Any? {
     let selector = Selector(selectorString)
     guard responds(to: selector) else {
       return nil
@@ -85,7 +84,7 @@ extension NSObject {
   ///   though nil values are transferred to the object as well. Useful for
   ///   knowing if the object responds to the value blocks or not. Answer zero
   ///   if no transfer of values at all.
-  public func setValues(forKeys keyedValueBlocks: [String: () -> AnyObject?]) -> Int {
+  public func setValues(forKeys keyedValueBlocks: [String: () -> Any?]) -> Int {
     var result = 0
     for (key, valueBlock) in keyedValueBlocks {
       let index = key.characters.index(key.startIndex, offsetBy: 1)

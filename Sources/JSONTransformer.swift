@@ -45,14 +45,14 @@ public class JSONTransformer: ValueTransformer {
     return Data.self as! AnyClass
   }
 
-  public override func transformedValue(_ value: AnyObject?) -> AnyObject? {
+  public override func transformedValue(_ value: Any?) -> Any? {
     guard let value = value else {
       return nil
     }
     return try? JSONSerialization.data(withJSONObject: value, options: writingOptions)
   }
 
-  public override func reverseTransformedValue(_ value: AnyObject?) -> AnyObject? {
+  public override func reverseTransformedValue(_ value: Any?) -> Any? {
     guard let value = value as? Data else {
       return nil
     }
