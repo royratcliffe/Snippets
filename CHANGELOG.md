@@ -1,5 +1,13 @@
 # Change Log
 
+## [0.2.1](https://github.com/royratcliffe/snippets/tree/0.2.1) (2016-08-18)
+
+- `===` fails to compile unless optional cast to type
+- Test for `Data.hexString`
+- Swift updates including `Any`, raw pointers, escaping, no function type values, etc.
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.2.0...0.2.1)
+
 ## [0.2.0](https://github.com/royratcliffe/snippets/tree/0.2.0) (2016-08-13)
 
 - Merge branch 'feature/swift_3_0' into develop
