@@ -62,7 +62,7 @@ class ConfigurationTests: XCTestCase {
     // when
     _ = self.configuration.configure(object: object)
     // then
-    let configuration = object.value(forKey: "configuration")
+    let configuration = object.value(forKey: "configuration") as? Configuration
     XCTAssertNotNil(configuration)
     XCTAssert(configuration === self.configuration)
   }
