@@ -1,4 +1,4 @@
-// Snippets Configuration.swift
+// SnippetsTests DataTests.swift
 //
 // Copyright © 2016, Roy Ratcliffe, Pioneering Software, United Kingdom
 //
@@ -22,35 +22,18 @@
 //
 //------------------------------------------------------------------------------
 
-import Foundation
+import XCTest
+import Snippets
 
-/// Configures objects by retaining a dictionary of keyed value-blocks and
-/// evaluating those blocks if the objects to configure respond to the
-/// corresponding setter selectors.
-///
-/// The `Configuration` object exists as an `NSObject` because it can belong to
-/// its own configuration. Avoid retain cycles by making such self-references
-/// weak.
-public class Configuration: NSObject {
+class DataTests: XCTestCase {
 
-  /// Value blocks are captures that answer an optional object.
-  public typealias ValueBlock = () -> Any?
-
-  var keyedValueBlocks = [String: ValueBlock]()
-
-  /// Adds a new value block for the given key. Replaces an existing value block
-  /// if the key already exists.
-  public func add(forKey key: String, valueBlock: ValueBlock) {
-    keyedValueBlocks[key] = valueBlock
-  }
-
-  /// Configures the given object. Results in a sequence of zero or more
-  /// key-value coding (KVC) set-value or set-nil-value calls for zero or more
-  /// setter-responding keys.
-  /// - parameter object: KVC-compliant object to receive new values.
-  /// - returns: Total number of non-nil values transferred to the object.
-  public func configure(object: NSObject) -> Int {
-    return object.setValues(forKeys: keyedValueBlocks)
+  func testHexString() {
+    // given
+    let data = Data(bytes: [10, 11])
+    // when
+    let string = data.hexString
+    // then
+    XCTAssertEqual(string, "0a0b")
   }
 
 }

@@ -45,7 +45,7 @@ extension NSObject {
   /// or `nil`. Answer is `nil` unless the object really is a weak reference; it
   /// may not be. Funny things happen to Swift otherwise. Answers `nil` if the
   /// associated object is *not* a WeakRef instance.
-  public func weaklyAssociatedObject(forKey key: String) -> AnyObject? {
+  public func weaklyAssociatedObject(forKey key: String) -> Any? {
     guard let weakRef = associatedObject(forKey: key) as? WeakRef else {
       return nil
     }

@@ -137,7 +137,7 @@ public class UITableViewFetchedResultsController<Result: NSFetchRequestResult>: 
       return super.tableView(tableView, heightForRowAt: indexPath)
     }
     let object = dataSource.object(at: indexPath)
-    dataSource.configureCellForObjectBlock(cell: cell, object: object)
+    dataSource.configureCellForObjectBlock(cell, object)
     guard !cell.constraints.isEmpty else {
       return cell.frame.height
     }
@@ -148,7 +148,7 @@ public class UITableViewFetchedResultsController<Result: NSFetchRequestResult>: 
   // MARK: - Fetched Results Controller Delegate
 
   public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
-                         didChange anObject: AnyObject,
+                         didChange anObject: Any,
                          at indexPath: IndexPath?,
                          for type: NSFetchedResultsChangeType,
                          newIndexPath: IndexPath?) {

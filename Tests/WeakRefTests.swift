@@ -36,11 +36,11 @@ class WeakRefTests: SnippetsTests {
     let object = NSObject()
 
     // when
-    object.retainAssociated(object: WeakRef(object: 123), forKey: "number")
+    object.retainAssociated(object: WeakRef(object: 123 as AnyObject), forKey: "number")
 
     // then
     XCTAssertNotNil(object.associatedObject(forKey: "number"))
-    XCTAssertNil(object.associatedObject(forKey: "number")?.object)
+    XCTAssertNil((object.associatedObject(forKey: "number") as AnyObject).object)
   }
 
   func testRetainWeakly() {

@@ -33,7 +33,7 @@ class ConfigurationTests: XCTestCase {
     super.setUp()
 
     // given
-    configuration.add(forKey: "configuration") { () -> AnyObject in
+    configuration.add(forKey: "configuration") { () -> Any in
       return self.configuration
     }
   }
@@ -62,7 +62,7 @@ class ConfigurationTests: XCTestCase {
     // when
     _ = self.configuration.configure(object: object)
     // then
-    let configuration = object.value(forKey: "configuration")
+    let configuration = object.value(forKey: "configuration") as? Configuration
     XCTAssertNotNil(configuration)
     XCTAssert(configuration === self.configuration)
   }

@@ -42,7 +42,7 @@ class RandomUserTests: XCTestCase {
       XCTAssertNotNil(nat)
       XCTAssertNotNil(results)
       XCTAssertNotNil(seed)
-      XCTAssertEqual(version, "1.0")
+      XCTAssertEqual(version, "1.1")
       XCTAssertTrue(results?.count == 1)
       expectation.fulfill()
     }

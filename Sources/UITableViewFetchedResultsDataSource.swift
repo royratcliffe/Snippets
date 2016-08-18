@@ -28,8 +28,8 @@ import CoreData
 public class UITableViewFetchedResultsDataSource<Result: NSFetchRequestResult>: NSObject, UITableViewDataSource {
 
   public var fetchedResultsController: NSFetchedResultsController<Result>!
-  public var cellIdentifierForRowBlock: ((indexPath: IndexPath, object: NSManagedObject) -> String)!
-  public var configureCellForObjectBlock: ((cell: UITableViewCell, object: NSManagedObject) -> Void)!
+  public var cellIdentifierForRowBlock: ((_ indexPath: IndexPath, _ object: NSManagedObject) -> String)!
+  public var configureCellForObjectBlock: ((_ cell: UITableViewCell, _ object: NSManagedObject) -> Void)!
 
   public func object(at indexPath: IndexPath) -> NSManagedObject {
     // swiftlint:disable:next force_cast
@@ -37,7 +37,7 @@ public class UITableViewFetchedResultsDataSource<Result: NSFetchRequestResult>: 
   }
   public func cellIdentifier(forRow indexPath: IndexPath) -> String {
     let object = self.object(at: indexPath)
-    return cellIdentifierForRowBlock(indexPath: indexPath, object: object)
+    return cellIdentifierForRowBlock(indexPath, object)
   }
 
   //----------------------------------------------------------------------------
@@ -84,7 +84,7 @@ public class UITableViewFetchedResultsDataSource<Result: NSFetchRequestResult>: 
   public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cellIdentifier = self.cellIdentifier(forRow: indexPath)
     let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-    configureCellForObjectBlock(cell: cell, object: object(at: indexPath))
+    configureCellForObjectBlock(cell, object(at: indexPath))
     return cell
   }
 

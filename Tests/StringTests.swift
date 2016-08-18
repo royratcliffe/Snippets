@@ -51,10 +51,10 @@ class StringTests: XCTestCase {
 
   func testIsInternetAddressIPv6() {
     // localhost
-    XCTAssertTrue("::1".isInternetAddressIPv6 != nil)
+    XCTAssertTrue("::1".isInternetAddressIPv6)
 
     // any
-    XCTAssertTrue("::".isInternetAddressIPv6 != nil)
+    XCTAssertTrue("::".isInternetAddressIPv6)
   }
 
 }

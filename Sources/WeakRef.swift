@@ -33,7 +33,7 @@ public class WeakRef {
   /// unspecified point in the future, a non-nil weak reference can become nil;
   /// the unwrapped optional answers nil.
   ///
-  /// You cannot use `weak let` in Swift 2. All weak object references must be
+  /// You cannot use `weak let` in Swift. All weak object references must be
   /// mutable. That makes sense. The optional can become `nil`.
   public weak var object: AnyObject?
 

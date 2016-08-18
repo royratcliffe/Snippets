@@ -32,8 +32,8 @@ class SequenceTypeTests: XCTestCase {
     // given
     let elements = Array(1...6)
     // when
-    let groups = elements.groupBy { (i) -> NSObject in
-      i % 3
+    let groups = elements.groupBy { (i) in
+      (i % 3)
     }
     // then
     XCTAssertEqual(groups.count, 3)
@@ -43,18 +43,18 @@ class SequenceTypeTests: XCTestCase {
     XCTAssertEqual(groups[0]!, [3, 6])
     XCTAssertEqual(groups[1]!, [1, 4])
     XCTAssertEqual(groups[2]!, [2, 5])
-    XCTAssertEqual(groups, [0: [3, 6], 1: [1, 4], 2: [2, 5]])
+    XCTAssertEqual(String(describing: groups), String(describing: [AnyHashable(0): [3, 6], AnyHashable(1): [1, 4], AnyHashable(2): [2, 5]]))
   }
 
   func testAll() {
-    XCTAssertTrue(["ant", "bear", "cat"].all { $0.length >= 3 })
-    XCTAssertFalse(["ant", "bear", "cat"].all { $0.length >= 4 })
+    XCTAssertTrue(["ant", "bear", "cat"].all { $0.characters.count >= 3 })
+    XCTAssertFalse(["ant", "bear", "cat"].all { $0.characters.count >= 4 })
     XCTAssertTrue([].all)
   }
 
   func testAny() {
-    XCTAssertTrue(["ant", "bear", "cat"].any { $0.length >= 3 })
-    XCTAssertTrue(["ant", "bear", "cat"].any { $0.length >= 4 })
+    XCTAssertTrue(["ant", "bear", "cat"].any { $0.characters.count >= 3 })
+    XCTAssertTrue(["ant", "bear", "cat"].any { $0.characters.count >= 4 })
     XCTAssertFalse([].any)
   }
 
