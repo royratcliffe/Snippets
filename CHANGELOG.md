@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.2.2](https://github.com/royratcliffe/snippets/tree/0.2.2) (2016-08-25)
+
+- Open super-class, UITableViewFetchedResultsController; not generic
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.2.1...0.2.2)
+
 ## [0.2.1](https://github.com/royratcliffe/snippets/tree/0.2.1) (2016-08-18)
 
 - `===` fails to compile unless optional cast to type
