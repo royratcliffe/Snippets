@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.3.0](https://github.com/royratcliffe/snippets/tree/0.3.0) (2016-08-31)
+
+- Date snippets, startOfDay, endOfDay
+- Removed NS source file prefix where possible; SequenceType to Sequence
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.2.2...0.3.0)
+
 ## [0.2.2](https://github.com/royratcliffe/snippets/tree/0.2.2) (2016-08-25)
 
 - Open super-class, UITableViewFetchedResultsController; not generic
