@@ -87,9 +87,7 @@ extension NSObject {
   public func setValues(forKeys keyedValueBlocks: [String: () -> Any?]) -> Int {
     var result = 0
     for (key, valueBlock) in keyedValueBlocks {
-      let index = key.characters.index(key.startIndex, offsetBy: 1)
-      let selector = Selector("set\(key.substring(to: index).uppercased())\(key.substring(from: index)):")
-      if responds(to: selector) {
+      if responds(to: Selector(setter: key)) {
         if let value = valueBlock() {
           setValue(value, forKey: key)
           result += 1

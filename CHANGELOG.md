@@ -1,5 +1,13 @@
 # Change Log
 
+## [0.4.0](https://github.com/royratcliffe/snippets/tree/0.4.0) (2016-08-31)
+
+- Open access for overridable `UITableViewFetchedResultsController` methods
+- Re-use `Selector(setter:)` initialiser
+- Selector snippets: `Selector(setter:)`
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.3.0...0.4.0)
+
 ## [0.3.0](https://github.com/royratcliffe/snippets/tree/0.3.0) (2016-08-31)
 
 - Date snippets, startOfDay, endOfDay
