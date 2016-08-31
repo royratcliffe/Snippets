@@ -37,7 +37,7 @@ open class UITableViewFetchedResultsController: UITableViewController, NSFetched
   /// controller needs one.
   public weak var managedObjectContext: NSManagedObjectContext!
 
-  public func performFetch() {
+  open func performFetch() {
     // Disable error propagation.
     do {
       try fetchedResultsController.performFetch()
@@ -61,7 +61,7 @@ open class UITableViewFetchedResultsController: UITableViewController, NSFetched
   /// set up. Uses user-defined run-time attributes to derive the entity
   /// description and sort descriptor, and optionally also the section name
   /// key-path and cache name.
-  public var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> {
+  open var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> {
     if dataSource.fetchedResultsController == nil {
       dataSource.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                                        managedObjectContext: managedObjectContext,
@@ -98,7 +98,7 @@ open class UITableViewFetchedResultsController: UITableViewController, NSFetched
   @IBInspectable var sectionNameKeyPath: String?
   @IBInspectable var cacheName: String?
 
-  public var entity: NSEntityDescription? {
+  open var entity: NSEntityDescription? {
     return NSEntityDescription.entity(forEntityName: entityName, in: managedObjectContext)
   }
 
@@ -107,7 +107,7 @@ open class UITableViewFetchedResultsController: UITableViewController, NSFetched
   /// instance of `NSFetchedResultsController` requires a fetch request *with*
   /// sort descriptors. Otherwise you will get an exception to that effect.
   /// - returns: Answers a pre-configured fetch request.
-  public var fetchRequest: NSFetchRequest<NSFetchRequestResult> {
+  open var fetchRequest: NSFetchRequest<NSFetchRequestResult> {
     let request = NSFetchRequest<NSFetchRequestResult>()
     request.entity = entity
     let descriptor = NSSortDescriptor(key: sortDescriptorKey, ascending: sortDescriptorAscending ?? true)
@@ -156,7 +156,7 @@ open class UITableViewFetchedResultsController: UITableViewController, NSFetched
   //----------------------------------------------------------------------------
   // MARK: - Fetched Results Controller Delegate
 
-  public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+  open func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
                          didChange anObject: Any,
                          at indexPath: IndexPath?,
                          for type: NSFetchedResultsChangeType,
@@ -177,11 +177,11 @@ open class UITableViewFetchedResultsController: UITableViewController, NSFetched
     }
   }
 
-  public func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+  open func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     tableView.beginUpdates()
   }
 
-  public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+  open func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     tableView.endUpdates()
   }
 
