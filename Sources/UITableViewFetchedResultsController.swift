@@ -110,9 +110,13 @@ open class UITableViewFetchedResultsController: UITableViewController, NSFetched
   open var fetchRequest: NSFetchRequest<NSFetchRequestResult> {
     let request = NSFetchRequest<NSFetchRequestResult>()
     request.entity = entity
-    let descriptor = NSSortDescriptor(key: sortDescriptorKey, ascending: sortDescriptorAscending ?? true)
-    request.sortDescriptors = [descriptor]
+    request.sortDescriptors = sortDescriptors
     return request
+  }
+
+  /// Sort descriptors used by the fetch request.
+  open var sortDescriptors: [NSSortDescriptor] {
+    return [NSSortDescriptor(key: sortDescriptorKey, ascending: sortDescriptorAscending ?? true)]
   }
 
   //----------------------------------------------------------------------------
