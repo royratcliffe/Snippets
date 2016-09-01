@@ -37,6 +37,11 @@ open class UITableViewFetchedResultsController: UITableViewController, NSFetched
   /// controller needs one.
   public weak var managedObjectContext: NSManagedObjectContext!
 
+  /// Performs a fetch request using the fetched results controller. Aborts on
+  /// error, unless a Core Data error. Erases the fetched results controller
+  /// cache on Core Data errors, before retrying the fetch. Deletes all caches
+  /// if no specific cache. Aborts on Core Data errors if the second retry also
+  /// fails.
   open func performFetch() {
     // Disable error propagation.
     do {
@@ -44,6 +49,16 @@ open class UITableViewFetchedResultsController: UITableViewController, NSFetched
     } catch let error as NSError {
       NSLog("%@", error.localizedDescription)
       abort()
+    } catch let error as CocoaError {
+      if error.code == CocoaError.Code.coreDataError {
+        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: fetchedResultsController.cacheName)
+        do {
+          try fetchedResultsController.performFetch()
+        } catch {
+          NSLog("%@", error.localizedDescription)
+          abort()
+        }
+      }
     }
   }
 
