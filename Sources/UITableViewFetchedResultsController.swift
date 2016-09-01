@@ -41,8 +41,8 @@ open class UITableViewFetchedResultsController: UITableViewController, NSFetched
     // Disable error propagation.
     do {
       try fetchedResultsController.performFetch()
-    } catch {
-      NSLog("%@", (error as NSError).localizedDescription)
+    } catch let error as NSError {
+      NSLog("%@", error.localizedDescription)
       abort()
     }
   }
