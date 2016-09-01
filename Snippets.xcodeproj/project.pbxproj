@@ -48,6 +48,7 @@
 		78BA52F91B8F848F00D85C33 /* UIViewController+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA52F41B8F848F00D85C33 /* UIViewController+Snippets.swift */; };
 		78BA53001B8F84A100D85C33 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA52FC1B8F84A100D85C33 /* StringTests.swift */; };
 		78BA53011B8F84A100D85C33 /* UIDeviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA52FD1B8F84A100D85C33 /* UIDeviceTests.swift */; };
+		78BB459D1D788CE2008FB07D /* SegmentedContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB459C1D788CE2008FB07D /* SegmentedContentViewController.swift */; };
 		78C7D2BA1C5002860051FB0A /* NSRange+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C7D2B91C5002860051FB0A /* NSRange+Snippets.swift */; };
 		78C7D2BC1C5002B40051FB0A /* NSIndexSet+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C7D2BB1C5002B40051FB0A /* NSIndexSet+Snippets.swift */; };
 		78C7D2BE1C50C8820051FB0A /* JSONTransformerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C7D2BD1C50C8820051FB0A /* JSONTransformerTests.swift */; };
@@ -118,6 +119,7 @@
 		78BA52F41B8F848F00D85C33 /* UIViewController+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Snippets.swift"; sourceTree = "<group>"; };
 		78BA52FC1B8F84A100D85C33 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		78BA52FD1B8F84A100D85C33 /* UIDeviceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceTests.swift; sourceTree = "<group>"; };
+		78BB459C1D788CE2008FB07D /* SegmentedContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedContentViewController.swift; sourceTree = "<group>"; };
 		78C7D2B91C5002860051FB0A /* NSRange+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRange+Snippets.swift"; sourceTree = "<group>"; };
 		78C7D2BB1C5002B40051FB0A /* NSIndexSet+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSIndexSet+Snippets.swift"; sourceTree = "<group>"; };
 		78C7D2BD1C50C8820051FB0A /* JSONTransformerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTransformerTests.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				783E7EC81B9028D300227678 /* UITableViewFetchedResultsController.swift */,
 				783E7EC91B9028D300227678 /* UITableViewFetchedResultsDataSource.swift */,
 				783C101F1C32714800ECB907 /* UITextFieldTableViewController.swift */,
+				78BB459C1D788CE2008FB07D /* SegmentedContentViewController.swift */,
 				78D191121B90A9ED0011219C /* DispatchQueues.swift */,
 				783F0CBE1C1D399100FC8AF4 /* RandomUser.swift */,
 				783F0CF11C1D859800FC8AF4 /* WeakRef.swift */,
@@ -399,6 +402,7 @@
 				78C819041CBD272E00959144 /* KeyValueChangeHandler.swift in Sources */,
 				78C819021CBD137C00959144 /* KeyValueChange.swift in Sources */,
 				783C10221C329A1000ECB907 /* UITableViewController+Snippets.swift in Sources */,
+				78BB459D1D788CE2008FB07D /* SegmentedContentViewController.swift in Sources */,
 				783F0CF41C1F40F100FC8AF4 /* NSError+Snippets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
