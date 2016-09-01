@@ -1,5 +1,14 @@
 # Change Log
 
+## [0.5.0](https://github.com/royratcliffe/snippets/tree/0.5.0) (2016-09-01)
+
+- Performing fetch catches Core Data errors, deletes cache
+- Catch fetch exceptions as `NSError`
+- Table-view fetched results controller: open-access to overridable sort descriptors
+- Fetched results controller inspectable properties are public
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.4.0...0.5.0)
+
 ## [0.4.0](https://github.com/royratcliffe/snippets/tree/0.4.0) (2016-08-31)
 
 - Open access for overridable `UITableViewFetchedResultsController` methods

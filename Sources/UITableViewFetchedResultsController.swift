@@ -37,13 +37,28 @@ open class UITableViewFetchedResultsController: UITableViewController, NSFetched
   /// controller needs one.
   public weak var managedObjectContext: NSManagedObjectContext!
 
+  /// Performs a fetch request using the fetched results controller. Aborts on
+  /// error, unless a Core Data error. Erases the fetched results controller
+  /// cache on Core Data errors, before retrying the fetch. Deletes all caches
+  /// if no specific cache. Aborts on Core Data errors if the second retry also
+  /// fails.
   open func performFetch() {
     // Disable error propagation.
     do {
       try fetchedResultsController.performFetch()
-    } catch {
-      NSLog("%@", (error as NSError).localizedDescription)
+    } catch let error as NSError {
+      NSLog("%@", error.localizedDescription)
       abort()
+    } catch let error as CocoaError {
+      if error.code == CocoaError.Code.coreDataError {
+        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: fetchedResultsController.cacheName)
+        do {
+          try fetchedResultsController.performFetch()
+        } catch {
+          NSLog("%@", error.localizedDescription)
+          abort()
+        }
+      }
     }
   }
 
@@ -91,12 +106,12 @@ open class UITableViewFetchedResultsController: UITableViewController, NSFetched
   //----------------------------------------------------------------------------
   // MARK: - User-Defined Run-Time Attributes
 
-  @IBInspectable var entityName: String!
-  @IBInspectable var sortDescriptorKey: String!
-  @IBInspectable var sortDescriptorAscending: Bool?
+  @IBInspectable public var entityName: String!
+  @IBInspectable public var sortDescriptorKey: String!
+  @IBInspectable public var sortDescriptorAscending: Bool?
 
-  @IBInspectable var sectionNameKeyPath: String?
-  @IBInspectable var cacheName: String?
+  @IBInspectable public var sectionNameKeyPath: String?
+  @IBInspectable public var cacheName: String?
 
   open var entity: NSEntityDescription? {
     return NSEntityDescription.entity(forEntityName: entityName, in: managedObjectContext)
@@ -110,9 +125,13 @@ open class UITableViewFetchedResultsController: UITableViewController, NSFetched
   open var fetchRequest: NSFetchRequest<NSFetchRequestResult> {
     let request = NSFetchRequest<NSFetchRequestResult>()
     request.entity = entity
-    let descriptor = NSSortDescriptor(key: sortDescriptorKey, ascending: sortDescriptorAscending ?? true)
-    request.sortDescriptors = [descriptor]
+    request.sortDescriptors = sortDescriptors
     return request
+  }
+
+  /// Sort descriptors used by the fetch request.
+  open var sortDescriptors: [NSSortDescriptor] {
+    return [NSSortDescriptor(key: sortDescriptorKey, ascending: sortDescriptorAscending ?? true)]
   }
 
   //----------------------------------------------------------------------------
