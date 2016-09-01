@@ -91,12 +91,12 @@ open class UITableViewFetchedResultsController: UITableViewController, NSFetched
   //----------------------------------------------------------------------------
   // MARK: - User-Defined Run-Time Attributes
 
-  @IBInspectable var entityName: String!
-  @IBInspectable var sortDescriptorKey: String!
-  @IBInspectable var sortDescriptorAscending: Bool?
+  @IBInspectable public var entityName: String!
+  @IBInspectable public var sortDescriptorKey: String!
+  @IBInspectable public var sortDescriptorAscending: Bool?
 
-  @IBInspectable var sectionNameKeyPath: String?
-  @IBInspectable var cacheName: String?
+  @IBInspectable public var sectionNameKeyPath: String?
+  @IBInspectable public var cacheName: String?
 
   open var entity: NSEntityDescription? {
     return NSEntityDescription.entity(forEntityName: entityName, in: managedObjectContext)
