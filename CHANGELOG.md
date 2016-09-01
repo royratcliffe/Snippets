@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.6.0](https://github.com/royratcliffe/snippets/tree/0.6.0) (2016-09-01)
+
+- Added SegmentedContentViewController class
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.5.0...0.6.0)
+
 ## [0.5.0](https://github.com/royratcliffe/snippets/tree/0.5.0) (2016-09-01)
 
 - Performing fetch catches Core Data errors, deletes cache
