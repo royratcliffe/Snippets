@@ -31,7 +31,11 @@ open class SegmentedContentViewController: UIViewController {
 
   public var configuration: Configuration?
 
+  @IBOutlet public var segmentedControl: UISegmentedControl?
+
   @IBInspectable public var storyboardIdentifiers: String?
+
+  @IBInspectable public var transitionDuration: TimeInterval?
 
   /// Responds to changes in the segmented control. Connect a segmented
   /// control's value changed event to this action.
@@ -42,17 +46,29 @@ open class SegmentedContentViewController: UIViewController {
   }
 
   /// Selects a segment.
+  /// - parameter index: Index of the segment to select.
+  ///
+  /// The destination content controller may be `nil`. In such a case, selecting
+  /// a segment hides any current content. If the segmented content view
+  /// controller finds the segmented control outlet connected, it temporarily
+  /// disables control interaction during the transition.
   open func select(segment index: Int) {
     let identifier = allStoryboardIdentifiers[index]
-    if let destination = storyboard?.instantiateViewController(withIdentifier: identifier) {
-      if let source = childViewControllers.first {
-        hide(content: source)
-      }
+    let destination = storyboard?.instantiateViewController(withIdentifier: identifier)
+    var transition = Transition(controller: self)
+    if let destination = destination {
       _ = configuration?.configure(object: destination)
-      display(content: destination) { (view) in
-        view.bounds
+      transition.addAnimations {
+        destination.view.frame = self.view.bounds
       }
     }
+    if let segmentedControl = segmentedControl {
+      segmentedControl.isUserInteractionEnabled = false
+      transition.addCompletion { (finished) in
+        segmentedControl.isUserInteractionEnabled = true
+      }
+    }
+    transition.cycle(from: childViewControllers.first, to: destination, duration: transitionDuration ?? 0.1)
   }
 
   /// Storyboard identifiers as an array of strings, one or more. Cuts up the
