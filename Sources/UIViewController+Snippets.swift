@@ -202,8 +202,7 @@ extension UIViewController {
     ///
     /// - parameter from: Outgoing content view controller.
     /// - parameter to: New incoming content view controller.
-    /// - parameter duration: Total duration of animations in seconds. Only used
-    ///   when cycling from and to content controllers.
+    /// - parameter duration: Total duration of animations in seconds.
     public func cycle(from: UIViewController, to: UIViewController, duration: TimeInterval) {
       from.willMove(toParentViewController: nil)
       controller.addChildViewController(to)
