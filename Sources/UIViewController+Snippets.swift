@@ -125,4 +125,118 @@ extension UIViewController {
     }
   }
 
+  /// Supports view controller transitions. Allows concatenating of multiple
+  /// animations and completion blocks.
+  public struct Transition {
+
+    public typealias Animations = @escaping () -> Void
+
+    public typealias Completion = @escaping (Bool) -> Void
+
+    public let controller: UIViewController
+
+    public var options: UIViewAnimationOptions = []
+
+    public var animations: Animations?
+
+    public var completion: Completion?
+
+    public init(controller: UIViewController, completion: Completion? = nil) {
+      self.controller = controller
+      self.completion = completion
+    }
+
+    /// Adds an animation block.
+    /// - parameter animations: Block to add to animations.
+    public mutating func addAnimations(_ animations: Animations) {
+      if let currentAnimations = self.animations {
+        self.animations = {
+          currentAnimations()
+          animations()
+        }
+      } else {
+        self.animations = animations
+      }
+    }
+
+    /// Adds a completion block.
+    /// - parameter completion: Block to add to chain of completion blocks.
+    public mutating func addCompletion(_ completion: Completion) {
+      if let currentCompletion = self.completion {
+        self.completion = { (finished) in
+          currentCompletion(finished)
+          completion(finished)
+        }
+      } else {
+        self.completion = completion
+      }
+    }
+
+    /// Displays the given content within this container.
+    ///
+    /// Adds the other view controller's (content) view to this container's view
+    /// hierarchy. Automatically removes the content from any other container
+    /// before adding it to this container, invoking
+    /// `willMoveToParentViewController` on the content view controller.
+    ///
+    /// - parameter content: Content view controller to display within this
+    ///   container's content hierarchy.
+    public func display(content: UIViewController) {
+      controller.addChildViewController(content)
+      controller.view.addSubview(content.view)
+      content.didMove(toParentViewController: controller)
+    }
+
+    /// Hides the given content.
+    public func hide(content: UIViewController) {
+      content.willMove(toParentViewController: nil)
+      content.view.removeFromSuperview()
+      content.removeFromParentViewController()
+    }
+
+    /// Cycles from an existing content view controller to another new content
+    /// view controller. Handles the will- and did-move-to-parent messages for
+    /// both the incoming and outgoing view controllers. Removes the existing
+    /// content view controller from the parent view controller when animation
+    /// finishes.
+    ///
+    /// - parameter from: Outgoing content view controller.
+    /// - parameter to: New incoming content view controller.
+    /// - parameter duration: Total duration of animations in seconds. Only used
+    ///   when cycling from and to content controllers.
+    public func cycle(from: UIViewController, to: UIViewController, duration: TimeInterval) {
+      from.willMove(toParentViewController: nil)
+      controller.addChildViewController(to)
+      controller.transition(from: from, to: to, duration: duration, options: options, animations: animations) { (finished) in
+        from.removeFromParentViewController()
+        to.didMove(toParentViewController: self.controller)
+        self.completion?(finished)
+      }
+    }
+
+    /// Cycles, hides or displays content controllers based on the existence of
+    /// the controllers: cycles if both the incoming and outgoing controllers
+    /// exist; hides if only the outgoing controller exists; or displays if only
+    /// the incoming controller exists.
+    ///
+    /// - parameter from: Outgoing content view controller, optional.
+    /// - parameter to: New incoming content view controller, optional.
+    /// - parameter duration: Total duration of animations in seconds. Only used
+    ///   when cycling from and to content controllers.
+    public func cycle(from: UIViewController?, to: UIViewController?, duration: TimeInterval) {
+      if let from = from {
+        if let to = to {
+          cycle(from: from, to: to, duration: duration)
+        } else {
+          hide(content: from)
+        }
+      } else {
+        if let to = to {
+          display(content: to)
+        }
+      }
+    }
+
+  }
+
 }
