@@ -51,8 +51,13 @@ open class SegmentedContentViewController: UIViewController {
   /// The destination content controller may be `nil`. In such a case, selecting
   /// a segment hides any current content. If the segmented content view
   /// controller finds the segmented control outlet connected, it temporarily
-  /// disables control interaction during the transition.
+  /// disables control interaction during the transition. However, the
+  /// transition only disables interaction if there is a transition from content
+  /// to new content. It remains enabled if there is no existing content, or
+  /// there is no new content; hence no transition from something to something
+  /// else.
   open func select(segment index: Int) {
+    let source = childViewControllers.first
     let identifier = allStoryboardIdentifiers[index]
     let destination = storyboard?.instantiateViewController(withIdentifier: identifier)
     var transition = Transition(controller: self)
@@ -61,14 +66,14 @@ open class SegmentedContentViewController: UIViewController {
       transition.addAnimations {
         destination.view.frame = self.view.bounds
       }
-    }
-    if let segmentedControl = segmentedControl {
-      segmentedControl.isUserInteractionEnabled = false
-      transition.addCompletion { (finished) in
-        segmentedControl.isUserInteractionEnabled = true
+      if let segmentedControl = segmentedControl, source != nil {
+        segmentedControl.isUserInteractionEnabled = false
+        transition.addCompletion { (finished) in
+          segmentedControl.isUserInteractionEnabled = true
+        }
       }
     }
-    transition.cycle(from: childViewControllers.first, to: destination, duration: transitionDuration ?? 0.1)
+    transition.cycle(from: source, to: destination, duration: transitionDuration ?? 0.1)
   }
 
   /// Storyboard identifiers as an array of strings, one or more. Cuts up the
