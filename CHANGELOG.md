@@ -1,5 +1,13 @@
 # Change Log
 
+## [0.7.0](https://github.com/royratcliffe/snippets/tree/0.7.0) (2016-09-06)
+
+- Segment select uses content transition with interaction temporarily suspended
+- Duration always used; comment fixed
+- `UIViewController.Transition` helper
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.6.0...0.7.0)
+
 ## [0.6.0](https://github.com/royratcliffe/snippets/tree/0.6.0) (2016-09-01)
 
 - Added SegmentedContentViewController class
