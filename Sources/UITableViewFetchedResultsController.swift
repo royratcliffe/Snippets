@@ -50,7 +50,7 @@ open class UITableViewFetchedResultsController: UITableViewController, NSFetched
       NSLog("%@", error.localizedDescription)
       abort()
     } catch let error as CocoaError {
-      if error.code == CocoaError.Code.coreDataError {
+      if error.code == CocoaError.Code.coreData {
         NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: fetchedResultsController.cacheName)
         do {
           try fetchedResultsController.performFetch()
@@ -60,6 +60,19 @@ open class UITableViewFetchedResultsController: UITableViewController, NSFetched
         }
       }
     }
+  }
+
+  /// De-initialises the controller. Exercises some retain-cycle paranoia by
+  /// disconnecting this view controller from the fetched-results
+  /// controller. The delegate reference is unowned and unsafe, not
+  /// weak. Therefore the delegate reference does not automatically become `nil`
+  /// when the view controller de-allocates from memory. There may be occasions
+  /// when an in-flight managed-object change notification from the fetch
+  /// controller tries to send change messages to the view controller when the
+  /// controller no longer exists. Prevent that from happening by explicitly
+  /// disconnecting the two controllers.
+  deinit {
+    dataSource.fetchedResultsController?.delegate = nil
   }
 
   //----------------------------------------------------------------------------

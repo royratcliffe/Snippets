@@ -3,3 +3,7 @@ line_length: 150
 disabled_rules:
   - valid_docs
   - conditional_binding_cascade
+
+variable_name:
+  excluded:
+    - to

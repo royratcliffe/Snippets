@@ -129,9 +129,9 @@ extension UIViewController {
   /// animations and completion blocks.
   public struct Transition {
 
-    public typealias Animations = @escaping () -> Void
+    public typealias Animations = () -> Void
 
-    public typealias Completion = @escaping (Bool) -> Void
+    public typealias Completion = (Bool) -> Void
 
     public let controller: UIViewController
 
@@ -148,7 +148,7 @@ extension UIViewController {
 
     /// Adds an animation block.
     /// - parameter animations: Block to add to animations.
-    public mutating func addAnimations(_ animations: Animations) {
+    public mutating func addAnimations(_ animations: @escaping Animations) {
       if let currentAnimations = self.animations {
         self.animations = {
           currentAnimations()
@@ -161,7 +161,7 @@ extension UIViewController {
 
     /// Adds a completion block.
     /// - parameter completion: Block to add to chain of completion blocks.
-    public mutating func addCompletion(_ completion: Completion) {
+    public mutating func addCompletion(_ completion: @escaping Completion) {
       if let currentCompletion = self.completion {
         self.completion = { (finished) in
           currentCompletion(finished)
