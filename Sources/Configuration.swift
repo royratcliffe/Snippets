@@ -40,7 +40,7 @@ public class Configuration: NSObject {
 
   /// Adds a new value block for the given key. Replaces an existing value block
   /// if the key already exists.
-  public func add(forKey key: String, valueBlock: ValueBlock) {
+  public func add(forKey key: String, valueBlock: @escaping ValueBlock) {
     keyedValueBlocks[key] = valueBlock
   }
 
