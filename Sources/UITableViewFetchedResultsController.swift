@@ -50,7 +50,7 @@ open class UITableViewFetchedResultsController: UITableViewController, NSFetched
       NSLog("%@", error.localizedDescription)
       abort()
     } catch let error as CocoaError {
-      if error.code == CocoaError.Code.coreDataError {
+      if error.code == CocoaError.Code.coreData {
         NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: fetchedResultsController.cacheName)
         do {
           try fetchedResultsController.performFetch()
