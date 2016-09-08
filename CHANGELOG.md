@@ -1,5 +1,16 @@
 # Change Log
 
+## [0.8.0](https://github.com/royratcliffe/snippets/tree/0.8.0) (2016-09-08)
+
+- Added `NSObject.configure(for:)` helper method
+- Fix for name changes in Xcode 8.0 Golden Master (8A218a)
+- Fix `@escaping` may only be applied to parameters of function type
+- Allow `to` as parameter name
+- Fetched-results based table-view controller exercises retain-cycle paranoia
+- Object implied; use `perform(_:with:)`
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.7.1...0.8.0)
+
 ## [0.7.1](https://github.com/royratcliffe/snippets/tree/0.7.1) (2016-09-06)
 
 - Fix segment-control temporary disabled; only if from content to content
