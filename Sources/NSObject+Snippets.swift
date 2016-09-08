@@ -99,4 +99,18 @@ extension NSObject {
     return result
   }
 
+  /// Configures this object with another object based on the class of the other
+  /// object, the argument. Searches for and performs selector
+  /// `configureForClassOfObject:` where `ClassOfObject` is the class of the
+  /// argument, passing the object as argument. Does nothing if it cannot find
+  /// the selector.
+  /// - parameter object: Object whose class completes the selector, and also
+  ///   the object to pass as argument if this object responds to the selector.
+  public func configure<Object: NSObjectProtocol>(for object: Object?) {
+    let selector = Selector("configureFor\(String(describing: Object.self)):")
+    if responds(to: selector) {
+      perform(selector, with: object)
+    }
+  }
+
 }
