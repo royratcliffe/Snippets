@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.9.0](https://github.com/royratcliffe/snippets/tree/0.9.0) (2016-09-12)
+
+- `NSObject.object(of:)` extension
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.8.0...0.9.0)
+
 ## [0.8.0](https://github.com/royratcliffe/snippets/tree/0.8.0) (2016-09-08)
 
 - Added `NSObject.configure(for:)` helper method

@@ -113,4 +113,26 @@ extension NSObject {
     }
   }
 
+  /// Looks up the object in use by a given controller object. Assumes that
+  /// controllers retain whichever object they control as a key-value coding
+  /// compliant variable by the lower-cased name of its class, or by the name
+  /// `object`. Answers `nil` if it does not retain such an object, or if it
+  /// does but fails do cast to the required class.
+  ///
+  /// Assumes that the class name does not have a prefix. Conversion from class
+  /// name to attribute getter selector does not allow for prefixes.
+  /// - parameter controller: Controller object retaining another object.
+  public func object<Object>(of controller: NSObject) -> Object? {
+    let className = String(describing: Object.self)
+    let index = className.characters.index(className.startIndex, offsetBy: 1)
+    let getter = "\(className.substring(to: index).lowercased())\(className.substring(from: index))"
+    for key in [getter, "object"] {
+      if controller.responds(to: Selector((key))),
+          let object = controller.value(forKey: key) as? Object {
+        return object
+      }
+    }
+    return nil
+  }
+
 }
