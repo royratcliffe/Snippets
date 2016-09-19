@@ -56,7 +56,15 @@ open class SegmentedContentViewController: UIViewController {
   /// to new content. It remains enabled if there is no existing content, or
   /// there is no new content; hence no transition from something to something
   /// else.
+  ///
+  /// Selects the user-interface segment if connected to a segmented control,
+  /// but only if the index does not match the selected segment. The user
+  /// interface therefore follows any programatic selections, those _not_
+  /// triggered by a segmented control.
   open func select(segment index: Int) {
+    if let segmentedControl = segmentedControl, segmentedControl.selectedSegmentIndex != index {
+      segmentedControl.selectedSegmentIndex = index
+    }
     let source = childViewControllers.first
     let identifier = allStoryboardIdentifiers[index]
     let destination = storyboard?.instantiateViewController(withIdentifier: identifier)

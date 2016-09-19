@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.9.1](https://github.com/royratcliffe/snippets/tree/0.9.1) (2016-09-19)
+
+- UI segment tracks segment index
+- Make `UITextFieldTableViewController` open for overrides
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.9.0...0.9.1)
+
 ## [0.9.0](https://github.com/royratcliffe/snippets/tree/0.9.0) (2016-09-12)
 
 - `NSObject.object(of:)` extension
