@@ -43,7 +43,7 @@ import UIKit
 /// responder; the keyboard pops up. In reverse, table row selection follows
 /// changes in text field editing; this assumes that you have wired up the table
 /// controller as the delegate for all the text fields.
-public class UITextFieldTableViewController: UITableViewController, UITextFieldDelegate {
+open class UITextFieldTableViewController: UITableViewController, UITextFieldDelegate {
 
   /// Tag of the first responder found in each cell. Assumes that there is only
   /// one view with this tag in each cell, somewhere within the cell or the
@@ -78,7 +78,7 @@ public class UITextFieldTableViewController: UITableViewController, UITextFieldD
   // MARK: - Table View Data Source
   //----------------------------------------------------------------------------
 
-  public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+  open override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if let cell = tableView.cellForRow(at: indexPath) {
       if let view = cell.viewWithTag(firstResponderTag) {
         if !view.isFirstResponder {
@@ -92,7 +92,7 @@ public class UITextFieldTableViewController: UITableViewController, UITextFieldD
   // MARK: - Text Field Delegate
   //----------------------------------------------------------------------------
 
-  public func textFieldDidBeginEditing(_ textField: UITextField) {
+  open func textFieldDidBeginEditing(_ textField: UITextField) {
     if let indexPath = tableView.indexPathForRow(at: textField.convert(CGPoint.zero, to: tableView)) {
       if indexPath != tableView.indexPathForSelectedRow {
         tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
