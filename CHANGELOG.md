@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.10.0](https://github.com/royratcliffe/snippets/tree/0.10.0) (2016-10-06)
+
+- `Snippets.ViewController` configures a segue
+- Configuration extensions for UI Kit
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.9.1...0.10.0)
+
 ## [0.9.1](https://github.com/royratcliffe/snippets/tree/0.9.1) (2016-09-19)
 
 - UI segment tracks segment index
