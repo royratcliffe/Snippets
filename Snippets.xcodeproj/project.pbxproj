@@ -29,6 +29,7 @@
 		785C9CC51CA7C28C00F2E872 /* ObjectFromClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785C9CC41CA7C28C00F2E872 /* ObjectFromClassName.swift */; };
 		785C9CC91CA7E6F800F2E872 /* objc_getClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785C9CC81CA7E6F800F2E872 /* objc_getClasses.swift */; };
 		785C9CCB1CA7E86400F2E872 /* objc_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785C9CCA1CA7E86400F2E872 /* objc_Tests.swift */; };
+		785EC93B1DA685FB00CB9335 /* Configuration+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785EC93A1DA685FB00CB9335 /* Configuration+UIKit.swift */; };
 		78601ECC1C2189A500F1593F /* NSObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78601ECB1C2189A500F1593F /* NSObjectTests.swift */; };
 		78601ECE1C21A7DD00F1593F /* WeakRefTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78601ECD1C21A7DD00F1593F /* WeakRefTests.swift */; };
 		788071921C1697C2008C89DF /* BundleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788071911C1697C2008C89DF /* BundleTests.swift */; };
@@ -97,6 +98,7 @@
 		785C9CC41CA7C28C00F2E872 /* ObjectFromClassName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectFromClassName.swift; sourceTree = "<group>"; };
 		785C9CC81CA7E6F800F2E872 /* objc_getClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = objc_getClasses.swift; sourceTree = "<group>"; };
 		785C9CCA1CA7E86400F2E872 /* objc_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = objc_Tests.swift; sourceTree = "<group>"; };
+		785EC93A1DA685FB00CB9335 /* Configuration+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Configuration+UIKit.swift"; sourceTree = "<group>"; };
 		78601ECB1C2189A500F1593F /* NSObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectTests.swift; sourceTree = "<group>"; };
 		78601ECD1C21A7DD00F1593F /* WeakRefTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakRefTests.swift; sourceTree = "<group>"; };
 		788071911C1697C2008C89DF /* BundleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleTests.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				78C819011CBD137C00959144 /* KeyValueChange.swift */,
 				78C819031CBD272E00959144 /* KeyValueChangeHandler.swift */,
 				78E87EE61CC7C25700A99AF6 /* Configuration.swift */,
+				785EC93A1DA685FB00CB9335 /* Configuration+UIKit.swift */,
 				78D14EEE1C40DA97003DA8FB /* JSONTransformer.swift */,
 				78B47F6C1C8088040036DBD8 /* objc_AssociationPolicy.swift */,
 				785C9CC81CA7E6F800F2E872 /* objc_getClasses.swift */,
@@ -378,6 +381,7 @@
 				78C819001CBD01DA00959144 /* KeyValueObserver.swift in Sources */,
 				78E87EE71CC7C25700A99AF6 /* Configuration.swift in Sources */,
 				78BA52F81B8F848F00D85C33 /* UIDevice+Snippets.swift in Sources */,
+				785EC93B1DA685FB00CB9335 /* Configuration+UIKit.swift in Sources */,
 				783E7ECD1B9028D300227678 /* NSObject+Snippets.swift in Sources */,
 				785C9CC51CA7C28C00F2E872 /* ObjectFromClassName.swift in Sources */,
 				78C819521CBEB46700959144 /* Operation+Snippets.swift in Sources */,
