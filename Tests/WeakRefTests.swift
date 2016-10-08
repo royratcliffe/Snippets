@@ -40,7 +40,7 @@ class WeakRefTests: SnippetsTests {
 
     // then
     XCTAssertNotNil(object.associatedObject(forKey: "number"))
-    XCTAssertNil((object.associatedObject(forKey: "number") as AnyObject).object)
+    XCTAssertNil((object.associatedObject(forKey: "number") as AnyObject).object as Any)
   }
 
   func testRetainWeakly() {
