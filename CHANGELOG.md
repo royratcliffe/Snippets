@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.11.0](https://github.com/royratcliffe/snippets/tree/0.11.0) (2016-10-08)
+
+- Silence warning about implicit coercing from `Any?` to `Any`
+- Configuration implements mutable copying protocol
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.10.0...0.11.0)
+
 ## [0.10.0](https://github.com/royratcliffe/snippets/tree/0.10.0) (2016-10-06)
 
 - `Snippets.ViewController` configures a segue
