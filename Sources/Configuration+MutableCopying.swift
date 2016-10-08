@@ -1,6 +1,6 @@
-// SnippetsTests WeakRefTests.swift
+// Snippets Configuration+MutableCopying.swift
 //
-// Copyright © 2015, 2016, Roy Ratcliffe, Pioneering Software, United Kingdom
+// Copyright © 2016, Roy Ratcliffe, Pioneering Software, United Kingdom
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the “Software”), to deal
@@ -22,39 +22,14 @@
 //
 //------------------------------------------------------------------------------
 
-import XCTest
-import Snippets
+import Foundation
 
-class WeakRefTests: SnippetsTests {
+extension Configuration: NSMutableCopying {
 
-  /// Notice that the weak reference to the number disappears. This is as
-  /// expected because nothing in the running object graph retains the
-  /// number. Its reference count becomes zero and the collector reclaims its
-  /// unreferenced space.
-  func testRetain() {
-    // given
-    let object = NSObject()
-
-    // when
-    object.retainAssociated(object: WeakRef(object: 123 as AnyObject), forKey: "number")
-
-    // then
-    XCTAssertNotNil(object.associatedObject(forKey: "number"))
-    XCTAssertNil((object.associatedObject(forKey: "number") as AnyObject).object as Any)
-  }
-
-  func testRetainWeakly() {
-    // given
-    let object = NSObject()
-    let otherObject = NSObject()
-    XCTAssertNil(object.associatedObject(forKey: "otherObject"))
-
-    // when
-    object.retainWeaklyAssociated(object: otherObject, forKey: "otherObject")
-
-    // then
-    XCTAssertNotNil(object.associatedObject(forKey: "otherObject"))
-    XCTAssertNotNil(object.weaklyAssociatedObject(forKey: "otherObject"))
+  public func mutableCopy(with zone: NSZone? = nil) -> Any {
+    let copy = Configuration()
+    copy.keyedValueBlocks = keyedValueBlocks
+    return copy
   }
 
 }
