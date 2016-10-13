@@ -208,6 +208,22 @@ open class UITableViewFetchedResultsController: UITableViewController, NSFetched
     }
   }
 
+  open func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                       didChange sectionInfo: NSFetchedResultsSectionInfo,
+                       atSectionIndex sectionIndex: Int,
+                       for type: NSFetchedResultsChangeType) {
+    switch type {
+    case .insert:
+      tableView.insertSections([sectionIndex], with: .fade)
+    case .delete:
+      tableView.deleteSections([sectionIndex], with: .fade)
+    case .move:
+      break
+    case .update:
+      break
+    }
+  }
+
   open func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     tableView.beginUpdates()
   }
