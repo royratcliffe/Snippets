@@ -200,12 +200,27 @@ open class UITableViewFetchedResultsController: UITableViewController, NSFetched
       tableView.deleteRows(at: [indexPath!], with: .fade)
     case .move:
       if indexPath != newIndexPath {
-        tableView.deleteRows(at: [indexPath!], with: .fade)
-        tableView.insertRows(at: [newIndexPath!], with: .fade)
+        tableView.moveRow(at: indexPath!, to: newIndexPath!)
       }
     case .update:
       // Nothing to delete, nothing to insert.
       tableView.reloadRows(at: [indexPath!], with: .fade)
+    }
+  }
+
+  open func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                       didChange sectionInfo: NSFetchedResultsSectionInfo,
+                       atSectionIndex sectionIndex: Int,
+                       for type: NSFetchedResultsChangeType) {
+    switch type {
+    case .insert:
+      tableView.insertSections([sectionIndex], with: .fade)
+    case .delete:
+      tableView.deleteSections([sectionIndex], with: .fade)
+    case .move:
+      break
+    case .update:
+      break
     }
   }
 

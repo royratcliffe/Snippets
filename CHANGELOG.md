@@ -1,5 +1,14 @@
 # Change Log
 
+## [0.12.0](https://github.com/royratcliffe/snippets/tree/0.12.0) (2016-10-13)
+
+- `UITableViewFetchedResultsController` responds to section changes
+- Added `Configuration.value(of:)` method
+- Configuration configures view and navigation controllers (refactoring)
+- Move table-view rows, rather than delete then insert
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.11.0...0.12.0)
+
 ## [0.11.0](https://github.com/royratcliffe/snippets/tree/0.11.0) (2016-10-08)
 
 - Silence warning about implicit coercing from `Any?` to `Any`

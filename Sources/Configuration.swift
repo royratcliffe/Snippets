@@ -53,4 +53,11 @@ public class Configuration: NSObject {
     return object.setValues(forKeys: keyedValueBlocks)
   }
 
+  /// Evaluates the value block for the given key.
+  /// - parameter key: Key to evaluate.
+  /// - returns: Result of evaluating block; `nil` if no block.
+  public func value(of key: String) -> Any? {
+    return keyedValueBlocks[key]?()
+  }
+
 }
