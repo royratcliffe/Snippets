@@ -200,8 +200,7 @@ open class UITableViewFetchedResultsController: UITableViewController, NSFetched
       tableView.deleteRows(at: [indexPath!], with: .fade)
     case .move:
       if indexPath != newIndexPath {
-        tableView.deleteRows(at: [indexPath!], with: .fade)
-        tableView.insertRows(at: [newIndexPath!], with: .fade)
+        tableView.moveRow(at: indexPath!, to: newIndexPath!)
       }
     case .update:
       // Nothing to delete, nothing to insert.
