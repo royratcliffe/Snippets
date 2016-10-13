@@ -31,8 +31,15 @@ extension Configuration {
   /// configures the navigation controller's view controllers.
   /// - parameter segue: Segue to configure.
   public func configure(segue: UIStoryboardSegue) -> Int {
-    var result = configure(object: segue.destination)
-    if let navigationController = segue.destination as? UINavigationController {
+    return configure(viewController: segue.destination)
+  }
+
+  /// Configures a view controller, including sub-view controllers if the view
+  /// controller is a navigation controller.
+  /// - parameter viewController: View or navigation controller to configure.
+  public func configure(viewController: UIViewController) -> Int {
+    var result = configure(object: viewController)
+    if let navigationController = viewController as? UINavigationController {
       for viewController in navigationController.viewControllers {
         result += configure(object: viewController)
       }
