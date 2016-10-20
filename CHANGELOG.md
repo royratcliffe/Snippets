@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.13.0](https://github.com/royratcliffe/snippets/tree/0.13.0) (2016-10-20)
+
+- Renamed `allConstantValues` to `allConstantSubvalues`
+- `NSPredicate` extensions
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.12.0...0.13.0)
+
 ## [0.12.0](https://github.com/royratcliffe/snippets/tree/0.12.0) (2016-10-13)
 
 - `UITableViewFetchedResultsController` responds to section changes
