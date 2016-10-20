@@ -57,7 +57,7 @@ extension NSPredicate {
 
   /// Returns all constant values found in all sub-expressions from all
   /// comparison sub-predicates.
-  public var allConstantValues: [Any] {
+  public var allConstantSubvalues: [Any] {
     return allSubexpressions.filter { $0.expressionType == .constantValue }.flatMap { $0.constantValue }
   }
 

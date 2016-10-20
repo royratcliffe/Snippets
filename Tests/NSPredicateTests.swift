@@ -41,12 +41,12 @@ class NSPredicateTests: XCTestCase {
   /// Extracts all the constant strings from the comparison predicates. Examines
   /// left and right expressions, looking for constant values. There should be
   /// two strings matching the predicate-argument strings; one left, one right.
-  func testAllConstantValues() {
+  func testAllConstantSubvalues() {
     // given
     let predicate = NSPredicate(format: "%@ = lhs OR rhs = %@", "left", "right")
 
     // when
-    let constantStrings = predicate.allConstantValues.flatMap { $0 as? String }
+    let constantStrings = predicate.allConstantSubvalues.flatMap { $0 as? String }
 
     // then
     XCTAssertEqual(constantStrings.count, 2)
