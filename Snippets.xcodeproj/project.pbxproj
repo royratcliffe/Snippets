@@ -34,6 +34,8 @@
 		78601ECC1C2189A500F1593F /* NSObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78601ECB1C2189A500F1593F /* NSObjectTests.swift */; };
 		78601ECE1C21A7DD00F1593F /* WeakRefTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78601ECD1C21A7DD00F1593F /* WeakRefTests.swift */; };
 		788071921C1697C2008C89DF /* BundleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788071911C1697C2008C89DF /* BundleTests.swift */; };
+		788CC2161DB92FF800485BF0 /* NSPredicate+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788CC2151DB92FF800485BF0 /* NSPredicate+Snippets.swift */; };
+		788CC2181DB9328A00485BF0 /* NSPredicateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788CC2171DB9328A00485BF0 /* NSPredicateTests.swift */; };
 		789480D51C69CC31007F4F2A /* IndexSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789480D41C69CC31007F4F2A /* IndexSetTests.swift */; };
 		789A9CDB1C2FFAC6003D17FA /* UIColor+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A9CDA1C2FFAC6003D17FA /* UIColor+Snippets.swift */; };
 		789A9CDD1C2FFADA003D17FA /* UIColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A9CDC1C2FFADA003D17FA /* UIColorTests.swift */; };
@@ -105,6 +107,8 @@
 		78601ECB1C2189A500F1593F /* NSObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectTests.swift; sourceTree = "<group>"; };
 		78601ECD1C21A7DD00F1593F /* WeakRefTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakRefTests.swift; sourceTree = "<group>"; };
 		788071911C1697C2008C89DF /* BundleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleTests.swift; sourceTree = "<group>"; };
+		788CC2151DB92FF800485BF0 /* NSPredicate+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPredicate+Snippets.swift"; sourceTree = "<group>"; };
+		788CC2171DB9328A00485BF0 /* NSPredicateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSPredicateTests.swift; sourceTree = "<group>"; };
 		789480D41C69CC31007F4F2A /* IndexSetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexSetTests.swift; sourceTree = "<group>"; };
 		789A9CDA1C2FFAC6003D17FA /* UIColor+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Snippets.swift"; sourceTree = "<group>"; };
 		789A9CDC1C2FFADA003D17FA /* UIColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorTests.swift; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 				783E7EC51B9028D300227678 /* Bundle+Snippets.swift */,
 				78C7D2B91C5002860051FB0A /* NSRange+Snippets.swift */,
 				78C7D2BB1C5002B40051FB0A /* NSIndexSet+Snippets.swift */,
+				788CC2151DB92FF800485BF0 /* NSPredicate+Snippets.swift */,
 				78C819511CBEB46700959144 /* Operation+Snippets.swift */,
 				78BA52F31B8F848F00D85C33 /* UIDevice+Snippets.swift */,
 				789A9CDA1C2FFAC6003D17FA /* UIColor+Snippets.swift */,
@@ -236,6 +241,7 @@
 				78A942C41C7765AD002C666B /* SequenceTypeTests.swift */,
 				78601ECB1C2189A500F1593F /* NSObjectTests.swift */,
 				785368141C31416400F6198B /* NSErrorTests.swift */,
+				788CC2171DB9328A00485BF0 /* NSPredicateTests.swift */,
 				788071911C1697C2008C89DF /* BundleTests.swift */,
 				789480D41C69CC31007F4F2A /* IndexSetTests.swift */,
 				78BA52FD1B8F84A100D85C33 /* UIDeviceTests.swift */,
@@ -384,6 +390,7 @@
 				78D191131B90A9ED0011219C /* DispatchQueues.swift in Sources */,
 				783892D41CF4420100D005D4 /* Sequence+Bool.swift in Sources */,
 				785C9CC91CA7E6F800F2E872 /* objc_getClasses.swift in Sources */,
+				788CC2161DB92FF800485BF0 /* NSPredicate+Snippets.swift in Sources */,
 				78C819001CBD01DA00959144 /* KeyValueObserver.swift in Sources */,
 				78E87EE71CC7C25700A99AF6 /* Configuration.swift in Sources */,
 				78BA52F81B8F848F00D85C33 /* UIDevice+Snippets.swift in Sources */,
@@ -433,6 +440,7 @@
 				78D191151B90AA120011219C /* DispatchTests.swift in Sources */,
 				78C7D2BE1C50C8820051FB0A /* JSONTransformerTests.swift in Sources */,
 				78EEB6D11D65CAA500E79363 /* DataTests.swift in Sources */,
+				788CC2181DB9328A00485BF0 /* NSPredicateTests.swift in Sources */,
 				78BA53001B8F84A100D85C33 /* StringTests.swift in Sources */,
 				78BA53011B8F84A100D85C33 /* UIDeviceTests.swift in Sources */,
 				78601ECE1C21A7DD00F1593F /* WeakRefTests.swift in Sources */,
