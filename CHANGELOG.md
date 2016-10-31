@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.14.0](https://github.com/royratcliffe/snippets/tree/0.14.0) (2016-10-31)
+
+- Added timed-idle notifier and observer
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.13.0...0.14.0)
+
 ## [0.13.0](https://github.com/royratcliffe/snippets/tree/0.13.0) (2016-10-20)
 
 - Renamed `allConstantValues` to `allConstantSubvalues`
