@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.15.0](https://github.com/royratcliffe/snippets/tree/0.15.0) (2016-11-09)
+
+- FIX: `WeakRef` tests
+- `UserDefaults` snippets added
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.14.0...0.15.0)
+
 ## [0.14.0](https://github.com/royratcliffe/snippets/tree/0.14.0) (2016-10-31)
 
 - Added timed-idle notifier and observer
