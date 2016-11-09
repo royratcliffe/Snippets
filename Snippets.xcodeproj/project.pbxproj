@@ -70,6 +70,7 @@
 		78E87EE71CC7C25700A99AF6 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E87EE61CC7C25700A99AF6 /* Configuration.swift */; };
 		78E87EE91CC7C69200A99AF6 /* ConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E87EE81CC7C69200A99AF6 /* ConfigurationTests.swift */; };
 		78EEB6D11D65CAA500E79363 /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEB6D01D65CAA500E79363 /* DataTests.swift */; };
+		78FB95101DD1E66300DA98FE /* UserDefaults+Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FB950F1DD1E66300DA98FE /* UserDefaults+Snippets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +150,7 @@
 		78E87EE61CC7C25700A99AF6 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		78E87EE81CC7C69200A99AF6 /* ConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationTests.swift; sourceTree = "<group>"; };
 		78EEB6D01D65CAA500E79363 /* DataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
+		78FB950F1DD1E66300DA98FE /* UserDefaults+Snippets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Snippets.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 				783C101F1C32714800ECB907 /* UITextFieldTableViewController.swift */,
 				78BB459C1D788CE2008FB07D /* SegmentedContentViewController.swift */,
 				78D191121B90A9ED0011219C /* DispatchQueues.swift */,
+				78FB950F1DD1E66300DA98FE /* UserDefaults+Snippets.swift */,
 				783F0CBE1C1D399100FC8AF4 /* RandomUser.swift */,
 				783F0CF11C1D859800FC8AF4 /* WeakRef.swift */,
 				78C818FF1CBD01DA00959144 /* KeyValueObserver.swift */,
@@ -433,6 +436,7 @@
 				783C10221C329A1000ECB907 /* UITableViewController+Snippets.swift in Sources */,
 				78BB459D1D788CE2008FB07D /* SegmentedContentViewController.swift in Sources */,
 				783F0CF41C1F40F100FC8AF4 /* NSError+Snippets.swift in Sources */,
+				78FB95101DD1E66300DA98FE /* UserDefaults+Snippets.swift in Sources */,
 				780FCA151DC48FF2003F5311 /* TimedIdleObserver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
