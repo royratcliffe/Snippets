@@ -40,7 +40,8 @@ class WeakRefTests: SnippetsTests {
 
     // then
     XCTAssertNotNil(object.associatedObject(forKey: "number"))
-    XCTAssertNil((object.associatedObject(forKey: "number") as AnyObject).object as Any)
+    // swiftlint:disable:next force_cast
+    XCTAssertNil((object.associatedObject(forKey: "number") as! WeakRef).object)
   }
 
   func testRetainWeakly() {
