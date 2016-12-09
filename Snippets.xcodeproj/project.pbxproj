@@ -66,6 +66,7 @@
 		78D14EEF1C40DA97003DA8FB /* JSONTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D14EEE1C40DA97003DA8FB /* JSONTransformer.swift */; };
 		78D191131B90A9ED0011219C /* DispatchQueues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D191121B90A9ED0011219C /* DispatchQueues.swift */; };
 		78D191151B90AA120011219C /* DispatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D191141B90AA120011219C /* DispatchTests.swift */; };
+		78D3C06B1DE4823D00E4F862 /* UIApplication+NetworkActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D3C06A1DE4823D00E4F862 /* UIApplication+NetworkActivity.swift */; };
 		78D6E5041DA8ACF40012993A /* Configuration+MutableCopying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D6E5031DA8ACF40012993A /* Configuration+MutableCopying.swift */; };
 		78E87EE71CC7C25700A99AF6 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E87EE61CC7C25700A99AF6 /* Configuration.swift */; };
 		78E87EE91CC7C69200A99AF6 /* ConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E87EE81CC7C69200A99AF6 /* ConfigurationTests.swift */; };
@@ -146,6 +147,7 @@
 		78D14EEE1C40DA97003DA8FB /* JSONTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTransformer.swift; sourceTree = "<group>"; };
 		78D191121B90A9ED0011219C /* DispatchQueues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchQueues.swift; sourceTree = "<group>"; };
 		78D191141B90AA120011219C /* DispatchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchTests.swift; sourceTree = "<group>"; };
+		78D3C06A1DE4823D00E4F862 /* UIApplication+NetworkActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+NetworkActivity.swift"; sourceTree = "<group>"; };
 		78D6E5031DA8ACF40012993A /* Configuration+MutableCopying.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Configuration+MutableCopying.swift"; sourceTree = "<group>"; };
 		78E87EE61CC7C25700A99AF6 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		78E87EE81CC7C69200A99AF6 /* ConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationTests.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				783E7EC81B9028D300227678 /* UITableViewFetchedResultsController.swift */,
 				783E7EC91B9028D300227678 /* UITableViewFetchedResultsDataSource.swift */,
 				783C101F1C32714800ECB907 /* UITextFieldTableViewController.swift */,
+				78D3C06A1DE4823D00E4F862 /* UIApplication+NetworkActivity.swift */,
 				78BB459C1D788CE2008FB07D /* SegmentedContentViewController.swift */,
 				78D191121B90A9ED0011219C /* DispatchQueues.swift */,
 				78FB950F1DD1E66300DA98FE /* UserDefaults+Snippets.swift */,
@@ -413,6 +416,7 @@
 				78C819521CBEB46700959144 /* Operation+Snippets.swift in Sources */,
 				78BA52F71B8F848F00D85C33 /* String+Snippets.swift in Sources */,
 				789A9CDB1C2FFAC6003D17FA /* UIColor+Snippets.swift in Sources */,
+				78D3C06B1DE4823D00E4F862 /* UIApplication+NetworkActivity.swift in Sources */,
 				783E7ECB1B9028D300227678 /* Bundle+Snippets.swift in Sources */,
 				78174FE81D75F56200615FF6 /* Date+Snippets.swift in Sources */,
 				780FCA111DC3C7D9003F5311 /* TimedIdleNotifier.swift in Sources */,
