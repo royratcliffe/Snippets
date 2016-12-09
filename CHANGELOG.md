@@ -1,5 +1,13 @@
 # Change Log
 
+## [0.16.0](https://github.com/royratcliffe/snippets/tree/0.16.0) (2016-12-09)
+
+- Further extend line-length warning and error levels
+- Added network activity indicator visibility extensions to project
+- Added source for network activity extensions to `UIApplication`
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.15.0...0.16.0)
+
 ## [0.15.0](https://github.com/royratcliffe/snippets/tree/0.15.0) (2016-11-09)
 
 - FIX: `WeakRef` tests
