@@ -7,7 +7,6 @@ before_install:
 env:
   matrix:
     - DESTINATION="name=iPhone 6s"
-    - CODE_SIGNING_REQUIRED=NO
 
 script:
   - xcodebuild -sdk "$TRAVIS_XCODE_SDK" -scheme "$TRAVIS_XCODE_SCHEME" -destination "$DESTINATION" test | xcpretty -f `xcpretty-travis-formatter` && exit ${PIPESTATUS[0]}
