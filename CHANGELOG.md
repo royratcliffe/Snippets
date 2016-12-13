@@ -1,5 +1,16 @@
 # Change Log
 
+## [0.16.1](https://github.com/royratcliffe/snippets/tree/0.16.1) (2016-12-13)
+
+- No code-signing required is global
+- Make `CODE_SIGNING_REQUIRED` equal to `NO` for Travis CI
+- Added comments for `RandomUser`
+- Fixed link: missing 2B
+- Added project READ ME
+- Use `xcpretty-travis-formatter` gem for Travis formatting
+
+[Full Change Log](https://github.com/royratcliffe/snippets/compare/0.16.0...0.16.1)
+
 ## [0.16.0](https://github.com/royratcliffe/snippets/tree/0.16.0) (2016-12-09)
 
 - Further extend line-length warning and error levels

@@ -85,6 +85,9 @@ public class RandomUser {
 
   public var nat: String?
 
+  /// Uses the shared URL session to generate random user information.
+  /// - parameter handler: Escaping capture that accepts a dictionary containing
+  ///   random-user results.
   public func get(handler: @escaping (NSDictionary) -> Void) {
     let session = URLSession.shared
     var urlComponents = URLComponents(url: RandomUser.url, resolvingAgainstBaseURL: false)!
@@ -119,6 +122,7 @@ public class RandomUser {
     task.resume()
   }
 
+  /// Initialises a random-user connection.
   public init() {}
 
 }
