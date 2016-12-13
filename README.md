@@ -9,7 +9,7 @@ What can you do with the Snippets framework?
 - [`NSError` extensions](https://github.com/royratcliffe/Snippets/blob/master/Sources/NSError%2BSnippets.swift)
 - [`NSIndexSet` extensions](https://github.com/royratcliffe/Snippets/blob/master/Sources/NSIndexSet%2BSnippets.swift)
 - [`NSObject` extensions](https://github.com/royratcliffe/Snippets/blob/master/Sources/NSObject%2BSnippets.swift)
-- [`NSObject` associated-object extensions](https://github.com/royratcliffe/Snippets/blob/master/Sources/NSObject%AssociatedObject.swift)
+- [`NSObject` associated-object extensions](https://github.com/royratcliffe/Snippets/blob/master/Sources/NSObject%2BAssociatedObject.swift)
 - [`NSObject` weak-reference extensions](https://github.com/royratcliffe/Snippets/blob/master/Sources/NSObject%2BWeakRef.swift)
 - [`NSPredicate` extensions](https://github.com/royratcliffe/Snippets/blob/master/Sources/NSPredicate%2BSnippets.swift)
 - [`NSRange` extensions](https://github.com/royratcliffe/Snippets/blob/master/Sources/NSRange%2BSnippets.swift)
