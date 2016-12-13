@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/royratcliffe/Snippets.svg?branch=master)](https://travis-ci.org/royratcliffe/Snippets)
+
 # Snippets for Swift
 
 What can you do with the Snippets framework?
