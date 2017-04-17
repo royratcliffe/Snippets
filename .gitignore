@@ -3,3 +3,8 @@
 # discussion. Benefits of ignoring: smaller source-control repo, no Pod merging
 # conflicts.
 Pods
+
+# Swift's `build` command places products and caches in `.build` by default. You
+# can change it using the `--build-path` option.
+.build
+Packages
